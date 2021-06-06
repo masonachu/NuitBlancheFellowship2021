@@ -351,6 +351,9 @@ MonoBehaviour:
     fovRef: 0
   isCrouching: 0
   fps_Rigidbody: {fileID: 0}
+  LeftFootPrefab: {fileID: 5810854684530678468, guid: 7a26f34761ef7024fb038d430823b43d, type: 3}
+  RightFootPrefab: {fileID: 3605019904349287152, guid: 8ec6e5b4d3fe35145b500c0fad57623f, type: 3}
+  FootprintSpacer: 1
   useHeadbob: 1
   head: {fileID: 3091518830944287651}
   snapHeadjointToCapsul: 1
@@ -676,7 +679,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &3233203574059766501
 MonoBehaviour:
   m_ObjectHideFlags: 0

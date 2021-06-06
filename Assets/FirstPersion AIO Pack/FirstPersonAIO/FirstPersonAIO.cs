@@ -172,6 +172,19 @@ public class FirstPersonAIO : MonoBehaviour {
 
     public Rigidbody fps_Rigidbody;
 
+    //To spawn footsteps beneath you
+    public GameObject LeftFootPrefab = null;
+    public GameObject RightFootPrefab = null;
+    public float FootprintSpacer = 15.0f;
+    private Vector3 LastFootprint;
+    private enumFoot WhichFoot;
+
+    public enum enumFoot
+    {
+        Left,
+        Right,
+    }
+
     #endregion
 
     #region Headbobbing Settings
@@ -341,6 +354,9 @@ public class FirstPersonAIO : MonoBehaviour {
             advanced.highFrictionMaterial.staticFriction = 1;
             advanced.highFrictionMaterial.frictionCombine = PhysicMaterialCombine.Maximum;
             advanced.highFrictionMaterial.bounceCombine = PhysicMaterialCombine.Average;
+
+            SpawnDecal(LeftFootPrefab);
+            LastFootprint = this.transform.position;
             #endregion
 
             #region Headbobbing Settings - Start
@@ -415,6 +431,8 @@ public class FirstPersonAIO : MonoBehaviour {
             
             #region Movement Settings - Update
 
+
+
             #endregion
             
             #region Headbobbing Settings - Update
@@ -424,6 +442,8 @@ public class FirstPersonAIO : MonoBehaviour {
     }
 
     private void FixedUpdate(){
+
+        Debug.Log(WhichFoot);
 
         if(photonView.IsMine)
         {
@@ -569,7 +589,26 @@ public class FirstPersonAIO : MonoBehaviour {
             }
         }
 
-
+        if(verticalInput != 0 && IsGrounded == true)
+            {
+                //distance since last footprint, determines
+                float DistanceSinceLastFootprint = Vector3.Distance(LastFootprint, this.transform.position);
+                if (DistanceSinceLastFootprint >= FootprintSpacer)
+                {
+                    if (WhichFoot == enumFoot.Left)
+                    {
+                        SpawnDecal(LeftFootPrefab);
+                        WhichFoot = enumFoot.Right;
+                    }
+                    
+                    else if (WhichFoot == enumFoot.Right)
+                    {
+                        SpawnDecal(RightFootPrefab);
+                        WhichFoot = enumFoot.Left;
+                    }
+                    LastFootprint = this.transform.position;
+                }
+            }
 
 
         #endregion
@@ -795,6 +834,22 @@ public class FirstPersonAIO : MonoBehaviour {
           
     }
 
+
+    private void SpawnDecal(GameObject Prefab)
+    {
+        Vector3 from = this.transform.position;
+        Vector3 to = new Vector3(this.transform.position.x, this.transform.position.y - (this.transform.localScale.y / 2.0f) + 0.1f, this.transform.position.z);
+        Vector3 direction = to - from;
+
+        RaycastHit hit;
+        if (Physics.Raycast(from, direction, out hit) == true)
+        {
+            //where the ray hits is where the footprint decal will print
+            GameObject decal = Instantiate(Prefab);
+            decal.transform.position = hit.point;
+            decal.transform.Rotate(Vector3.up, this.transform.eulerAngles.y);
+        }
+    }
 
 
     private void OnCollisionEnter(Collision CollisionData){
@@ -1473,6 +1528,16 @@ public class FirstPersonAIO : MonoBehaviour {
             }
         #endregion
 
+        #region Prefab References
+        EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+        GUILayout.Label("Prefab References", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold, fontSize = 13 }, GUILayout.ExpandWidth(true));
+        EditorGUILayout.Space();
+        EditorGUILayout.Space();
+        t.LeftFootPrefab = (GameObject)EditorGUILayout.ObjectField(new GUIContent("Left Foot Prefab", "Attach the left footprint prefab here"), t.LeftFootPrefab, typeof(GameObject), true);
+        t.RightFootPrefab = (GameObject)EditorGUILayout.ObjectField(new GUIContent("Right Foot Prefab", "Attach the right footprint prefab here"), t.RightFootPrefab, typeof(GameObject), true);
+        EditorGUILayout.Space();
+
+        #endregion
         /*   
         #region FunctionSnipets
             GUILayout.Label("Audio/SFX Setup",new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter,fontStyle = FontStyle.Bold, fontSize = 13},GUILayout.ExpandWidth(true));
@@ -1485,7 +1550,7 @@ public class FirstPersonAIO : MonoBehaviour {
 
 
 
-            GUI.enabled = true;
+        GUI.enabled = true;
             EditorGUILayout.Space();
             EditorGUILayout.Space();
             EditorGUILayout.Space();
