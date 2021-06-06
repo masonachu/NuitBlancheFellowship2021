@@ -443,7 +443,7 @@ public class FirstPersonAIO : MonoBehaviour {
 
     private void FixedUpdate(){
 
-        Debug.Log(WhichFoot);
+        //Debug.Log(WhichFoot);
 
         if(photonView.IsMine)
         {
