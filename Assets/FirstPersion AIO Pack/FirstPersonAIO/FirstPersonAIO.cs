@@ -443,8 +443,6 @@ public class FirstPersonAIO : MonoBehaviour {
 
     private void FixedUpdate(){
 
-        //Debug.Log(WhichFoot);
-
         if(photonView.IsMine)
         {
             #region Look Settings - FixedUpdate
@@ -588,29 +586,6 @@ public class FirstPersonAIO : MonoBehaviour {
                 jumpPowerInternal = jumpPower;
             }
         }
-
-        if(verticalInput != 0 && IsGrounded == true)
-            {
-                //distance since last footprint, determines
-                float DistanceSinceLastFootprint = Vector3.Distance(LastFootprint, this.transform.position);
-                if (DistanceSinceLastFootprint >= FootprintSpacer)
-                {
-                    if (WhichFoot == enumFoot.Left)
-                    {
-                        SpawnDecal(LeftFootPrefab);
-                        WhichFoot = enumFoot.Right;
-                    }
-                    
-                    else if (WhichFoot == enumFoot.Right)
-                    {
-                        SpawnDecal(RightFootPrefab);
-                        WhichFoot = enumFoot.Left;
-                    }
-                    LastFootprint = this.transform.position;
-                }
-            }
-
-
         #endregion
         
             #region Headbobbing Settings - FixedUpdate
@@ -668,10 +643,33 @@ public class FirstPersonAIO : MonoBehaviour {
                 
            
         }
-        #endregion
-            
+            #endregion
+
+            #region Network Local Settings - FixedUpdate
+            if (verticalInput != 0 && IsGrounded == true)
+            {
+                //distance since last footprint, determines
+                float DistanceSinceLastFootprint = Vector3.Distance(LastFootprint, this.transform.position);
+                if (DistanceSinceLastFootprint >= FootprintSpacer)
+                {
+                    if (WhichFoot == enumFoot.Left)
+                    {
+                        SpawnDecal(LeftFootPrefab);
+                        WhichFoot = enumFoot.Right;
+                    }
+
+                    else if (WhichFoot == enumFoot.Right)
+                    {
+                        SpawnDecal(RightFootPrefab);
+                        WhichFoot = enumFoot.Left;
+                    }
+                    LastFootprint = this.transform.position;
+                }
+            }
+            #endregion
+
             #region Dynamic Footsteps
-        if(enableAudioSFX){    
+            if (enableAudioSFX){    
             if(fsmode == FSMode.Dynamic)
             {   
                 RaycastHit hit = new RaycastHit();
@@ -781,11 +779,11 @@ public class FirstPersonAIO : MonoBehaviour {
             }
 
         }
-        #endregion
+            #endregion
 
             #region  Reset Checks
 
-        IsGrounded = false;
+            IsGrounded = false;
         
         if(advanced.maxSlopeAngle>0){
             if(advanced.isTouchingFlat || advanced.isTouchingWalkable || advanced.isTouchingUpright){didJump = false;}
@@ -793,7 +791,32 @@ public class FirstPersonAIO : MonoBehaviour {
             advanced.isTouchingUpright = false;
             advanced.isTouchingFlat = false;
         }
-        #endregion
+            #endregion
+        }
+        else
+        {
+            #region Network Remote Settings - FixedUpdate
+            //if (verticalInput != 0 && IsGrounded == true)
+            {
+                //distance since last footprint, determines
+                float DistanceSinceLastFootprint = Vector3.Distance(LastFootprint, this.transform.position);
+                if (DistanceSinceLastFootprint >= FootprintSpacer)
+                {
+                    if (WhichFoot == enumFoot.Left)
+                    {
+                        photonView.RPC("NetworkStepLeft", RpcTarget.AllBuffered);
+                        WhichFoot = enumFoot.Right;
+                    }
+
+                    else if (WhichFoot == enumFoot.Right)
+                    {
+                        photonView.RPC("NetworkStepRight", RpcTarget.AllBuffered);
+                        WhichFoot = enumFoot.Left;
+                    }
+                    LastFootprint = this.transform.position;
+                }
+            }
+            #endregion
         }
     }
 
@@ -835,6 +858,7 @@ public class FirstPersonAIO : MonoBehaviour {
     }
 
 
+
     private void SpawnDecal(GameObject Prefab)
     {
         Vector3 from = this.transform.position;
@@ -850,6 +874,41 @@ public class FirstPersonAIO : MonoBehaviour {
             decal.transform.Rotate(Vector3.up, this.transform.eulerAngles.y);
         }
     }
+    
+    [PunRPC]
+    private void NetworkStepLeft()
+    {
+        Vector3 from = this.transform.position;
+        Vector3 to = new Vector3(this.transform.position.x, this.transform.position.y - (this.transform.localScale.y / 2.0f) + 0.1f, this.transform.position.z);
+        Vector3 direction = to - from;
+
+        RaycastHit hit;
+        if (Physics.Raycast(from, direction, out hit) == true)
+        {
+            //where the ray hits is where the footprint decal will print
+            GameObject decal = Instantiate(LeftFootPrefab);
+            decal.transform.position = hit.point;
+            decal.transform.Rotate(Vector3.up, this.transform.eulerAngles.y);
+        }
+    }    
+    
+    [PunRPC]
+    private void NetworkStepRight()
+    {
+        Vector3 from = this.transform.position;
+        Vector3 to = new Vector3(this.transform.position.x, this.transform.position.y - (this.transform.localScale.y / 2.0f) + 0.1f, this.transform.position.z);
+        Vector3 direction = to - from;
+
+        RaycastHit hit;
+        if (Physics.Raycast(from, direction, out hit) == true)
+        {
+            //where the ray hits is where the footprint decal will print
+            GameObject decal = Instantiate(RightFootPrefab);
+            decal.transform.position = hit.point;
+            decal.transform.Rotate(Vector3.up, this.transform.eulerAngles.y);
+        }
+    }
+
 
 
     private void OnCollisionEnter(Collision CollisionData){
@@ -904,7 +963,7 @@ public class FirstPersonAIO : MonoBehaviour {
 }
 
 #if UNITY_EDITOR
-    [CustomEditor(typeof(FirstPersonAIO)),InitializeOnLoadAttribute]
+[CustomEditor(typeof(FirstPersonAIO)),InitializeOnLoadAttribute]
     public class FPAIO_Editor : Editor{
         
         FirstPersonAIO t;
@@ -1604,4 +1663,4 @@ public class FirstPersonAIO : MonoBehaviour {
              }
          }
     }
-#endif
+#endif 
