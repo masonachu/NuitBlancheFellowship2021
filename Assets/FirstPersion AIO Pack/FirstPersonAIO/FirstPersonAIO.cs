@@ -688,7 +688,7 @@ public class FirstPersonAIO : MonoBehaviour {
             }
             #endregion
 
-            #region Network Local Settings - FixedUpdate
+            #region Network Global Settings - FixedUpdate
             if (Vector3.Distance(LastFootprint, this.transform.position) > 0 && IsGrounded == true)
             {
                 //distance since last footprint, determines
