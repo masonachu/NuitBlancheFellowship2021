@@ -689,7 +689,7 @@ public class FirstPersonAIO : MonoBehaviour {
             #endregion
 
             #region Network Local Settings - FixedUpdate
-            if (verticalInput != 0 && IsGrounded == true)
+            if (Vector3.Distance(LastFootprint, this.transform.position) > 0 && IsGrounded == true)
             {
                 //distance since last footprint, determines
                 float DistanceSinceLastFootprint = Vector3.Distance(LastFootprint, this.transform.position);
@@ -697,13 +697,13 @@ public class FirstPersonAIO : MonoBehaviour {
                 {
                     if (WhichFoot == enumFoot.Left)
                     {
-                        SpawnDecal(LeftFootPrefab);
+                        photonView.RPC("NetworkStepLeft", RpcTarget.AllViaServer);
                         WhichFoot = enumFoot.Right;
                     }
 
                     else if (WhichFoot == enumFoot.Right)
                     {
-                        SpawnDecal(RightFootPrefab);
+                        photonView.RPC("NetworkStepRight", RpcTarget.AllViaServer);
                         WhichFoot = enumFoot.Left;
                     }
                     LastFootprint = this.transform.position;
@@ -848,29 +848,6 @@ public class FirstPersonAIO : MonoBehaviour {
                 advanced.isTouchingWalkable = false;
                 advanced.isTouchingUpright = false;
                 advanced.isTouchingFlat = false;
-            }
-            #endregion
-        }
-        else
-        {
-            #region Network Remote Settings - FixedUpdate
-            //distance since last footprint, determines
-            float DistanceSinceLastFootprint = Vector3.Distance(LastFootprint, this.transform.position);
-
-            if (DistanceSinceLastFootprint >= FootprintSpacer)
-            {
-                if (WhichFoot == enumFoot.Left)
-                {
-                    photonView.RPC("NetworkStepLeft", RpcTarget.AllViaServer);
-                    WhichFoot = enumFoot.Right;
-                }
-
-                else if (WhichFoot == enumFoot.Right)
-                {
-                    photonView.RPC("NetworkStepRight", RpcTarget.AllViaServer);
-                    WhichFoot = enumFoot.Left;
-                }
-                LastFootprint = this.transform.position;
             }
             #endregion
         }
