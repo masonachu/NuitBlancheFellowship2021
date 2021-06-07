@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 41fae162cc8a5674f8f4938b1f2b790e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - PlayerPrefab: {fileID: 3093838695613766007, guid: 0e8c6bdc0afa17b4983de3545af8e470, type: 3}
+  - NetworkPlayerPrefab: {fileID: 3093838695613766007, guid: dfb42681758a3fb4cacbeac08046e62f, type: 3}
+  - GameCanvas: {instanceID: 0}
+  - SceneCamera: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

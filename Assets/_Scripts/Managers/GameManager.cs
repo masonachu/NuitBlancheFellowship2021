@@ -7,6 +7,7 @@ using Photon.Pun;
 public class GameManager : MonoBehaviour
 {
     public GameObject PlayerPrefab;
+    public GameObject NetworkPlayerPrefab;
     public GameObject GameCanvas;
     public GameObject SceneCamera;
 
@@ -18,9 +19,9 @@ public class GameManager : MonoBehaviour
     public void SpawnPlayer()
     {
         float randomValue = Random.Range(-1f, 1f);
-
+        
         PhotonNetwork.Instantiate(PlayerPrefab.name, new Vector3
-            (this.transform.position.x * randomValue, this.transform.position.y, 
+            (this.transform.position.x * randomValue, this.transform.position.y,
              this.transform.position.z), Quaternion.identity, 0);
 
         GameCanvas.SetActive(false);

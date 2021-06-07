@@ -292,6 +292,7 @@ public class FirstPersonAIO : MonoBehaviour {
     }
 
     private void Start(){
+
         if (photonView.IsMine)
         {
             #region Network Local Settings - Start
@@ -443,206 +444,248 @@ public class FirstPersonAIO : MonoBehaviour {
 
     private void FixedUpdate(){
 
-        if(photonView.IsMine)
+        if (photonView.IsMine)
         {
             #region Look Settings - FixedUpdate
 
-        #endregion
-            
+            #endregion
+
             #region Movement Settings - FixedUpdate
-        
-        if(useStamina){
-            isSprinting = Input.GetKey(sprintKey) && !isCrouching && staminaInternal > 0 && (Mathf.Abs(fps_Rigidbody.velocity.x) > 0.01f || Mathf.Abs(fps_Rigidbody.velocity.z) > 0.01f);
-            if(isSprinting){
-                staminaInternal -= (staminaDepletionSpeed*2)*Time.deltaTime;
-                if(drawStaminaMeter){
-                    StaminaMeterBG.color = Vector4.MoveTowards(StaminaMeterBG.color, new Vector4(0,0,0,0.5f),0.15f);
-                    StaminaMeter.color = Vector4.MoveTowards(StaminaMeter.color, new Vector4(1,1,1,1),0.15f);
-                }
-            }else if((!Input.GetKey(sprintKey)||Mathf.Abs(fps_Rigidbody.velocity.x)< 0.01f || Mathf.Abs(fps_Rigidbody.velocity.z)< 0.01f || isCrouching)&&staminaInternal<staminaLevel){
-                staminaInternal += staminaDepletionSpeed*Time.deltaTime;
-            }
-                if(drawStaminaMeter){
-                   if(staminaInternal==staminaLevel){ StaminaMeterBG.color = Vector4.MoveTowards(StaminaMeterBG.color, new Vector4(0,0,0,0),0.15f);
-                    StaminaMeter.color = Vector4.MoveTowards(StaminaMeter.color, new Vector4(1,1,1,0),0.15f);}
-                    float x = Mathf.Clamp(Mathf.SmoothDamp(StaminaMeter.transform.localScale.x,(staminaInternal/staminaLevel)*StaminaMeterBG.transform.localScale.x,ref smoothRef,(1)*Time.deltaTime,1),0.001f, StaminaMeterBG.transform.localScale.x);
-                    StaminaMeter.transform.localScale = new Vector3(x,1,1); 
-                }
-                staminaInternal = Mathf.Clamp(staminaInternal,0,staminaLevel);
-        } else{isSprinting = Input.GetKey(sprintKey);}
 
-        Vector3 MoveDirection = Vector3.zero;
-        speed = walkByDefault ? isCrouching ? walkSpeedInternal : (isSprinting ? sprintSpeedInternal : walkSpeedInternal) : (isSprinting ? walkSpeedInternal : sprintSpeedInternal);
-  
-
-        if(advanced.maxSlopeAngle>0){
-            if(advanced.isTouchingUpright && advanced.isTouchingWalkable){
-
-                MoveDirection = (transform.forward * inputXY.y * speed + transform.right * inputXY.x * walkSpeedInternal); 
-                if(!didJump){fps_Rigidbody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;}              
-                }
-                else if(advanced.isTouchingUpright && !advanced.isTouchingWalkable){
-                    fps_Rigidbody.constraints = RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotation;
-                }
-                
-                else{
-                    
-                fps_Rigidbody.constraints = RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotation;
-                MoveDirection = ((transform.forward * inputXY.y * speed + transform.right * inputXY.x * walkSpeedInternal) * (fps_Rigidbody.velocity.y>0.01f ? SlopeCheck() : 0.8f));
-                }
-        }
-        else{
-        MoveDirection = (transform.forward * inputXY.y * speed + transform.right * inputXY.x * walkSpeedInternal);
-        }
-
-        
-            #region step logic
-                RaycastHit WT;
-                if(advanced.maxStepHeight > 0 && Physics.Raycast(transform.position - new Vector3(0,((capsule.height/2)*transform.localScale.y)-0.01f,0),MoveDirection,out WT,capsule.radius+0.15f,Physics.AllLayers,QueryTriggerInteraction.Ignore) && Vector3.Angle(WT.normal, Vector3.up)>88){
-                    RaycastHit ST;
-                    if(!Physics.Raycast(transform.position - new Vector3(0,((capsule.height/2)*transform.localScale.y)-(advanced.maxStepHeight),0),MoveDirection,out ST,capsule.radius+0.25f,Physics.AllLayers,QueryTriggerInteraction.Ignore)){
-                        advanced.stairMiniHop = true;
-                        transform.position += new Vector3(0,advanced.maxStepHeight*1.2f,0);
+            if (useStamina)
+            {
+                isSprinting = Input.GetKey(sprintKey) && !isCrouching && staminaInternal > 0 && (Mathf.Abs(fps_Rigidbody.velocity.x) > 0.01f || Mathf.Abs(fps_Rigidbody.velocity.z) > 0.01f);
+                if (isSprinting)
+                {
+                    staminaInternal -= (staminaDepletionSpeed * 2) * Time.deltaTime;
+                    if (drawStaminaMeter)
+                    {
+                        StaminaMeterBG.color = Vector4.MoveTowards(StaminaMeterBG.color, new Vector4(0, 0, 0, 0.5f), 0.15f);
+                        StaminaMeter.color = Vector4.MoveTowards(StaminaMeter.color, new Vector4(1, 1, 1, 1), 0.15f);
                     }
                 }
-                Debug.DrawRay(transform.position, MoveDirection,Color.red,0,false);
+                else if ((!Input.GetKey(sprintKey) || Mathf.Abs(fps_Rigidbody.velocity.x) < 0.01f || Mathf.Abs(fps_Rigidbody.velocity.z) < 0.01f || isCrouching) && staminaInternal < staminaLevel)
+                {
+                    staminaInternal += staminaDepletionSpeed * Time.deltaTime;
+                }
+                if (drawStaminaMeter)
+                {
+                    if (staminaInternal == staminaLevel)
+                    {
+                        StaminaMeterBG.color = Vector4.MoveTowards(StaminaMeterBG.color, new Vector4(0, 0, 0, 0), 0.15f);
+                        StaminaMeter.color = Vector4.MoveTowards(StaminaMeter.color, new Vector4(1, 1, 1, 0), 0.15f);
+                    }
+                    float x = Mathf.Clamp(Mathf.SmoothDamp(StaminaMeter.transform.localScale.x, (staminaInternal / staminaLevel) * StaminaMeterBG.transform.localScale.x, ref smoothRef, (1) * Time.deltaTime, 1), 0.001f, StaminaMeterBG.transform.localScale.x);
+                    StaminaMeter.transform.localScale = new Vector3(x, 1, 1);
+                }
+                staminaInternal = Mathf.Clamp(staminaInternal, 0, staminaLevel);
+            }
+            else { isSprinting = Input.GetKey(sprintKey); }
+
+            Vector3 MoveDirection = Vector3.zero;
+            speed = walkByDefault ? isCrouching ? walkSpeedInternal : (isSprinting ? sprintSpeedInternal : walkSpeedInternal) : (isSprinting ? walkSpeedInternal : sprintSpeedInternal);
+
+
+            if (advanced.maxSlopeAngle > 0)
+            {
+                if (advanced.isTouchingUpright && advanced.isTouchingWalkable)
+                {
+
+                    MoveDirection = (transform.forward * inputXY.y * speed + transform.right * inputXY.x * walkSpeedInternal);
+                    if (!didJump) { fps_Rigidbody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation; }
+                }
+                else if (advanced.isTouchingUpright && !advanced.isTouchingWalkable)
+                {
+                    fps_Rigidbody.constraints = RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotation;
+                }
+
+                else
+                {
+
+                    fps_Rigidbody.constraints = RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotation;
+                    MoveDirection = ((transform.forward * inputXY.y * speed + transform.right * inputXY.x * walkSpeedInternal) * (fps_Rigidbody.velocity.y > 0.01f ? SlopeCheck() : 0.8f));
+                }
+            }
+            else
+            {
+                MoveDirection = (transform.forward * inputXY.y * speed + transform.right * inputXY.x * walkSpeedInternal);
+            }
+
+
+            #region step logic
+            RaycastHit WT;
+            if (advanced.maxStepHeight > 0 && Physics.Raycast(transform.position - new Vector3(0, ((capsule.height / 2) * transform.localScale.y) - 0.01f, 0), MoveDirection, out WT, capsule.radius + 0.15f, Physics.AllLayers, QueryTriggerInteraction.Ignore) && Vector3.Angle(WT.normal, Vector3.up) > 88)
+            {
+                RaycastHit ST;
+                if (!Physics.Raycast(transform.position - new Vector3(0, ((capsule.height / 2) * transform.localScale.y) - (advanced.maxStepHeight), 0), MoveDirection, out ST, capsule.radius + 0.25f, Physics.AllLayers, QueryTriggerInteraction.Ignore))
+                {
+                    advanced.stairMiniHop = true;
+                    transform.position += new Vector3(0, advanced.maxStepHeight * 1.2f, 0);
+                }
+            }
+            Debug.DrawRay(transform.position, MoveDirection, Color.red, 0, false);
             #endregion
-            
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
-        inputXY = new Vector2(horizontalInput, verticalInput);
-        if(inputXY.magnitude > 1) { inputXY.Normalize(); }
+
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
+            inputXY = new Vector2(horizontalInput, verticalInput);
+            if (inputXY.magnitude > 1) { inputXY.Normalize(); }
 
             #region Jump
             yVelocity = fps_Rigidbody.velocity.y;
-            
-            if(IsGrounded && jumpInput && jumpPowerInternal > 0 && !didJump){
-                if(advanced.maxSlopeAngle>0){
-                    if(advanced.isTouchingFlat || advanced.isTouchingWalkable){
-                            didJump=true;
-                            jumpInput=false;
-                            yVelocity += fps_Rigidbody.velocity.y<0.01f? jumpPowerInternal : jumpPowerInternal/3;
-                            advanced.isTouchingWalkable = false;
-                            advanced.isTouchingFlat = false;
-                            advanced.isTouchingUpright = false;
-                            fps_Rigidbody.constraints = RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotation;
+
+            if (IsGrounded && jumpInput && jumpPowerInternal > 0 && !didJump)
+            {
+                if (advanced.maxSlopeAngle > 0)
+                {
+                    if (advanced.isTouchingFlat || advanced.isTouchingWalkable)
+                    {
+                        didJump = true;
+                        jumpInput = false;
+                        yVelocity += fps_Rigidbody.velocity.y < 0.01f ? jumpPowerInternal : jumpPowerInternal / 3;
+                        advanced.isTouchingWalkable = false;
+                        advanced.isTouchingFlat = false;
+                        advanced.isTouchingUpright = false;
+                        fps_Rigidbody.constraints = RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotation;
                     }
-                    
-                }else{
-                    didJump=true;
-                    jumpInput=false;
+
+                }
+                else
+                {
+                    didJump = true;
+                    jumpInput = false;
                     yVelocity += jumpPowerInternal;
                 }
-        
+
             }
 
-            if(advanced.maxSlopeAngle>0){
-            
-            
-            if(!didJump && advanced.lastKnownSlopeAngle>5 && advanced.isTouchingWalkable){
-            yVelocity *= SlopeCheck()/4;
+            if (advanced.maxSlopeAngle > 0)
+            {
+
+
+                if (!didJump && advanced.lastKnownSlopeAngle > 5 && advanced.isTouchingWalkable)
+                {
+                    yVelocity *= SlopeCheck() / 4;
+                }
+                if (advanced.isTouchingUpright && !advanced.isTouchingWalkable && !didJump)
+                {
+                    yVelocity += Physics.gravity.y;
+                }
             }
-            if(advanced.isTouchingUpright && !advanced.isTouchingWalkable && !didJump){
-                yVelocity +=  Physics.gravity.y;
-            }
-        }
 
             #endregion
 
-        if(playerCanMove && !controllerPauseState){
-          fps_Rigidbody.velocity = MoveDirection+(Vector3.up * yVelocity);
+            if (playerCanMove && !controllerPauseState)
+            {
+                fps_Rigidbody.velocity = MoveDirection + (Vector3.up * yVelocity);
 
-        } else{fps_Rigidbody.velocity = Vector3.zero;}
+            }
+            else { fps_Rigidbody.velocity = Vector3.zero; }
 
-        if(inputXY.magnitude > 0 || !IsGrounded) {
-            capsule.sharedMaterial = advanced.zeroFrictionMaterial;
-        } else { capsule.sharedMaterial = advanced.highFrictionMaterial; }
-  
-        fps_Rigidbody.AddForce(Physics.gravity * (advanced.gravityMultiplier - 1));
-        
-        
-        if(advanced.FOVKickAmount>0){
-            if(isSprinting && !isCrouching && playerCamera.fieldOfView != (baseCamFOV+(advanced.FOVKickAmount*2)-0.01f)){
-                if(Mathf.Abs(fps_Rigidbody.velocity.x)> 0.5f || Mathf.Abs(fps_Rigidbody.velocity.z)> 0.5f){
-                    playerCamera.fieldOfView = Mathf.SmoothDamp(playerCamera.fieldOfView,baseCamFOV+(advanced.FOVKickAmount*2),ref advanced.fovRef,advanced.changeTime);
+            if (inputXY.magnitude > 0 || !IsGrounded)
+            {
+                capsule.sharedMaterial = advanced.zeroFrictionMaterial;
+            }
+            else { capsule.sharedMaterial = advanced.highFrictionMaterial; }
+
+            fps_Rigidbody.AddForce(Physics.gravity * (advanced.gravityMultiplier - 1));
+
+
+            if (advanced.FOVKickAmount > 0)
+            {
+                if (isSprinting && !isCrouching && playerCamera.fieldOfView != (baseCamFOV + (advanced.FOVKickAmount * 2) - 0.01f))
+                {
+                    if (Mathf.Abs(fps_Rigidbody.velocity.x) > 0.5f || Mathf.Abs(fps_Rigidbody.velocity.z) > 0.5f)
+                    {
+                        playerCamera.fieldOfView = Mathf.SmoothDamp(playerCamera.fieldOfView, baseCamFOV + (advanced.FOVKickAmount * 2), ref advanced.fovRef, advanced.changeTime);
                     }
-                
-            }
-            else if(playerCamera.fieldOfView != baseCamFOV){ playerCamera.fieldOfView = Mathf.SmoothDamp(playerCamera.fieldOfView,baseCamFOV,ref advanced.fovRef,advanced.changeTime*0.5f);}
-            
-        }
 
-        if(_crouchModifiers.useCrouch) {
-            
-            if(isCrouching) {
-                    capsule.height = Mathf.MoveTowards(capsule.height, _crouchModifiers.colliderHeight/1.5f, 5*Time.deltaTime);
-                        walkSpeedInternal = walkSpeed*_crouchModifiers.crouchWalkSpeedMultiplier;
-                        jumpPowerInternal = jumpPower* _crouchModifiers.crouchJumpPowerMultiplier;
+                }
+                else if (playerCamera.fieldOfView != baseCamFOV) { playerCamera.fieldOfView = Mathf.SmoothDamp(playerCamera.fieldOfView, baseCamFOV, ref advanced.fovRef, advanced.changeTime * 0.5f); }
 
-                } else {
-                capsule.height = Mathf.MoveTowards(capsule.height, _crouchModifiers.colliderHeight, 5*Time.deltaTime);    
-                walkSpeedInternal = walkSpeed;
-                sprintSpeedInternal = sprintSpeed;
-                jumpPowerInternal = jumpPower;
             }
-        }
-        #endregion
-        
+
+            if (_crouchModifiers.useCrouch)
+            {
+
+                if (isCrouching)
+                {
+                    capsule.height = Mathf.MoveTowards(capsule.height, _crouchModifiers.colliderHeight / 1.5f, 5 * Time.deltaTime);
+                    walkSpeedInternal = walkSpeed * _crouchModifiers.crouchWalkSpeedMultiplier;
+                    jumpPowerInternal = jumpPower * _crouchModifiers.crouchJumpPowerMultiplier;
+
+                }
+                else
+                {
+                    capsule.height = Mathf.MoveTowards(capsule.height, _crouchModifiers.colliderHeight, 5 * Time.deltaTime);
+                    walkSpeedInternal = walkSpeed;
+                    sprintSpeedInternal = sprintSpeed;
+                    jumpPowerInternal = jumpPower;
+                }
+            }
+            #endregion
+
             #region Headbobbing Settings - FixedUpdate
-        float yPos = 0;
-        float xPos = 0;
-        float zTilt = 0;
-        float xTilt = 0;
-        float bobSwayFactor = 0;
-        float bobFactor = 0;
-        float strideLangthen = 0;
-        float flatVel = 0;
-        //calculate headbob freq
-        if(useHeadbob == true || enableAudioSFX){
-            Vector3 vel = (fps_Rigidbody.position - previousPosition) / Time.deltaTime;
-            Vector3 velChange = vel - previousVelocity;
-            previousPosition = fps_Rigidbody.position;
-            previousVelocity = vel;
-            springVelocity -= velChange.y;
-            springVelocity -= springPosition * springElastic;
-            springVelocity *= springDampen;
-            springPosition += springVelocity * Time.deltaTime;
-            springPosition = Mathf.Clamp(springPosition, -0.3f, 0.3f);
+            float yPos = 0;
+            float xPos = 0;
+            float zTilt = 0;
+            float xTilt = 0;
+            float bobSwayFactor = 0;
+            float bobFactor = 0;
+            float strideLangthen = 0;
+            float flatVel = 0;
+            //calculate headbob freq
+            if (useHeadbob == true || enableAudioSFX)
+            {
+                Vector3 vel = (fps_Rigidbody.position - previousPosition) / Time.deltaTime;
+                Vector3 velChange = vel - previousVelocity;
+                previousPosition = fps_Rigidbody.position;
+                previousVelocity = vel;
+                springVelocity -= velChange.y;
+                springVelocity -= springPosition * springElastic;
+                springVelocity *= springDampen;
+                springPosition += springVelocity * Time.deltaTime;
+                springPosition = Mathf.Clamp(springPosition, -0.3f, 0.3f);
 
-            if(Mathf.Abs(springVelocity) < springVelocityThreshold && Mathf.Abs(springPosition) < springPositionThreshold) { springPosition = 0; springVelocity = 0; }
-            flatVel = new Vector3(vel.x, 0.0f, vel.z).magnitude;
-            strideLangthen = 1 + (flatVel * ((headbobFrequency*2)/10));
-            headbobCycle += (flatVel / strideLangthen) * (Time.deltaTime / headbobFrequency);
-            bobFactor = Mathf.Sin(headbobCycle * Mathf.PI * 2);
-            bobSwayFactor = Mathf.Sin(Mathf.PI * (2 * headbobCycle + 0.5f));
-            bobFactor = 1 - (bobFactor * 0.5f + 1);
-            bobFactor *= bobFactor;
+                if (Mathf.Abs(springVelocity) < springVelocityThreshold && Mathf.Abs(springPosition) < springPositionThreshold) { springPosition = 0; springVelocity = 0; }
+                flatVel = new Vector3(vel.x, 0.0f, vel.z).magnitude;
+                strideLangthen = 1 + (flatVel * ((headbobFrequency * 2) / 10));
+                headbobCycle += (flatVel / strideLangthen) * (Time.deltaTime / headbobFrequency);
+                bobFactor = Mathf.Sin(headbobCycle * Mathf.PI * 2);
+                bobSwayFactor = Mathf.Sin(Mathf.PI * (2 * headbobCycle + 0.5f));
+                bobFactor = 1 - (bobFactor * 0.5f + 1);
+                bobFactor *= bobFactor;
 
-            yPos = 0;
-            xPos = 0;
-            zTilt = 0;
-            if(jumpLandIntensity>0 && !advanced.stairMiniHop){xTilt = -springPosition * (jumpLandIntensity*5.5f);}
-            else if(!advanced.stairMiniHop){xTilt = -springPosition;}
+                yPos = 0;
+                xPos = 0;
+                zTilt = 0;
+                if (jumpLandIntensity > 0 && !advanced.stairMiniHop) { xTilt = -springPosition * (jumpLandIntensity * 5.5f); }
+                else if (!advanced.stairMiniHop) { xTilt = -springPosition; }
 
-            if(IsGrounded){
-                if(new Vector3(vel.x, 0.0f, vel.z).magnitude < 0.1f) { headbobFade = Mathf.MoveTowards(headbobFade, 0.0f,0.5f); } else { headbobFade = Mathf.MoveTowards(headbobFade, 1.0f, Time.deltaTime); }
-                float speedHeightFactor = 1 + (flatVel * 0.3f);
-                xPos = -(headbobSideMovement/10) * headbobFade *bobSwayFactor;
-                yPos = springPosition * (jumpLandIntensity/10) + bobFactor * (headbobHeight/10) * headbobFade * speedHeightFactor;
-                zTilt = bobSwayFactor * (headbobSwayAngle/10) * headbobFade;
+                if (IsGrounded)
+                {
+                    if (new Vector3(vel.x, 0.0f, vel.z).magnitude < 0.1f) { headbobFade = Mathf.MoveTowards(headbobFade, 0.0f, 0.5f); } else { headbobFade = Mathf.MoveTowards(headbobFade, 1.0f, Time.deltaTime); }
+                    float speedHeightFactor = 1 + (flatVel * 0.3f);
+                    xPos = -(headbobSideMovement / 10) * headbobFade * bobSwayFactor;
+                    yPos = springPosition * (jumpLandIntensity / 10) + bobFactor * (headbobHeight / 10) * headbobFade * speedHeightFactor;
+                    zTilt = bobSwayFactor * (headbobSwayAngle / 10) * headbobFade;
+                }
             }
-        }
-        //apply headbob position
-            if(useHeadbob == true){
-                if(fps_Rigidbody.velocity.magnitude >0.1f){
-                    head.localPosition = Vector3.MoveTowards(head.localPosition, snapHeadjointToCapsul ? (new Vector3(originalLocalPosition.x,(capsule.height/2)*head.localScale.y,originalLocalPosition.z)  + new Vector3(xPos, yPos, 0)) : originalLocalPosition + new Vector3(xPos, yPos, 0),0.5f);
-                }else{
-                    head.localPosition = Vector3.SmoothDamp(head.localPosition, snapHeadjointToCapsul ? (new Vector3(originalLocalPosition.x,(capsule.height/2)*head.localScale.y,originalLocalPosition.z)  + new Vector3(xPos, yPos, 0)) : originalLocalPosition + new Vector3(xPos, yPos, 0),ref miscRefVel, 0.15f);
+            //apply headbob position
+            if (useHeadbob == true)
+            {
+                if (fps_Rigidbody.velocity.magnitude > 0.1f)
+                {
+                    head.localPosition = Vector3.MoveTowards(head.localPosition, snapHeadjointToCapsul ? (new Vector3(originalLocalPosition.x, (capsule.height / 2) * head.localScale.y, originalLocalPosition.z) + new Vector3(xPos, yPos, 0)) : originalLocalPosition + new Vector3(xPos, yPos, 0), 0.5f);
+                }
+                else
+                {
+                    head.localPosition = Vector3.SmoothDamp(head.localPosition, snapHeadjointToCapsul ? (new Vector3(originalLocalPosition.x, (capsule.height / 2) * head.localScale.y, originalLocalPosition.z) + new Vector3(xPos, yPos, 0)) : originalLocalPosition + new Vector3(xPos, yPos, 0), ref miscRefVel, 0.15f);
                 }
                 head.localRotation = Quaternion.Euler(xTilt, 0, zTilt);
-                
-           
-        }
+
+
+            }
             #endregion
 
             #region Network Local Settings - FixedUpdate
@@ -669,152 +712,165 @@ public class FirstPersonAIO : MonoBehaviour {
             #endregion
 
             #region Dynamic Footsteps
-            if (enableAudioSFX){    
-            if(fsmode == FSMode.Dynamic)
-            {   
-                RaycastHit hit = new RaycastHit();
+            if (enableAudioSFX)
+            {
+                if (fsmode == FSMode.Dynamic)
+                {
+                    RaycastHit hit = new RaycastHit();
 
-                if(Physics.Raycast(transform.position, Vector3.down, out hit)){
-                     
-                    if(dynamicFootstep.materialMode == DynamicFootStep.matMode.physicMaterial){
-                        dynamicFootstep.currentClipSet = (dynamicFootstep.woodPhysMat.Any() && dynamicFootstep.woodPhysMat.Contains(hit.collider.sharedMaterial) && dynamicFootstep.woodClipSet.Any()) ? // If standing on Wood
-                        dynamicFootstep.woodClipSet : ((dynamicFootstep.grassPhysMat.Any() && dynamicFootstep.grassPhysMat.Contains(hit.collider.sharedMaterial) && dynamicFootstep.grassClipSet.Any()) ? // If standing on Grass
-                        dynamicFootstep.grassClipSet : ((dynamicFootstep.metalAndGlassPhysMat.Any() && dynamicFootstep.metalAndGlassPhysMat.Contains(hit.collider.sharedMaterial) && dynamicFootstep.metalAndGlassClipSet.Any()) ? // If standing on Metal/Glass
-                        dynamicFootstep.metalAndGlassClipSet : ((dynamicFootstep.rockAndConcretePhysMat.Any() && dynamicFootstep.rockAndConcretePhysMat.Contains(hit.collider.sharedMaterial) && dynamicFootstep.rockAndConcreteClipSet.Any()) ? // If standing on Rock/Concrete
-                        dynamicFootstep.rockAndConcreteClipSet : ((dynamicFootstep.dirtAndGravelPhysMat.Any() && dynamicFootstep.dirtAndGravelPhysMat.Contains(hit.collider.sharedMaterial) && dynamicFootstep.dirtAndGravelClipSet.Any()) ? // If standing on Dirt/Gravle
-                        dynamicFootstep.dirtAndGravelClipSet : ((dynamicFootstep.mudPhysMat.Any() && dynamicFootstep.mudPhysMat.Contains(hit.collider.sharedMaterial) && dynamicFootstep.mudClipSet.Any())? // If standing on Mud
-                        dynamicFootstep.mudClipSet : ((dynamicFootstep.customPhysMat.Any() && dynamicFootstep.customPhysMat.Contains(hit.collider.sharedMaterial) && dynamicFootstep.customClipSet.Any())? // If standing on the custom material 
-                        dynamicFootstep.customClipSet : footStepSounds)))))); // If material is unknown, fall back
-                    }else if (hit.collider.GetComponent<MeshRenderer>()){
-                        dynamicFootstep.currentClipSet = (dynamicFootstep.woodMat.Any() && dynamicFootstep.woodMat.Contains(hit.collider.GetComponent<MeshRenderer>().sharedMaterial) && dynamicFootstep.woodClipSet.Any()) ? // If standing on Wood
-                        dynamicFootstep.woodClipSet : ((dynamicFootstep.grassMat.Any() && dynamicFootstep.grassMat.Contains(hit.collider.GetComponent<MeshRenderer>().sharedMaterial) && dynamicFootstep.grassClipSet.Any()) ? // If standing on Grass
-                        dynamicFootstep.grassClipSet : ((dynamicFootstep.metalAndGlassMat.Any() && dynamicFootstep.metalAndGlassMat.Contains(hit.collider.GetComponent<MeshRenderer>().sharedMaterial) && dynamicFootstep.metalAndGlassClipSet.Any()) ? // If standing on Metal/Glass
-                        dynamicFootstep.metalAndGlassClipSet : ((dynamicFootstep.rockAndConcreteMat.Any() && dynamicFootstep.rockAndConcreteMat.Contains(hit.collider.GetComponent<MeshRenderer>().sharedMaterial) && dynamicFootstep.rockAndConcreteClipSet.Any()) ? // If standing on Rock/Concrete
-                        dynamicFootstep.rockAndConcreteClipSet : ((dynamicFootstep.dirtAndGravelMat.Any() && dynamicFootstep.dirtAndGravelMat.Contains(hit.collider.GetComponent<MeshRenderer>().sharedMaterial) && dynamicFootstep.dirtAndGravelClipSet.Any()) ? // If standing on Dirt/Gravle
-                        dynamicFootstep.dirtAndGravelClipSet : ((dynamicFootstep.mudMat.Any() && dynamicFootstep.mudMat.Contains(hit.collider.GetComponent<MeshRenderer>().sharedMaterial) && dynamicFootstep.mudClipSet.Any())? // If standing on Mud
-                        dynamicFootstep.mudClipSet : ((dynamicFootstep.customMat.Any() && dynamicFootstep.customMat.Contains(hit.collider.GetComponent<MeshRenderer>().sharedMaterial) && dynamicFootstep.customClipSet.Any())? // If standing on the custom material 
-                        dynamicFootstep.customClipSet : footStepSounds.Any() ? footStepSounds : null)))))); // If material is unknown, fall back
-                    }
-
-                    if(IsGrounded)
+                    if (Physics.Raycast(transform.position, Vector3.down, out hit))
                     {
-                        if(!previousGrounded)
+
+                        if (dynamicFootstep.materialMode == DynamicFootStep.matMode.physicMaterial)
                         {
-                            if(dynamicFootstep.currentClipSet.Any()) { audioSource.PlayOneShot(dynamicFootstep.currentClipSet[Random.Range(0, dynamicFootstep.currentClipSet.Count)],Volume/10); }
-                            nextStepTime = headbobCycle + 0.5f;
-                        } else
+                            dynamicFootstep.currentClipSet = (dynamicFootstep.woodPhysMat.Any() && dynamicFootstep.woodPhysMat.Contains(hit.collider.sharedMaterial) && dynamicFootstep.woodClipSet.Any()) ? // If standing on Wood
+                            dynamicFootstep.woodClipSet : ((dynamicFootstep.grassPhysMat.Any() && dynamicFootstep.grassPhysMat.Contains(hit.collider.sharedMaterial) && dynamicFootstep.grassClipSet.Any()) ? // If standing on Grass
+                            dynamicFootstep.grassClipSet : ((dynamicFootstep.metalAndGlassPhysMat.Any() && dynamicFootstep.metalAndGlassPhysMat.Contains(hit.collider.sharedMaterial) && dynamicFootstep.metalAndGlassClipSet.Any()) ? // If standing on Metal/Glass
+                            dynamicFootstep.metalAndGlassClipSet : ((dynamicFootstep.rockAndConcretePhysMat.Any() && dynamicFootstep.rockAndConcretePhysMat.Contains(hit.collider.sharedMaterial) && dynamicFootstep.rockAndConcreteClipSet.Any()) ? // If standing on Rock/Concrete
+                            dynamicFootstep.rockAndConcreteClipSet : ((dynamicFootstep.dirtAndGravelPhysMat.Any() && dynamicFootstep.dirtAndGravelPhysMat.Contains(hit.collider.sharedMaterial) && dynamicFootstep.dirtAndGravelClipSet.Any()) ? // If standing on Dirt/Gravle
+                            dynamicFootstep.dirtAndGravelClipSet : ((dynamicFootstep.mudPhysMat.Any() && dynamicFootstep.mudPhysMat.Contains(hit.collider.sharedMaterial) && dynamicFootstep.mudClipSet.Any()) ? // If standing on Mud
+                            dynamicFootstep.mudClipSet : ((dynamicFootstep.customPhysMat.Any() && dynamicFootstep.customPhysMat.Contains(hit.collider.sharedMaterial) && dynamicFootstep.customClipSet.Any()) ? // If standing on the custom material 
+                            dynamicFootstep.customClipSet : footStepSounds)))))); // If material is unknown, fall back
+                        }
+                        else if (hit.collider.GetComponent<MeshRenderer>())
                         {
-                            if(headbobCycle > nextStepTime)
+                            dynamicFootstep.currentClipSet = (dynamicFootstep.woodMat.Any() && dynamicFootstep.woodMat.Contains(hit.collider.GetComponent<MeshRenderer>().sharedMaterial) && dynamicFootstep.woodClipSet.Any()) ? // If standing on Wood
+                            dynamicFootstep.woodClipSet : ((dynamicFootstep.grassMat.Any() && dynamicFootstep.grassMat.Contains(hit.collider.GetComponent<MeshRenderer>().sharedMaterial) && dynamicFootstep.grassClipSet.Any()) ? // If standing on Grass
+                            dynamicFootstep.grassClipSet : ((dynamicFootstep.metalAndGlassMat.Any() && dynamicFootstep.metalAndGlassMat.Contains(hit.collider.GetComponent<MeshRenderer>().sharedMaterial) && dynamicFootstep.metalAndGlassClipSet.Any()) ? // If standing on Metal/Glass
+                            dynamicFootstep.metalAndGlassClipSet : ((dynamicFootstep.rockAndConcreteMat.Any() && dynamicFootstep.rockAndConcreteMat.Contains(hit.collider.GetComponent<MeshRenderer>().sharedMaterial) && dynamicFootstep.rockAndConcreteClipSet.Any()) ? // If standing on Rock/Concrete
+                            dynamicFootstep.rockAndConcreteClipSet : ((dynamicFootstep.dirtAndGravelMat.Any() && dynamicFootstep.dirtAndGravelMat.Contains(hit.collider.GetComponent<MeshRenderer>().sharedMaterial) && dynamicFootstep.dirtAndGravelClipSet.Any()) ? // If standing on Dirt/Gravle
+                            dynamicFootstep.dirtAndGravelClipSet : ((dynamicFootstep.mudMat.Any() && dynamicFootstep.mudMat.Contains(hit.collider.GetComponent<MeshRenderer>().sharedMaterial) && dynamicFootstep.mudClipSet.Any()) ? // If standing on Mud
+                            dynamicFootstep.mudClipSet : ((dynamicFootstep.customMat.Any() && dynamicFootstep.customMat.Contains(hit.collider.GetComponent<MeshRenderer>().sharedMaterial) && dynamicFootstep.customClipSet.Any()) ? // If standing on the custom material 
+                            dynamicFootstep.customClipSet : footStepSounds.Any() ? footStepSounds : null)))))); // If material is unknown, fall back
+                        }
+
+                        if (IsGrounded)
+                        {
+                            if (!previousGrounded)
                             {
+                                if (dynamicFootstep.currentClipSet.Any()) { audioSource.PlayOneShot(dynamicFootstep.currentClipSet[Random.Range(0, dynamicFootstep.currentClipSet.Count)], Volume / 10); }
                                 nextStepTime = headbobCycle + 0.5f;
-                                if(dynamicFootstep.currentClipSet.Any()){ audioSource.PlayOneShot(dynamicFootstep.currentClipSet[Random.Range(0, dynamicFootstep.currentClipSet.Count)],Volume/10); }
                             }
+                            else
+                            {
+                                if (headbobCycle > nextStepTime)
+                                {
+                                    nextStepTime = headbobCycle + 0.5f;
+                                    if (dynamicFootstep.currentClipSet.Any()) { audioSource.PlayOneShot(dynamicFootstep.currentClipSet[Random.Range(0, dynamicFootstep.currentClipSet.Count)], Volume / 10); }
+                                }
+                            }
+                            previousGrounded = true;
                         }
-                        previousGrounded = true;
-                    } else
-                    {
-                        if(previousGrounded)
+                        else
                         {
-                            if(dynamicFootstep.currentClipSet.Any()){ audioSource.PlayOneShot(dynamicFootstep.currentClipSet[Random.Range(0, dynamicFootstep.currentClipSet.Count)],Volume/10); }
+                            if (previousGrounded)
+                            {
+                                if (dynamicFootstep.currentClipSet.Any()) { audioSource.PlayOneShot(dynamicFootstep.currentClipSet[Random.Range(0, dynamicFootstep.currentClipSet.Count)], Volume / 10); }
+                            }
+                            previousGrounded = false;
                         }
-                        previousGrounded = false;
+
+                    }
+                    else
+                    {
+                        dynamicFootstep.currentClipSet = footStepSounds;
+                        if (IsGrounded)
+                        {
+                            if (!previousGrounded)
+                            {
+                                if (landSound) { audioSource.PlayOneShot(landSound, Volume / 10); }
+                                nextStepTime = headbobCycle + 0.5f;
+                            }
+                            else
+                            {
+                                if (headbobCycle > nextStepTime)
+                                {
+                                    nextStepTime = headbobCycle + 0.5f;
+                                    int n = Random.Range(0, footStepSounds.Count);
+                                    if (footStepSounds.Any()) { audioSource.PlayOneShot(footStepSounds[n], Volume / 10); }
+                                    footStepSounds[n] = footStepSounds[0];
+                                }
+                            }
+                            previousGrounded = true;
+                        }
+                        else
+                        {
+                            if (previousGrounded)
+                            {
+                                if (jumpSound) { audioSource.PlayOneShot(jumpSound, Volume / 10); }
+                            }
+                            previousGrounded = false;
+                        }
                     }
 
-                } else {
-                    dynamicFootstep.currentClipSet = footStepSounds;
-                    if(IsGrounded)
+                }
+                else
+                {
+                    if (IsGrounded)
                     {
-                        if(!previousGrounded)
+                        if (!previousGrounded)
                         {
-                            if(landSound){ audioSource.PlayOneShot(landSound,Volume/10); }
+                            if (landSound) { audioSource.PlayOneShot(landSound, Volume / 10); }
                             nextStepTime = headbobCycle + 0.5f;
-                        } else
+                        }
+                        else
                         {
-                            if(headbobCycle > nextStepTime)
+                            if (headbobCycle > nextStepTime)
                             {
                                 nextStepTime = headbobCycle + 0.5f;
                                 int n = Random.Range(0, footStepSounds.Count);
-                                if(footStepSounds.Any()){ audioSource.PlayOneShot(footStepSounds[n],Volume/10); }
-                                footStepSounds[n] = footStepSounds[0];
+                                if (footStepSounds.Any() && footStepSounds[n] != null) { audioSource.PlayOneShot(footStepSounds[n], Volume / 10); }
+
                             }
                         }
                         previousGrounded = true;
-                    } else
+                    }
+                    else
                     {
-                        if(previousGrounded)
+                        if (previousGrounded)
                         {
-                            if(jumpSound){ audioSource.PlayOneShot(jumpSound,Volume/10); }
+                            if (jumpSound) { audioSource.PlayOneShot(jumpSound, Volume / 10); }
                         }
                         previousGrounded = false;
                     }
                 }
-                
-            } else
-            {
-                if(IsGrounded)
-                {
-                    if(!previousGrounded)
-                    {
-                        if(landSound) { audioSource.PlayOneShot(landSound,Volume/10); }
-                        nextStepTime = headbobCycle + 0.5f;
-                    } else
-                    {
-                        if(headbobCycle > nextStepTime)
-                        {
-                            nextStepTime = headbobCycle + 0.5f;
-                            int n = Random.Range(0, footStepSounds.Count);
-                            if(footStepSounds.Any() && footStepSounds[n] != null){ audioSource.PlayOneShot(footStepSounds[n],Volume/10);}
-                            
-                        }
-                    }
-                    previousGrounded = true;
-                } else
-                {
-                    if(previousGrounded)
-                    {
-                        if(jumpSound) { audioSource.PlayOneShot(jumpSound,Volume/10); }
-                    }
-                    previousGrounded = false;
-                }
-            }
 
-        }
+            }
             #endregion
 
             #region  Reset Checks
 
             IsGrounded = false;
-        
-        if(advanced.maxSlopeAngle>0){
-            if(advanced.isTouchingFlat || advanced.isTouchingWalkable || advanced.isTouchingUpright){didJump = false;}
-            advanced.isTouchingWalkable = false;
-            advanced.isTouchingUpright = false;
-            advanced.isTouchingFlat = false;
-        }
+
+            if (advanced.maxSlopeAngle > 0)
+            {
+                if (advanced.isTouchingFlat || advanced.isTouchingWalkable || advanced.isTouchingUpright) { didJump = false; }
+                advanced.isTouchingWalkable = false;
+                advanced.isTouchingUpright = false;
+                advanced.isTouchingFlat = false;
+            }
             #endregion
         }
         else
         {
             #region Network Remote Settings - FixedUpdate
-            //if (verticalInput != 0 && IsGrounded == true)
-            {
-                //distance since last footprint, determines
-                float DistanceSinceLastFootprint = Vector3.Distance(LastFootprint, this.transform.position);
-                if (DistanceSinceLastFootprint >= FootprintSpacer)
-                {
-                    if (WhichFoot == enumFoot.Left)
-                    {
-                        photonView.RPC("NetworkStepLeft", RpcTarget.AllBuffered);
-                        WhichFoot = enumFoot.Right;
-                    }
+            //distance since last footprint, determines
+            float DistanceSinceLastFootprint = Vector3.Distance(LastFootprint, this.transform.position);
 
-                    else if (WhichFoot == enumFoot.Right)
-                    {
-                        photonView.RPC("NetworkStepRight", RpcTarget.AllBuffered);
-                        WhichFoot = enumFoot.Left;
-                    }
-                    LastFootprint = this.transform.position;
+            if (DistanceSinceLastFootprint >= FootprintSpacer)
+            {
+                if (WhichFoot == enumFoot.Left)
+                {
+                    photonView.RPC("NetworkStepLeft", RpcTarget.AllViaServer);
+                    WhichFoot = enumFoot.Right;
                 }
+
+                else if (WhichFoot == enumFoot.Right)
+                {
+                    photonView.RPC("NetworkStepRight", RpcTarget.AllViaServer);
+                    WhichFoot = enumFoot.Left;
+                }
+                LastFootprint = this.transform.position;
             }
             #endregion
         }
@@ -875,8 +931,7 @@ public class FirstPersonAIO : MonoBehaviour {
         }
     }
     
-    [PunRPC]
-    private void NetworkStepLeft()
+    [PunRPC]    private void NetworkStepLeft()
     {
         Vector3 from = this.transform.position;
         Vector3 to = new Vector3(this.transform.position.x, this.transform.position.y - (this.transform.localScale.y / 2.0f) + 0.1f, this.transform.position.z);
@@ -892,8 +947,7 @@ public class FirstPersonAIO : MonoBehaviour {
         }
     }    
     
-    [PunRPC]
-    private void NetworkStepRight()
+    [PunRPC]    private void NetworkStepRight()
     {
         Vector3 from = this.transform.position;
         Vector3 to = new Vector3(this.transform.position.x, this.transform.position.y - (this.transform.localScale.y / 2.0f) + 0.1f, this.transform.position.z);
