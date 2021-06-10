@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Scenes/MenuTypeA.unity
+    path: Assets/_Scenes/StartMenu.unity
     guid: 18be0e4e5ba5c1842bb01f4b6fef1679
   - enabled: 1
     path: Assets/_Scenes/MertBoxout2.unity

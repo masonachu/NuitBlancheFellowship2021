@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        GameCanvas.SetActive(true);
+        //GameCanvas.SetActive(true);
+        SpawnPlayer();
     }
 
     public void SpawnPlayer()
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour
             (this.transform.position.x * randomValue, this.transform.position.y,
              this.transform.position.z), Quaternion.identity, 0);
 
-        GameCanvas.SetActive(false);
-        SceneCamera.SetActive(false);
+        //GameCanvas.SetActive(false);
+        //SceneCamera.SetActive(false);
     }
 }
