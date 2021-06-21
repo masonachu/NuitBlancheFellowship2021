@@ -68,7 +68,7 @@ using Photon.Chat;
 
 [RequireComponent(typeof(CapsuleCollider)),RequireComponent(typeof(Rigidbody)),AddComponentMenu("First Person AIO")]
 
-public class FirstPersonAIO : MonoBehaviour {
+public class FirstPersonAIO : PortalTraveller {
 
     #region Variables
 
@@ -1158,6 +1158,17 @@ public class FirstPersonAIO : MonoBehaviour {
 
         #endregion
 
+        #region Prefab References
+        GUILayout.Label("Prefab References", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold, fontSize = 13 }, GUILayout.ExpandWidth(true));
+        EditorGUILayout.Space();
+        EditorGUILayout.Space();
+        t.LeftFootPrefab = (GameObject)EditorGUILayout.ObjectField(new GUIContent("Left Foot Prefab", "Attach the left footprint prefab here"), t.LeftFootPrefab, typeof(GameObject), true);
+        t.RightFootPrefab = (GameObject)EditorGUILayout.ObjectField(new GUIContent("Right Foot Prefab", "Attach the right footprint prefab here"), t.RightFootPrefab, typeof(GameObject), true);
+        t.graphicsObject = (GameObject)EditorGUILayout.ObjectField(new GUIContent("Graphics Object", "Model that will go through teleporters"), t.graphicsObject, typeof(GameObject), true);
+        EditorGUILayout.Space();
+
+        #endregion
+
         #region Audio/SFX Setup
             GUILayout.Label("Audio/SFX Setup",new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter,fontStyle = FontStyle.Bold, fontSize = 13},GUILayout.ExpandWidth(true));
             EditorGUILayout.Space();
@@ -1618,16 +1629,6 @@ public class FirstPersonAIO : MonoBehaviour {
             }
         #endregion
 
-        #region Prefab References
-        EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
-        GUILayout.Label("Prefab References", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold, fontSize = 13 }, GUILayout.ExpandWidth(true));
-        EditorGUILayout.Space();
-        EditorGUILayout.Space();
-        t.LeftFootPrefab = (GameObject)EditorGUILayout.ObjectField(new GUIContent("Left Foot Prefab", "Attach the left footprint prefab here"), t.LeftFootPrefab, typeof(GameObject), true);
-        t.RightFootPrefab = (GameObject)EditorGUILayout.ObjectField(new GUIContent("Right Foot Prefab", "Attach the right footprint prefab here"), t.RightFootPrefab, typeof(GameObject), true);
-        EditorGUILayout.Space();
-
-        #endregion
         /*   
         #region FunctionSnipets
             GUILayout.Label("Audio/SFX Setup",new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter,fontStyle = FontStyle.Bold, fontSize = 13},GUILayout.ExpandWidth(true));
