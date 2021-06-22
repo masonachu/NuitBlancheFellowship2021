@@ -7,9 +7,11 @@ using Photon.Pun;
 public class GameManager : MonoBehaviour
 {
     public GameObject PlayerPrefab;
-    public GameObject NetworkPlayerPrefab;
-    public GameObject GameCanvas;
-    public GameObject SceneCamera;
+
+    [SerializeField] private GameObject GameCanvas;
+    [SerializeField] private GameObject SceneCamera;
+    [SerializeField] private Transform PlayerLocation;
+    [SerializeField] private Transform UnderwaterLocation;
 
     private void Awake()
     {
@@ -28,4 +30,10 @@ public class GameManager : MonoBehaviour
         //GameCanvas.SetActive(false);
         //SceneCamera.SetActive(false);
     }
+
+    public void TeleportPlayer(Transform tf)
+    {
+            PlayerLocation = GameObject.FindGameObjectWithTag("Player").transform;
+            PlayerLocation.position = tf.position;
+    }    
 }
