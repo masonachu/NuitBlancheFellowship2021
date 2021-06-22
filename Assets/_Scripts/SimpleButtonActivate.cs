@@ -9,6 +9,11 @@ public class SimpleButtonActivate : MonoBehaviour
     [SerializeField] private GameObject portal;
     [SerializeField] private bool isActive = false;
 
+    private void Awake()
+    {
+        portal.SetActive(false);
+    }
+
     private void Update()
     {
         ActivatePortal(button);
