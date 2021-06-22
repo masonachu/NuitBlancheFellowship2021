@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 3071480237414328273}
   - component: {fileID: 3155040909567792631}
   - component: {fileID: 3121282866741808725}
+  - component: {fileID: 1578788052}
   m_Layer: 0
   m_Name: Player Camera
   m_TagString: MainCamera
@@ -220,6 +221,18 @@ Behaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3093350246013294899}
   m_Enabled: 1
+--- !u!114 &1578788052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3093350246013294899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a42331d6ec5746d4960a877e58cfb58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3093838695613766007
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,6 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf1a5ad4f9ffb154ca7813fdad11017a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  graphicsObject: {fileID: 3092204880677608802}
   controllerPauseState: 0
   enableCameraMovement: 1
   mouseInputInversion: 0
@@ -353,7 +367,7 @@ MonoBehaviour:
   LeftFootPrefab: {fileID: 5810854684530678468, guid: 7a26f34761ef7024fb038d430823b43d, type: 3}
   RightFootPrefab: {fileID: 3605019904349287152, guid: 8ec6e5b4d3fe35145b500c0fad57623f, type: 3}
   FootprintSpacer: 1
-  useHeadbob: 1
+  useHeadbob: 0
   head: {fileID: 3091518830944287651}
   snapHeadjointToCapsul: 1
   headbobFrequency: 1.5
