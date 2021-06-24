@@ -8331,6 +8331,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ac771c9e070a4970b0e30d23ccb2244, type: 3}
+--- !u!95 &1518922976 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1566383240203038307, guid: a39230e22a712544889f9f38ec614b7e, type: 3}
+  m_PrefabInstance: {fileID: 7593094582760561222}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1527824912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8948,7 +8953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shed: {fileID: 1595278764}
-  anim: {fileID: 0}
+  anim: {fileID: 1518922976}
 --- !u!65 &1594262157
 BoxCollider:
   m_ObjectHideFlags: 0
