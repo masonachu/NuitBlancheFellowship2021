@@ -23,10 +23,10 @@ public class Portal : MonoBehaviour {
     void Awake () {
         playerCam = Camera.main;
         portalCam = GetComponentInChildren<Camera> ();
-        portalCam.enabled = false;
         trackedTravellers = new List<PortalTraveller> ();
         screenMeshFilter = screen.GetComponent<MeshFilter> ();
         screen.material.SetInt ("displayMask", 1);
+        portalCam.enabled = false;
     }
 
     void LateUpdate () {
