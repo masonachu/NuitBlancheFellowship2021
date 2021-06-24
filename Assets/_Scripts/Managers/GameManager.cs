@@ -6,14 +6,34 @@ using Photon.Pun;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("References")]
     public GameObject PlayerPrefab;
-    public GameObject NetworkPlayerPrefab;
     public GameObject GameCanvas;
     public GameObject SceneCamera;
+    
+    private Transform PlayerLocation;
 
+    [Header("Teleport Zones")]
+    [SerializeField] private Transform UnderwaterLocation;
+    [SerializeField] private Transform SpaceLocation;
+
+    [Header("Debug Mode")]
+    [SerializeField] private bool DebugMode;
+    
     private void Awake()
     {
         GameCanvas.SetActive(true);
+    }
+
+    private void Update()
+    {
+        if(DebugMode)
+        {
+            if(Input.GetKeyDown("q"))
+            {
+                TeleportPlayer(SpaceLocation);
+            }
+        }
     }
 
     public void SpawnPlayer()
@@ -26,5 +46,11 @@ public class GameManager : MonoBehaviour
 
         GameCanvas.SetActive(false);
         SceneCamera.SetActive(false);
+    }
+
+    public void TeleportPlayer(Transform tf)
+    {
+            PlayerLocation = GameObject.FindGameObjectWithTag("Player").transform;
+            PlayerLocation.position = tf.position;
     }
 }
