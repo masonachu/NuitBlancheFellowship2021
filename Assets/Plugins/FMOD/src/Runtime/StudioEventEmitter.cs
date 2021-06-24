@@ -310,6 +310,7 @@ namespace FMODUnity
             }
         }
 
+        [SerializeField]
         public bool IsPlaying()
         {
             if (instance.isValid())
