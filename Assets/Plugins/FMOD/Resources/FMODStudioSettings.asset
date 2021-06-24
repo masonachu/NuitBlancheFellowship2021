@@ -626,6 +626,7 @@ MonoBehaviour:
   - Master
   Banks:
   - Bank A
+  - Sound Design
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0

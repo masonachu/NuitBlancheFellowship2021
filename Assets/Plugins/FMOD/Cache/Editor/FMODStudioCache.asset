@@ -1,5 +1,28 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7010661216193121691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sound
+  m_EditorClassIdentifier: 
+  Path: event:/Sound
+  guid: 9de240e3e7441642bebd0d0c5a43e763
+  Banks:
+  - {fileID: -3629248450414536765}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 20000
 --- !u!114 &-6302843580986774678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,7 +38,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637599545880000000
+  lastModified: 637601394380000000
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -43,6 +66,25 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 250642
+--- !u!114 &-3629248450414536765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Sound Design.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/Desktop/Sound Design.bank
+  Name: Sound Design
+  StudioPath: bank:/Sound Design
+  lastModified: 637601394380000000
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-2736140755348426572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,14 +124,16 @@ MonoBehaviour:
   - {fileID: 5555362266425491931}
   - {fileID: -6302843580986774678}
   - {fileID: 6791924045894313459}
+  - {fileID: -3629248450414536765}
   EditorEvents:
   - {fileID: -4858013519862287521}
+  - {fileID: -7010661216193121691}
   EditorParameters: []
   MasterBanks:
   - {fileID: -6302843580986774678}
   StringsBanks:
   - {fileID: 5555362266425491931}
-  stringsBankWriteTime: 637599545880000000
+  stringsBankWriteTime: 637601394380000000
   cacheVersion: 6
 --- !u!114 &5555362266425491931
 MonoBehaviour:
@@ -106,11 +150,11 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637599545880000000
+  lastModified: 637601394380000000
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 790
+    Value: 882
   Exists: 1
 --- !u!114 &6791924045894313459
 MonoBehaviour:
@@ -127,7 +171,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Bank A.bank
   Name: Bank A
   StudioPath: bank:/Bank A
-  lastModified: 637599545880000000
+  lastModified: 637601394380000000
   LoadResult: 0
   FileSizes: []
   Exists: 1
