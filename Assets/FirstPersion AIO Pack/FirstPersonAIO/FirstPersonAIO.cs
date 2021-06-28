@@ -297,8 +297,10 @@ public class FirstPersonAIO : PortalTraveller {
         {
             #region Network Local Settings - Start
             playerCamera.gameObject.SetActive(true);
-            playerText.text = PhotonNetwork.NickName;
-            playerText.color = Color.clear;
+            if (PhotonNetwork.NickName != null){
+                playerText.text = PhotonNetwork.NickName;
+                playerText.color = Color.clear;
+            }
             #endregion
 
             #region Look Settings - Start
@@ -373,8 +375,10 @@ public class FirstPersonAIO : PortalTraveller {
         {
             #region Network Remote Settings - Start
             playerCamera.gameObject.SetActive(false);
-            playerText.text = photonView.Owner.NickName;
-            playerText.color = Color.white;
+            if (PhotonNetwork.NickName != null ){
+                playerText.text = photonView.Owner.NickName;
+                playerText.color = Color.white;
+            }
             #endregion
         }
     }

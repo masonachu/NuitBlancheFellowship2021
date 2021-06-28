@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject PlayerPrefab;
     public GameObject GameCanvas;
     public GameObject SceneCamera;
+    [SerializeField] private Transform SpawnLocation;
     
     private Transform PlayerLocation;
 
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         //GameCanvas.SetActive(true);
-        SpawnPlayer();
+        SpawnPlayer(SpawnLocation);
     }
 
     private void Update()
@@ -37,13 +38,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SpawnPlayer()
+    public void SpawnPlayer(Transform tf)
     {
-        float randomValue = Random.Range(-1f, 1f);
+        //float randomValue = Random.Range(-1f, 1f);
         
         PhotonNetwork.Instantiate(PlayerPrefab.name, new Vector3
-            (this.transform.position.x * randomValue, this.transform.position.y,
-             this.transform.position.z), Quaternion.identity, 0);
+            (tf.transform.position.x, tf.transform.position.y,
+             tf.transform.position.z), Quaternion.identity, 0);
 
         //GameCanvas.SetActive(false);
         //SceneCamera.SetActive(false);

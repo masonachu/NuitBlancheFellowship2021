@@ -26,7 +26,7 @@ public class MenuController : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        UsernameMenu.SetActive(true);
+        //UsernameMenu.SetActive(true);
     }
 
     public override void OnConnectedToMaster()
@@ -69,6 +69,6 @@ public class MenuController : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        PhotonNetwork.LoadLevel("Main");
+        PhotonNetwork.LoadLevel("MainTest");
     }
 }
