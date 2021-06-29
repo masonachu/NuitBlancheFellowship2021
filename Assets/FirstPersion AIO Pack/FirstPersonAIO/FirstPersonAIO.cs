@@ -261,6 +261,7 @@ public class FirstPersonAIO : PortalTraveller {
 
     public PhotonView photonView;
     public Text playerText;
+    public bool enableFootprints;
 
     #endregion
 
@@ -358,8 +359,10 @@ public class FirstPersonAIO : PortalTraveller {
             advanced.highFrictionMaterial.frictionCombine = PhysicMaterialCombine.Maximum;
             advanced.highFrictionMaterial.bounceCombine = PhysicMaterialCombine.Average;
 
-            SpawnDecal(LeftFootPrefab);
-            LastFootprint = this.transform.position;
+            if(enableFootprints == true){
+                SpawnDecal(LeftFootPrefab);
+                LastFootprint = this.transform.position;
+            }
             #endregion
 
             #region Headbobbing Settings - Start
@@ -432,6 +435,13 @@ public class FirstPersonAIO : PortalTraveller {
             }
 
             if (Input.GetButtonDown("Cancel")) { ControllerPause(); }
+            if (Input.GetButtonDown("Fire1"))
+            {
+                if (controllerPauseState == true)
+                {
+                    ControllerPause();
+                }
+            }
             #endregion
             
             #region Movement Settings - Update
@@ -693,7 +703,7 @@ public class FirstPersonAIO : PortalTraveller {
             #endregion
 
             #region Network Global Settings - FixedUpdate
-            if (Vector3.Distance(LastFootprint, this.transform.position) > 0 && IsGrounded == true)
+            if (enableFootprints == true && Vector3.Distance(LastFootprint, this.transform.position) > 0 && IsGrounded == true)
             {
                 //distance since last footprint, determines
                 float DistanceSinceLastFootprint = Vector3.Distance(LastFootprint, this.transform.position);
@@ -1136,7 +1146,8 @@ public class FirstPersonAIO : PortalTraveller {
             EditorGUILayout.Space();
             t.photonView= (PhotonView)EditorGUILayout.ObjectField(new GUIContent("Photon View", "Attach the Player Photon View script here"), t.photonView, typeof(PhotonView), true);
             t.playerText= (Text)EditorGUILayout.ObjectField(new GUIContent("Player Name Text", "Attach this to the Player name text in Canvas"), t.playerText, typeof(Text), true);
-            EditorGUILayout.Space();
+            t.enableFootprints = EditorGUILayout.ToggleLeft(new GUIContent("Enable Footprints", "Use to activate the footprint spawner below the player prefab"), t.enableFootprints);
+        EditorGUILayout.Space();
 
         #endregion
 
