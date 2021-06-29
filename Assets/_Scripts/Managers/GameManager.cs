@@ -10,11 +10,11 @@ public class GameManager : MonoBehaviour
     public GameObject PlayerPrefab;
     public GameObject GameCanvas;
     public GameObject SceneCamera;
-    [SerializeField] private Transform SpawnLocation;
     
     private Transform PlayerLocation;
 
     [Header("Teleport Zones")]
+    [SerializeField] private Transform SpawnLocation;
     [SerializeField] private Transform UnderwaterLocation;
     [SerializeField] private Transform SpaceLocation;
 
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     
     private void Awake()
     {
-        //GameCanvas.SetActive(true);
+        GameCanvas.SetActive(true);
         SpawnPlayer(SpawnLocation);
     }
 
