@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
@@ -10,6 +11,8 @@ public class MenuController : MonoBehaviourPunCallbacks
     [SerializeField] private string gameVersion = "0.1";
     [SerializeField] private GameObject UsernameMenu;
     [SerializeField] private GameObject ConnectPanel;
+    [SerializeField] private GameObject MainMenu;
+    [SerializeField] private GameObject OptionsMenu;
 
     [SerializeField] private InputField UsernameInput;
     [SerializeField] private InputField CreateGameInput;
@@ -21,12 +24,12 @@ public class MenuController : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
-        PhotonNetwork.ConnectUsingSettings();
+        //PhotonNetwork.ConnectUsingSettings();
     }
 
     private void Start()
     {
-        //UsernameMenu.SetActive(true);
+        MainMenu.SetActive(true);
     }
 
     public override void OnConnectedToMaster()
@@ -70,5 +73,10 @@ public class MenuController : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         PhotonNetwork.LoadLevel("MainTest");
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("MainTest");
     }
 }
