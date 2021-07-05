@@ -297,8 +297,6 @@ GameObject:
   - component: {fileID: 3037775613650585991}
   - component: {fileID: 3102332356591074413}
   - component: {fileID: 3133527932582032817}
-  - component: {fileID: 3092204880354675073}
-  - component: {fileID: 8090395136240464944}
   - component: {fileID: 1293934107004298782}
   m_Layer: 0
   m_Name: Player
@@ -494,65 +492,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: fef61cddf814a2c49bf7a6c33791c766, type: 3}
     - {fileID: 8300000, guid: 73f938638097f8042ad7842aa5b04ac5, type: 3}
     - {fileID: 8300000, guid: e06c6ae1948cafd45a952ab85ebe4fa7, type: 3}
-  photonView: {fileID: 3092204880354675073}
   playerText: {fileID: 2444532352134877457}
   enableFootprints: 0
---- !u!114 &3092204880354675073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3093838695613766007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 0
-  ObservedComponents:
-  - {fileID: 8090395136240464944}
-  sceneViewId: 0
-  InstantiationId: -1
-  isRuntimeInstantiated: 0
---- !u!114 &8090395136240464944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3093838695613766007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8efc6b1d64977384eb3405357896c656, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PositionModel:
-    SynchronizeEnabled: 1
-    TeleportEnabled: 1
-    TeleportIfDistanceGreaterThan: 3
-    InterpolateOption: 4
-    InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 4
-    ExtrapolateOption: 0
-    ExtrapolateSpeed: 1
-    ExtrapolateIncludingRoundTripTime: 1
-    ExtrapolateNumberOfStoredPositions: 1
-  m_RotationModel:
-    SynchronizeEnabled: 1
-    InterpolateOption: 2
-    InterpolateRotateTowardsSpeed: 180
-    InterpolateLerpSpeed: 4
-  m_ScaleModel:
-    SynchronizeEnabled: 0
-    InterpolateOption: 0
-    InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 0
 --- !u!114 &1293934107004298782
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Photon.Pun;
 
 public class GameManager : MonoBehaviour
 {
@@ -42,9 +41,9 @@ public class GameManager : MonoBehaviour
     {
         //float randomValue = Random.Range(-1f, 1f);
         
-        PhotonNetwork.Instantiate(PlayerPrefab.name, new Vector3
+        GameObject.Instantiate(PlayerPrefab, new Vector3
             (tf.transform.position.x, tf.transform.position.y,
-             tf.transform.position.z), Quaternion.identity, 0);
+             tf.transform.position.z), Quaternion.identity);
 
         //GameCanvas.SetActive(false);
         //SceneCamera.SetActive(false);
