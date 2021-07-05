@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Sound
   guid: 9de240e3e7441642bebd0d0c5a43e763
-  Banks: []
+  Banks:
+  - {fileID: 257411509169868054}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -22,29 +23,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 20000
---- !u!114 &-6316696331844539063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/2DeepSea_Ambiance
-  m_EditorClassIdentifier: 
-  Path: event:/2DeepSea_Ambiance
-  guid: 5a8e8d057d357648a1f06228a9ab3ff7
-  Banks:
-  - {fileID: 5699158839600277688}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 211141
 --- !u!114 &-6302843580986774678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,7 +38,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637604799254316539
+  lastModified: 637610137360000000
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -78,37 +56,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Matt
   guid: 8f03de198f949145894688bbebbb2f14
-  Banks: []
+  Banks:
+  - {fileID: 6791924045894313459}
+  - {fileID: -6302843580986774678}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 250642
---- !u!114 &-4135707729825376856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Trial_loop
-  m_EditorClassIdentifier: 
-  Path: event:/Trial_loop
-  guid: 8f03de198f949145894688bbebbb2f14
-  Banks:
-  - {fileID: 6791924045894313459}
-  - {fileID: -6302843580986774678}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
   Length: 250642
 --- !u!114 &-2736140755348426572
 MonoBehaviour:
@@ -150,19 +106,15 @@ MonoBehaviour:
   - {fileID: -6302843580986774678}
   - {fileID: 6791924045894313459}
   - {fileID: 257411509169868054}
-  - {fileID: 5699158839600277688}
   EditorEvents:
-  - {fileID: -4135707729825376856}
-  - {fileID: 5204441893008915055}
-  - {fileID: -6316696331844539063}
-  - {fileID: 8063653560846833095}
-  - {fileID: 8947641185772520350}
+  - {fileID: -4858013519862287521}
+  - {fileID: -7118027041626830448}
   EditorParameters: []
   MasterBanks:
   - {fileID: -6302843580986774678}
   StringsBanks:
   - {fileID: 5555362266425491931}
-  stringsBankWriteTime: 637604799254336485
+  stringsBankWriteTime: 637610137360000000
   cacheVersion: 6
 --- !u!114 &257411509169868054
 MonoBehaviour:
@@ -179,33 +131,10 @@ MonoBehaviour:
   Path: FMOD/Desktop/Sound Design.bank
   Name: Sound Design
   StudioPath: bank:/Sound Design
-  lastModified: 637604799368581264
+  lastModified: 637610137360000000
   LoadResult: 0
   FileSizes: []
   Exists: 1
---- !u!114 &5204441893008915055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/DeepSea_Ambiance
-  m_EditorClassIdentifier: 
-  Path: event:/DeepSea_Ambiance
-  guid: 41be19076ef875408a1cb5402d779b9b
-  Banks:
-  - {fileID: 5699158839600277688}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 179412
 --- !u!114 &5555362266425491931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,30 +150,11 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637604799254336485
+  lastModified: 637610137360000000
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 1094
-  Exists: 1
---- !u!114 &5699158839600277688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Music_Ambiance.bank
-  m_EditorClassIdentifier: 
-  Path: FMOD/Desktop/Music_Ambiance.bank
-  Name: Music_Ambiance
-  StudioPath: bank:/Music_Ambiance
-  lastModified: 637604799360210085
-  LoadResult: 0
-  FileSizes: []
+    Value: 882
   Exists: 1
 --- !u!114 &6791924045894313459
 MonoBehaviour:
@@ -261,53 +171,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Bank A.bank
   Name: Bank A
   StudioPath: bank:/Bank A
-  lastModified: 637604799253777127
+  lastModified: 637610137360000000
   LoadResult: 0
   FileSizes: []
   Exists: 1
---- !u!114 &8063653560846833095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/sfx_footsteps
-  m_EditorClassIdentifier: 
-  Path: event:/sfx_footsteps
-  guid: 200c955df43e09438916317786ea1f76
-  Banks:
-  - {fileID: 257411509169868054}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 1000
---- !u!114 &8947641185772520350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/sfx_wave
-  m_EditorClassIdentifier: 
-  Path: event:/sfx_wave
-  guid: 9de240e3e7441642bebd0d0c5a43e763
-  Banks:
-  - {fileID: 257411509169868054}
-  IsStream: 1
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 20000

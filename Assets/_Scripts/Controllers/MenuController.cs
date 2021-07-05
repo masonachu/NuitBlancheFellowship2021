@@ -69,6 +69,6 @@ public class MenuController : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        PhotonNetwork.LoadLevel("MertBoxout2");
+        PhotonNetwork.LoadLevel("Main");
     }
 }
