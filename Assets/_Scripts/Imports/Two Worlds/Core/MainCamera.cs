@@ -22,7 +22,6 @@ public class MainCamera : MonoBehaviour {
         for (int i = 0; i < portals.Length; i++) {
             portals[i].PostPortalRender ();
         }
-
     }
 
     void OnDestroy() {
