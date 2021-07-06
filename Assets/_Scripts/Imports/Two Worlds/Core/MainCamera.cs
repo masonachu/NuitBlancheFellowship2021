@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Rendering;
 
 public class MainCamera : MonoBehaviour {
 
@@ -6,15 +7,16 @@ public class MainCamera : MonoBehaviour {
 
     void Awake () {
         portals = FindObjectsOfType<Portal> ();
+        RenderPipelineManager.beginCameraRendering += OnBeginCameraRendering;
     }
 
-    void OnPreCull () {
+    void OnBeginCameraRendering(ScriptableRenderContext context, Camera camera) {
 
         for (int i = 0; i < portals.Length; i++) {
             portals[i].PrePortalRender ();
         }
         for (int i = 0; i < portals.Length; i++) {
-            portals[i].Render ();
+            portals[i].Render (context);
         }
 
         for (int i = 0; i < portals.Length; i++) {
@@ -23,4 +25,7 @@ public class MainCamera : MonoBehaviour {
 
     }
 
+    void OnDestroy() {
+        RenderPipelineManager.beginCameraRendering -= OnBeginCameraRendering;
+    }
 }

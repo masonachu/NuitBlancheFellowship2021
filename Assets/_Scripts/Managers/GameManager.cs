@@ -22,18 +22,14 @@ public class GameManager : MonoBehaviour
     
     private void Awake() {
 
-        if (!DebugMode) {
-            GameCanvas.SetActive(true);
-        }
-
+        GameCanvas.SetActive(true);
         SpawnPlayer(SpawnLocation);
     }
 
     private void Update() {
-        if(DebugMode)
-        {
-            if(Input.GetKeyDown("q"))
-            {
+
+        if(DebugMode) {
+            if(Input.GetKeyDown("q")) {
                 TeleportPlayer(SpaceLocation);
             }
         }
@@ -51,7 +47,8 @@ public class GameManager : MonoBehaviour
     }
 
     public void TeleportPlayer(Transform tf) {
-            PlayerLocation = GameObject.FindGameObjectWithTag("Player").transform;
-            PlayerLocation.position = tf.position;
+
+        PlayerLocation = GameObject.FindGameObjectWithTag("Player").transform;
+        PlayerLocation.position = tf.position;
     }
 }
