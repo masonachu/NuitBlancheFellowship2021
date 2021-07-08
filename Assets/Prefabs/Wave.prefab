@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 1566383240203038306}
   - component: {fileID: 1566383240203038307}
   - component: {fileID: 1566383240203038319}
-  - component: {fileID: 1566383240203038318}
   - component: {fileID: 3168267959097317298}
+  - component: {fileID: 5885764743728047289}
   m_Layer: 3
   m_Name: Wave
   m_TagString: Untagged
@@ -133,23 +133,6 @@ MonoBehaviour:
   timeline: {fileID: 0}
   waveTimelineAsset: {fileID: 11400000, guid: 6d4b137b77550df44ac54887c9e895c2, type: 2}
   waveAudio: {fileID: 3168267959097317298}
---- !u!114 &1566383240203038318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1566383240203038305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 545ed303b3f3c4d449f334245fc0ac70, type: 2}
-  isGlobal: 0
-  blendDistance: 0
-  weight: 1
-  priority: 0
 --- !u!114 &3168267959097317298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,3 +156,20 @@ MonoBehaviour:
   OverrideAttenuation: 1
   OverrideMinDistance: 86
   OverrideMaxDistance: 200
+--- !u!114 &5885764743728047289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566383240203038305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 0
+  priority: 0
+  blendDistance: 0
+  weight: 0.792
+  sharedProfile: {fileID: 11400000, guid: f20cad03d94d9214fbdd7525ad4b1980, type: 2}

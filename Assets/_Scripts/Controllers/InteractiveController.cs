@@ -23,7 +23,7 @@ public class InteractiveController : MonoBehaviour
     private void Update() {
 
         if (inTrigger && isActive) {
-            canvas.transform.LookAt(Camera.main.transform.position, -Vector3.up);
+            canvas.transform.LookAt(Camera.main.transform.position, Vector3.up);
             CheckInteractable();
         }
 
@@ -32,7 +32,7 @@ public class InteractiveController : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Player") && !isActive & !inTrigger) {
 
-            canvas.transform.LookAt(Camera.main.transform.position, -Vector3.up);
+            canvas.transform.LookAt(Camera.main.transform.position, Vector3.up);
 
             image.gameObject.SetActive(true);
             inTrigger = true;
