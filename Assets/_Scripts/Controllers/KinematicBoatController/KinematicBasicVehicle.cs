@@ -27,6 +27,7 @@ namespace KinematicVehicleSystem
         public float Heading;
         public Vector3 RemotePosition;
         public float RemoteHeading;
+        public bool inputActive;
 
         public KinematicController KinematicController { get; protected set; }
 
@@ -47,8 +48,8 @@ namespace KinematicVehicleSystem
 
             KinematicController = GetComponent<KinematicController>();
 
-            FollowCamBasic cam = FindObjectOfType<FollowCamBasic>();
-            cam.SetTarget(transform);
+            //FollowCamBasic cam = FindObjectOfType<FollowCamBasic>();
+            //cam.SetTarget(transform);
         }
 
         private void Start()
@@ -167,26 +168,21 @@ namespace KinematicVehicleSystem
 
         private void UpdatePlayerInput()
         {
-            if (Vaxis > 0f)
-            {
-                Motor = Mathf.Lerp(Motor, Vaxis, MotorForwardAcceleration * Time.deltaTime);
-            }
-            else if (Vaxis < 0f)
-            {
-                Motor = Mathf.Lerp(Motor, Vaxis, MotorReverseAcceleration * Time.deltaTime);
-            }
-            else
-            {
-                Motor = Mathf.Lerp(Motor, Vaxis, MotorDeceleration * Time.deltaTime);
-            }
+            if(inputActive) {
 
-            if (Haxis == 0f)
-            {
-                Steer = Mathf.Lerp(Steer, Haxis, SteerDeceleration * Time.deltaTime);
-            }
-            else
-            {
-                Steer = Mathf.Lerp(Steer, Haxis, SteerAcceleration * Time.deltaTime);
+                if (Vaxis > 0f) {
+                    Motor = Mathf.Lerp(Motor, Vaxis, MotorForwardAcceleration * Time.deltaTime);
+                } else if (Vaxis < 0f) {
+                    Motor = Mathf.Lerp(Motor, Vaxis, MotorReverseAcceleration * Time.deltaTime);
+                } else {
+                    Motor = Mathf.Lerp(Motor, Vaxis, MotorDeceleration * Time.deltaTime);
+                }
+
+                if (Haxis == 0f) {
+                    Steer = Mathf.Lerp(Steer, Haxis, SteerDeceleration * Time.deltaTime);
+                } else {
+                    Steer = Mathf.Lerp(Steer, Haxis, SteerAcceleration * Time.deltaTime);
+                }
             }
         }
 
