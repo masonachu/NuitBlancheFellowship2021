@@ -140,7 +140,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 4280687248768657514}
+  - {fileID: 687665902555240101}
   MinDistance: 0
   MaxDistance: 0
   Length: 211141
@@ -184,8 +184,8 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -2653242416064890841}
-  - {fileID: 4244755002990948116}
+  - {fileID: -5924725133881053409}
+  - {fileID: 8277835134692209962}
   MinDistance: 0
   MaxDistance: 0
   Length: 189915
@@ -209,6 +209,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &-5924725133881053409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/DeepSea_Ambiance/Activate
+  m_EditorClassIdentifier: 
+  Name: Activate
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-5359957028806036380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,7 +309,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -7753740638924100340}
+  - {fileID: -3524542059772616505}
   MinDistance: 0
   MaxDistance: 0
   Length: 250642
@@ -308,9 +328,29 @@ MonoBehaviour:
   Path: FMOD/Desktop/Music_Ambiance.bank
   Name: Music_Ambiance
   StudioPath: bank:/Music_Ambiance
-  lastModified: 637619500980000000
+  lastModified: 637617764940000000
   LoadResult: 0
   FileSizes: []
+  Exists: 1
+--- !u!114 &-3524542059772616505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Trial_loop/Volume
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 0
+    data2: 0
   Exists: 1
 --- !u!114 &-2653242416064890841
 MonoBehaviour:
@@ -444,8 +484,28 @@ MonoBehaviour:
   - {fileID: 1594438003626916120}
   StringsBanks:
   - {fileID: 3738876912074084581}
-  stringsBankWriteTime: 637619500980000000
+  stringsBankWriteTime: 637617764940000000
   cacheVersion: 6
+--- !u!114 &687665902555240101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/2DeepSea_Ambiance/Intensity
+  m_EditorClassIdentifier: 
+  Name: Intensity
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &1594438003626916120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,7 +521,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637619500980000000
+  lastModified: 637617764940000000
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -520,7 +580,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637619500980000000
+  lastModified: 637617764940000000
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -684,7 +744,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Sound Design.bank
   Name: Sound Design
   StudioPath: bank:/Sound Design
-  lastModified: 637619500980000000
+  lastModified: 637617764940000000
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -703,9 +763,29 @@ MonoBehaviour:
   Path: FMOD/Desktop/Bank A.bank
   Name: Bank A
   StudioPath: bank:/Bank A
-  lastModified: 637619500980000000
+  lastModified: 637617764940000000
   LoadResult: 0
   FileSizes: []
+  Exists: 1
+--- !u!114 &8277835134692209962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/DeepSea_Ambiance/Volume
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 0
+    data2: 0
   Exists: 1
 --- !u!114 &8822579507731622720
 MonoBehaviour:
