@@ -394,6 +394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf1a5ad4f9ffb154ca7813fdad11017a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  graphicsObject: {fileID: 0}
   controllerPauseState: 0
   enableCameraMovement: 1
   mouseInputInversion: 0
@@ -444,6 +445,9 @@ MonoBehaviour:
     fovRef: 0
   isCrouching: 0
   fps_Rigidbody: {fileID: 0}
+  LeftFootPrefab: {fileID: 0}
+  RightFootPrefab: {fileID: 0}
+  FootprintSpacer: 15
   useHeadbob: 1
   head: {fileID: 4204582120663750}
   snapHeadjointToCapsul: 1
@@ -452,7 +456,7 @@ MonoBehaviour:
   headbobHeight: 1
   headbobSideMovement: 0.5
   jumpLandIntensity: 3
-  enableAudioSFX: 1
+  enableAudioSFX: 0
   Volume: 5
   jumpSound: {fileID: 0}
   landSound: {fileID: 0}
@@ -519,6 +523,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 73f938638097f8042ad7842aa5b04ac5, type: 3}
     - {fileID: 8300000, guid: e06c6ae1948cafd45a952ab85ebe4fa7, type: 3}
   photonView: {fileID: 1394825444}
+  playerText: {fileID: 0}
+  FootstepsEnabled: 0
 --- !u!114 &1394825444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -531,18 +537,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ownerId: 0
-  group: 0
-  OwnerShipWasTransfered: 0
-  prefixBackup: -1
-  synchronization: 0
-  onSerializeTransformOption: 3
-  onSerializeRigidBodyOption: 2
-  ownershipTransfer: 0
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  observableSearch: 0
   ObservedComponents:
   - {fileID: 0}
-  ObservedComponentsFoldoutOpen: 1
-  viewIdField: 0
-  instantiationId: -1
-  currentMasterID: -1
+  sceneViewId: 0
+  InstantiationId: -1
   isRuntimeInstantiated: 0

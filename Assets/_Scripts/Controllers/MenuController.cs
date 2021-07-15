@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Photon.Pun;
-using Photon.Realtime;
 
-public class MenuController : MonoBehaviourPunCallbacks
+public class MenuController : MonoBehaviour
 {
     [SerializeField] private string gameVersion = "0.1";
     [SerializeField] private GameObject UsernameMenu;
     [SerializeField] private GameObject ConnectPanel;
+    [SerializeField] private GameObject MainMenu;
+    [SerializeField] private GameObject OptionsMenu;
 
     [SerializeField] private InputField UsernameInput;
     [SerializeField] private InputField CreateGameInput;
@@ -21,18 +22,12 @@ public class MenuController : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
-        PhotonNetwork.ConnectUsingSettings();
+        //PhotonNetwork.ConnectUsingSettings();
     }
 
     private void Start()
     {
-        UsernameMenu.SetActive(true);
-    }
-
-    public override void OnConnectedToMaster()
-    {
-        PhotonNetwork.JoinLobby();
-        Debug.Log("Connected");
+        MainMenu.SetActive(true);
     }
 
     public void ChangeUsernameInput()
@@ -47,28 +42,8 @@ public class MenuController : MonoBehaviourPunCallbacks
         }
     }
 
-    public void SetUserName()
+    public void StartGame()
     {
-        UsernameMenu.SetActive(false);
-        PhotonNetwork.NickName = UsernameInput.text;
-    }
-
-    public void CreateGame()
-    {
-        RoomOptions roomOptions = new RoomOptions();
-        roomOptions.MaxPlayers = 16;
-        PhotonNetwork.CreateRoom(CreateGameInput.text, roomOptions, TypedLobby.Default);
-    }
-
-    public void JoinGame()
-    {
-        RoomOptions roomOptions = new RoomOptions();
-        roomOptions.MaxPlayers = 16;
-        PhotonNetwork.JoinOrCreateRoom("12345", roomOptions, TypedLobby.Default);
-    }
-
-    public override void OnJoinedRoom()
-    {
-        PhotonNetwork.LoadLevel("MertBoxout2");
+        SceneManager.LoadScene("Main");
     }
 }

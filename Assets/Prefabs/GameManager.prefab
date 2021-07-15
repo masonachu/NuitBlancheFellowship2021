@@ -345,6 +345,7 @@ Transform:
   - {fileID: 500177274}
   - {fileID: 1998242900}
   - {fileID: 823194770}
+  - {fileID: 1732344687541942760}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -363,6 +364,7 @@ MonoBehaviour:
   PlayerPrefab: {fileID: 3093838695613766007, guid: 0e8c6bdc0afa17b4983de3545af8e470, type: 3}
   GameCanvas: {fileID: 0}
   SceneCamera: {fileID: 0}
+  SpawnLocation: {fileID: 1732344687541942760}
   UnderwaterLocation: {fileID: 0}
   SpaceLocation: {fileID: 0}
   DebugMode: 1
@@ -396,3 +398,33 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!1 &3305459694624680062
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1732344687541942760}
+  m_Layer: 0
+  m_Name: SpawnLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1732344687541942760
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3305459694624680062}
+  m_LocalRotation: {x: -0, y: -0.38268533, z: 0, w: -0.9238787}
+  m_LocalPosition: {x: 197.1, y: 1.254, z: 8.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2816856880496986888}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -58,8 +58,6 @@ using UnityEngine.UI;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
-using Photon.Pun;
-using Photon.Chat;
 
 #if UNITY_EDITOR
     using UnityEditor;
@@ -259,8 +257,8 @@ public class FirstPersonAIO : PortalTraveller {
 
     #region Network Settings
 
-    public PhotonView photonView;
     public Text playerText;
+    public bool enableFootprints;
 
     #endregion
 
@@ -293,15 +291,7 @@ public class FirstPersonAIO : PortalTraveller {
 
     private void Start(){
 
-        if (photonView.IsMine)
-        {
-            #region Network Local Settings - Start
-            playerCamera.gameObject.SetActive(true);
-            playerText.text = PhotonNetwork.NickName;
-            playerText.color = Color.clear;
-            #endregion
-
-            #region Look Settings - Start
+        #region Look Settings - Start
 
             if (autoCrosshair || drawStaminaMeter)
             {
@@ -341,8 +331,8 @@ public class FirstPersonAIO : PortalTraveller {
             if (lockAndHideCursor) { Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false; }
             baseCamFOV = playerCamera.fieldOfView;
             #endregion
-
-            #region Movement Settings - Start  
+        
+        #region Movement Settings - Start  
             capsule.radius = capsule.height / 4;
             staminaInternal = staminaLevel;
             advanced.zeroFrictionMaterial = new PhysicMaterial("Zero_Friction");
@@ -356,11 +346,13 @@ public class FirstPersonAIO : PortalTraveller {
             advanced.highFrictionMaterial.frictionCombine = PhysicMaterialCombine.Maximum;
             advanced.highFrictionMaterial.bounceCombine = PhysicMaterialCombine.Average;
 
-            SpawnDecal(LeftFootPrefab);
-            LastFootprint = this.transform.position;
+            if(enableFootprints == true){
+                SpawnDecal(LeftFootPrefab);
+                LastFootprint = this.transform.position;
+            }
             #endregion
 
-            #region Headbobbing Settings - Start
+        #region Headbobbing Settings - Start
 
             originalLocalPosition = snapHeadjointToCapsul ? new Vector3(head.localPosition.x, (capsule.height / 2) * head.localScale.y, head.localPosition.z) : head.localPosition;
             if (GetComponent<AudioSource>() == null) { gameObject.AddComponent<AudioSource>(); }
@@ -368,21 +360,11 @@ public class FirstPersonAIO : PortalTraveller {
             previousPosition = fps_Rigidbody.position;
             audioSource = GetComponent<AudioSource>();
             #endregion
-        }
-        else
-        {
-            #region Network Remote Settings - Start
-            playerCamera.gameObject.SetActive(false);
-            playerText.text = photonView.Owner.NickName;
-            playerText.color = Color.white;
-            #endregion
-        }
+
     }
 
     private void Update(){
 
-        if(photonView.IsMine)
-        {
             #region Look Settings - Update
 
             if (enableCameraMovement && !controllerPauseState)
@@ -428,6 +410,13 @@ public class FirstPersonAIO : PortalTraveller {
             }
 
             if (Input.GetButtonDown("Cancel")) { ControllerPause(); }
+            if (Input.GetButtonDown("Fire1"))
+            {
+                if (controllerPauseState == true)
+                {
+                    ControllerPause();
+                }
+            }
             #endregion
             
             #region Movement Settings - Update
@@ -439,13 +428,11 @@ public class FirstPersonAIO : PortalTraveller {
             #region Headbobbing Settings - Update
 
             #endregion
-        }
+
     }
 
     private void FixedUpdate(){
 
-        if (photonView.IsMine)
-        {
             #region Look Settings - FixedUpdate
 
             #endregion
@@ -688,8 +675,8 @@ public class FirstPersonAIO : PortalTraveller {
             }
             #endregion
 
-            #region Network Global Settings - FixedUpdate
-            if (Vector3.Distance(LastFootprint, this.transform.position) > 0 && IsGrounded == true)
+            #region Footstep Printing - FixedUpdate
+            if (enableFootprints == true && Vector3.Distance(LastFootprint, this.transform.position) > 0 && IsGrounded == true)
             {
                 //distance since last footprint, determines
                 float DistanceSinceLastFootprint = Vector3.Distance(LastFootprint, this.transform.position);
@@ -697,13 +684,13 @@ public class FirstPersonAIO : PortalTraveller {
                 {
                     if (WhichFoot == enumFoot.Left)
                     {
-                        photonView.RPC("NetworkStepLeft", RpcTarget.AllViaServer);
+                        StepLeft();
                         WhichFoot = enumFoot.Right;
                     }
 
                     else if (WhichFoot == enumFoot.Right)
                     {
-                        photonView.RPC("NetworkStepRight", RpcTarget.AllViaServer);
+                        StepRight();
                         WhichFoot = enumFoot.Left;
                     }
                     LastFootprint = this.transform.position;
@@ -850,7 +837,7 @@ public class FirstPersonAIO : PortalTraveller {
                 advanced.isTouchingFlat = false;
             }
             #endregion
-        }
+
     }
 
  
@@ -908,7 +895,7 @@ public class FirstPersonAIO : PortalTraveller {
         }
     }
     
-    [PunRPC]    private void NetworkStepLeft()
+    private void StepLeft()
     {
         Vector3 from = this.transform.position;
         Vector3 to = new Vector3(this.transform.position.x, this.transform.position.y - (this.transform.localScale.y / 2.0f) + 0.1f, this.transform.position.z);
@@ -924,7 +911,7 @@ public class FirstPersonAIO : PortalTraveller {
         }
     }    
     
-    [PunRPC]    private void NetworkStepRight()
+    private void StepRight()
     {
         Vector3 from = this.transform.position;
         Vector3 to = new Vector3(this.transform.position.x, this.transform.position.y - (this.transform.localScale.y / 2.0f) + 0.1f, this.transform.position.z);
@@ -1130,9 +1117,9 @@ public class FirstPersonAIO : PortalTraveller {
         EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
             GUILayout.Label("Networking Setup", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold, fontSize = 13 }, GUILayout.ExpandWidth(true));
             EditorGUILayout.Space();
-            t.photonView= (PhotonView)EditorGUILayout.ObjectField(new GUIContent("Photon View", "Attach the Player Photon View script here"), t.photonView, typeof(PhotonView), true);
             t.playerText= (Text)EditorGUILayout.ObjectField(new GUIContent("Player Name Text", "Attach this to the Player name text in Canvas"), t.playerText, typeof(Text), true);
-            EditorGUILayout.Space();
+            t.enableFootprints = EditorGUILayout.ToggleLeft(new GUIContent("Enable Footprints", "Use to activate the footprint spawner below the player prefab"), t.enableFootprints);
+        EditorGUILayout.Space();
 
         #endregion
 

@@ -605,8 +605,8 @@ MonoBehaviour:
   SourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
-  AutomaticEventLoading: 1
-  BankLoadType: 0
+  AutomaticEventLoading: 0
+  BankLoadType: 1
   AutomaticSampleLoading: 0
   EncryptionKey: 
   ImportType: 0
@@ -628,7 +628,12 @@ MonoBehaviour:
   - Bank A
   - Music_Ambiance
   - Sound Design
-  BanksToLoad: []
+  BanksToLoad:
+  - Bank A.bank
+  - Master.bank
+  - Master.strings.bank
+  - Music_Ambiance.bank
+  - Sound Design.bank
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
   AndroidUseOBB: 0
