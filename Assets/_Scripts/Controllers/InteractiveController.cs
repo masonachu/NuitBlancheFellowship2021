@@ -7,10 +7,10 @@ public class InteractiveController : MonoBehaviour
 {
     public GameObject interactableObject;
 
-    private Canvas canvas;
-    private Image image;
+    public Canvas canvas;
+    public Image image;
 
-    [SerializeField] private bool canvasActive = false;
+    public bool canvasActive = false;
 
     public bool inTrigger = false;
     public bool isInteracted = false;
@@ -21,7 +21,7 @@ public class InteractiveController : MonoBehaviour
         image.gameObject.SetActive(false);
     }
 
-    private void Update() {
+    public virtual void Update() {
 
         if (inTrigger && canvasActive) {
             canvas.transform.LookAt(Camera.main.transform.position, Vector3.up);
@@ -29,7 +29,7 @@ public class InteractiveController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other) {
+    public virtual void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Player") && !canvasActive & !inTrigger) {
 
             canvas.transform.LookAt(Camera.main.transform.position, Vector3.up);
@@ -42,7 +42,7 @@ public class InteractiveController : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other) {
+    public virtual void OnTriggerExit(Collider other) {
         if (other.CompareTag("Player") && canvasActive && inTrigger) {
 
             image.gameObject.SetActive(false);

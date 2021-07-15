@@ -8,6 +8,7 @@ public class BoatInteractable : InteractiveController
     private bool isActive;
     private GameObject player;
     private FirstPersonAIO playerController;
+    private BoxCollider bc;
 
     public Camera playerCamera;
     public KinematicBasicVehicle vechicleSystem;
@@ -17,6 +18,16 @@ public class BoatInteractable : InteractiveController
     [Header("Teleport Zones")]
     public Transform activeLocation;
     public Transform deactiveLocation;
+
+
+    public override void Update() {
+        base.Update();
+
+        if (isActive) {
+
+            ExitBoat();
+        }
+    }
 
     public override void InteractWithObject() {
 
@@ -53,6 +64,54 @@ public class BoatInteractable : InteractiveController
 
             //Take player prefab out of parent 
             player.transform.SetParent(null);
+
+            //Revert back to player prefab controls and disable boatPlayer prefab
+            playerCamera.gameObject.SetActive(true);
+            playerController.enableCameraMovement = true;
+            playerController.controllerPauseState = false;
+
+            vechicleSystem.inputActive = false;
+            boatPlayer.SetActive(false);
+        }
+    }
+
+    public void OnChildTriggerEntered(Collider other, Vector3 childPosition) {
+
+        if (other.CompareTag("Player") && !canvasActive & !inTrigger) {
+
+            canvas.transform.LookAt(Camera.main.transform.position, Vector3.up);
+
+            image.gameObject.SetActive(true);
+            inTrigger = true;
+
+            //Sound effect here
+            canvasActive = true;
+        }
+    }
+
+    public void OnChildTriggerExit(Collider other, Vector3 childPosition) {
+
+        if (other.CompareTag("Player") && canvasActive && inTrigger) {
+
+            image.gameObject.SetActive(false);
+            inTrigger = false;
+
+            //Sound effect here
+            canvasActive = false;
+        }
+    }
+
+    private void ExitBoat() {
+
+        if(isActive && Input.GetKeyDown(KeyCode.E)) {
+
+            //Set bools to false
+            isInteracted = false;
+            isActive = false;
+
+            //Take player prefab out of parent and teleport player to Activate zone 
+            player.transform.SetParent(null);
+            player.gameObject.transform.position = activeLocation.transform.position;
 
             //Revert back to player prefab controls and disable boatPlayer prefab
             playerCamera.gameObject.SetActive(true);
