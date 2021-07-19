@@ -15,7 +15,7 @@ public class InteractiveController : MonoBehaviour
     public bool inTrigger = false;
     public bool isInteracted = false;
 
-    private void Awake() {
+    public virtual void Awake() {
         canvas = GetComponentInChildren<Canvas>();
         image = GetComponentInChildren<Image>();
         image.gameObject.SetActive(false);
