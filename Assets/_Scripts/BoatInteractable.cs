@@ -26,6 +26,10 @@ public class BoatInteractable : InteractiveController
         if (isActive) {
 
             ExitBoat();
+            image.gameObject.SetActive(false);
+        }
+        else {
+            image.gameObject.SetActive(true);
         }
     }
 
