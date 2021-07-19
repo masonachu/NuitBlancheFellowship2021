@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/StartMenu.unity
     guid: 65abf4c6ecda23041b15dd96d2cca80c
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/Main.unity
     guid: e3054848ff244e04e97305d8d2a342d2
+  - enabled: 1
+    path: Assets/_Scenes/Test_Teleport.unity
+    guid: 4bdc5b656bf72bd49a28be7445823180
   m_configObjects: {}

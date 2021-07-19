@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class Portal : MonoBehaviour {
     [Header ("Main Settings")]
@@ -71,7 +73,7 @@ public class Portal : MonoBehaviour {
 
     // Manually render the camera attached to this portal
     // Called after PrePortalRender, and before PostPortalRender
-    public void Render () {
+    public void Render (ScriptableRenderContext context) {
 
         // Skip rendering the view from this portal if player is not looking at the linked portal
         if (!CameraUtility.VisibleFromCamera (linkedPortal.screen, playerCam)) {
@@ -110,7 +112,7 @@ public class Portal : MonoBehaviour {
             portalCam.transform.SetPositionAndRotation (renderPositions[i], renderRotations[i]);
             SetNearClipPlane ();
             HandleClipping ();
-            portalCam.Render ();
+            UniversalRenderPipeline.RenderSingleCamera(context, portalCam);
 
             if (i == startIndex) {
                 linkedPortal.screen.material.SetInt ("displayMask", 1);

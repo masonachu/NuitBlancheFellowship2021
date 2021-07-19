@@ -5,20 +5,19 @@ using UnityEngine;
 public class PhoneInteractable : InteractiveController
 {
     [SerializeField] private GameObject phoneReceiver;
-    
-    private bool active;
 
     public override void InteractWithObject() {
+
         StartCoroutine(BeginCall());
     }
 
     IEnumerator BeginCall() {
 
-        if (!active) {
+        if (!isInteracted) {
 
             //Start Coroutine and disable phone receiver object.
             phoneReceiver.SetActive(false);
-            active = true;
+            isInteracted = true;
 
             //yield on a new YieldInstruction that waits for 5 seconds.
             yield return new WaitForSeconds(5);
@@ -26,7 +25,7 @@ public class PhoneInteractable : InteractiveController
             //After we have waited x seconds put phone receiver back.
             //You can swap this out with the FMOD "IsPlaying" function
             phoneReceiver.SetActive(true);
-            active = false;
+            isInteracted = false;
         }
     }
 }

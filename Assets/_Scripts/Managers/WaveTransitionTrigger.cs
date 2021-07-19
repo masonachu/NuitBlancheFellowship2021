@@ -10,22 +10,18 @@ public class WaveTransitionTrigger : TimelineManager
     [SerializeField] private PlayableAsset waveTimelineAsset;
     [SerializeField] private StudioEventEmitter waveAudio;
 
-    private void Awake()
-    {
+    private void Awake() {
         waveAudio = GetComponent<StudioEventEmitter>();
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Player"))
-        {
+    private void OnTriggerEnter(Collider other) {
+        if(other.CompareTag("Player")) {
             ChangePlayable(waveTimelineAsset);
             PlayTimeline();
         }
     }
 
-    public void PlayWaveAudio()
-    {
+    public void PlayWaveAudio() {
         waveAudio.Play();
     }
 }

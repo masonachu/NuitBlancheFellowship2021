@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     [Header("References")]
     public GameObject PlayerPrefab;
     public GameObject GameCanvas;
-    public GameObject SceneCamera;
+    //public GameObject SceneCamera;
     
     private Transform PlayerLocation;
 
@@ -20,25 +20,22 @@ public class GameManager : MonoBehaviour
     [Header("Debug Mode")]
     [SerializeField] private bool DebugMode;
     
-    private void Awake()
-    {
+    private void Awake() {
+
         GameCanvas.SetActive(true);
         SpawnPlayer(SpawnLocation);
     }
 
-    private void Update()
-    {
-        if(DebugMode)
-        {
-            if(Input.GetKeyDown("q"))
-            {
+    private void Update() {
+
+        if(DebugMode) {
+            if(Input.GetKeyDown("q")) {
                 TeleportPlayer(SpaceLocation);
             }
         }
     }
 
-    public void SpawnPlayer(Transform tf)
-    {
+    public void SpawnPlayer(Transform tf) {
         //float randomValue = Random.Range(-1f, 1f);
         
         GameObject.Instantiate(PlayerPrefab, new Vector3
@@ -49,9 +46,9 @@ public class GameManager : MonoBehaviour
         //SceneCamera.SetActive(false);
     }
 
-    public void TeleportPlayer(Transform tf)
-    {
-            PlayerLocation = GameObject.FindGameObjectWithTag("Player").transform;
-            PlayerLocation.position = tf.position;
+    public void TeleportPlayer(Transform tf) {
+
+        PlayerLocation = GameObject.FindGameObjectWithTag("Player").transform;
+        PlayerLocation.position = tf.position;
     }
 }
