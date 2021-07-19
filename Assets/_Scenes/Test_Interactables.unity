@@ -1419,29 +1419,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8490565923488267403, guid: ad0bd59d051a8cf438bd124daa1a746b, type: 3}
-      propertyPath: emit
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8490565923488267403, guid: ad0bd59d051a8cf438bd124daa1a746b, type: 3}
-      propertyPath: poem
-      value: event:/Poem/Poem_I 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8490565923488267403, guid: ad0bd59d051a8cf438bd124daa1a746b, type: 3}
-      propertyPath: poemOne
-      value: event:/Poem/Poem_I 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8490565923488267403, guid: ad0bd59d051a8cf438bd124daa1a746b, type: 3}
-      propertyPath: phonePickup
-      value: event:/sfx/sfx_PhonePickup
-      objectReference: {fileID: 0}
-    - target: {fileID: 8490565923488267403, guid: ad0bd59d051a8cf438bd124daa1a746b, type: 3}
-      propertyPath: phonePutdown
-      value: event:/sfx/sfx_PhonePutdown
-      objectReference: {fileID: 0}
-    - target: {fileID: 8490565923488267403, guid: ad0bd59d051a8cf438bd124daa1a746b, type: 3}
-      propertyPath: phoneSetdown
-      value: event:/sfx/sfx_PhonePutdown
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad0bd59d051a8cf438bd124daa1a746b, type: 3}

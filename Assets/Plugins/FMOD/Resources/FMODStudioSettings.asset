@@ -627,15 +627,11 @@ MonoBehaviour:
   Banks:
   - Ambience
   - Bank A
+  - Bank B
   - Music
   - Poem
   - Sound Design
-  BanksToLoad:
-  - Bank A.bank
-  - Master.bank
-  - Master.strings.bank
-  - Music_Ambiance.bank
-  - Sound Design.bank
+  BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
   AndroidUseOBB: 0
