@@ -1714,7 +1714,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5263175181081373017}
   m_Layer: 0
-  m_Name: Interactable Shed V2
+  m_Name: InteractableShed V2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

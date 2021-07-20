@@ -17,22 +17,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform UnderwaterLocation;
     [SerializeField] private Transform SpaceLocation;
 
-    [Header("Debug Mode")]
-    [SerializeField] private bool DebugMode;
     
     private void Awake() {
 
         GameCanvas.SetActive(true);
         //SpawnPlayer(SpawnLocation);
-    }
-
-    private void Update() {
-
-        if(DebugMode) {
-            if(Input.GetKeyDown("q")) {
-                TeleportPlayer(SpaceLocation);
-            }
-        }
     }
 
     public void SpawnPlayer(Transform tf) {
