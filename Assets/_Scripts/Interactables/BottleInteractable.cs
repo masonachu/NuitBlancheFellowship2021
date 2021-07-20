@@ -6,12 +6,14 @@ using FMODUnity;
 public class BottleInteractable : InteractiveController
 {
     [SerializeField] private GameObject cork;
+    [SerializeField] private Animator islandAnimator;
+    
+    private StudioEventEmitter emit;
 
     //References to FMOD events
     [Header("FMOD Events")]
     [EventRef] public string bottleOpen;
     [EventRef] public string poem;
-    private StudioEventEmitter emit;
 
     private bool isPlaying;
 
@@ -42,6 +44,7 @@ public class BottleInteractable : InteractiveController
 
             //yield until the emitter stops playing.
             yield return new WaitUntil(() => !emit.IsPlaying());
+            islandAnimator.SetBool("isSinking", true);
 
             //After we have waited x seconds set interacted to false.
             isInteracted = false;

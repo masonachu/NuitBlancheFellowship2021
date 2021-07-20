@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     private void Awake() {
 
         GameCanvas.SetActive(true);
-        SpawnPlayer(SpawnLocation);
+        //SpawnPlayer(SpawnLocation);
     }
 
     private void Update() {
