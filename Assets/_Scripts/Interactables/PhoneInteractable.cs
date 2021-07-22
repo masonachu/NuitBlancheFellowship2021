@@ -4,7 +4,9 @@ using UnityEngine;
 using FMODUnity;
 
 public class PhoneInteractable : InteractiveController {
+
     [SerializeField] private GameObject phoneReceiver;
+    [SerializeField] private SimpleButtonActivate portalActivator;
 
     //References to FMOD events
     [Header("FMOD Events")]
@@ -33,6 +35,9 @@ public class PhoneInteractable : InteractiveController {
             phoneReceiver.SetActive(false);
             RuntimeManager.PlayOneShot(phonePickup, transform.position);
             isInteracted = true;
+
+            //Activate the portal
+            portalActivator.ActivatePortal();
 
             //set and play poem
             emit.Event = poem;

@@ -27,11 +27,9 @@ public class BoatInteractable : InteractiveController {
             image.gameObject.SetActive(false);
 
             //Currently, does not work as it immediately calls when boat is active
-
-            if (boatPlayer.gameObject.activeSelf) {
-
-            ExitBoat();
-            }
+            //if (boatPlayer.gameObject.activeSelf) {
+            //ExitBoat();
+            //}
         }
         else {
             

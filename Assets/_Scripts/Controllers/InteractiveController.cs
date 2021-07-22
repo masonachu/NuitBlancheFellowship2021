@@ -7,13 +7,12 @@ public class InteractiveController : MonoBehaviour
 {
     public GameObject interactableObject;
 
-    public Canvas canvas;
-    public Image image;
+    [HideInInspector] public Canvas canvas;
+    [HideInInspector] public Image image;
 
-    public bool canvasActive = false;
-
-    public bool inTrigger = false;
-    public bool isInteracted = false;
+    [HideInInspector] public bool canvasActive = false;
+    [HideInInspector] public bool inTrigger = false;
+    [HideInInspector] public bool isInteracted = false;
 
     public virtual void Awake() {
         canvas = GetComponentInChildren<Canvas>();
@@ -30,6 +29,7 @@ public class InteractiveController : MonoBehaviour
     }
 
     public virtual void OnTriggerEnter(Collider other) {
+
         if (other.CompareTag("Player") && !canvasActive & !inTrigger) {
 
             canvas.transform.LookAt(Camera.main.transform.position, Vector3.up);
@@ -43,6 +43,7 @@ public class InteractiveController : MonoBehaviour
     }
 
     public virtual void OnTriggerExit(Collider other) {
+
         if (other.CompareTag("Player") && canvasActive && inTrigger) {
 
             image.gameObject.SetActive(false);
