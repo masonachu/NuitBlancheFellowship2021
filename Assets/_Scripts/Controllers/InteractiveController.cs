@@ -15,7 +15,7 @@ public class InteractiveController : MonoBehaviour
     public bool inTrigger = false;
     public bool isInteracted = false;
 
-    private void Awake() {
+    public virtual void Awake() {
         canvas = GetComponentInChildren<Canvas>();
         image = GetComponentInChildren<Image>();
         image.gameObject.SetActive(false);
@@ -57,7 +57,7 @@ public class InteractiveController : MonoBehaviour
     public virtual void CheckInteractable() {
         
         //If the mouse click is pushed down and the object is currently not interacted with ...
-        if(Input.GetMouseButtonDown(0) && !isInteracted) {
+        if(Input.GetKeyDown(KeyCode.E) && !isInteracted) {
 
             //Shoot a raycast from the mouse and get the name of the object being interacted with
             RaycastHit hit;

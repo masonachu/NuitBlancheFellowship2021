@@ -1,10 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
-public class PhoneInteractable : InteractiveController
-{
+public class PhoneInteractable : InteractiveController {
     [SerializeField] private GameObject phoneReceiver;
+
+    //References to FMOD events
+    [Header("FMOD Events")]
+    [EventRef] public string phonePickup;
+    [EventRef] public string phonePutdown;
+    [EventRef] public string poem;
+    private StudioEventEmitter emit;
+
+    public override void Awake() {
+
+        base.Awake();
+        emit = gameObject.AddComponent<StudioEventEmitter>();
+    }
+
 
     public override void InteractWithObject() {
 
@@ -17,14 +31,19 @@ public class PhoneInteractable : InteractiveController
 
             //Start Coroutine and disable phone receiver object.
             phoneReceiver.SetActive(false);
+            RuntimeManager.PlayOneShot(phonePickup, transform.position);
             isInteracted = true;
 
-            //yield on a new YieldInstruction that waits for 5 seconds.
-            yield return new WaitForSeconds(5);
+            //set and play poem
+            emit.Event = poem;
+            emit.Play();
 
-            //After we have waited x seconds put phone receiver back.
-            //You can swap this out with the FMOD "IsPlaying" function
+            //yield until the emitter stops playing.
+            yield return new WaitUntil(() => !emit.IsPlaying());
+
+            //After we audio is finished, put phone receiver back.
             phoneReceiver.SetActive(true);
+            RuntimeManager.PlayOneShot(phonePutdown, transform.position);
             isInteracted = false;
         }
     }
