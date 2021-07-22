@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Playables;
+
 
 public class GameManager : MonoBehaviour
 {
     [Header("References")]
     public GameObject PlayerPrefab;
     public GameObject GameCanvas;
+    public TimelineManager TimelineManager;
+    [SerializeField] private PlayableAsset introTimeline;
     //public GameObject SceneCamera;
-    
+
     private Transform PlayerLocation;
 
     [Header("Teleport Zones")]
@@ -21,6 +25,8 @@ public class GameManager : MonoBehaviour
     private void Awake() {
 
         GameCanvas.SetActive(true);
+        TimelineManager.ChangePlayable(introTimeline);
+        TimelineManager.PlayTimeline();
         //SpawnPlayer(SpawnLocation);
     }
 
