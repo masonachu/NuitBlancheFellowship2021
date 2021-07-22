@@ -5,6 +5,7 @@ using KinematicVehicleSystem;
 
 public class BoatInteractable : InteractiveController {
     private bool isActive;
+    private bool boatActive;
     private GameObject player;
     private FirstPersonAIO playerController;
     private BoxCollider bc;
@@ -111,11 +112,7 @@ public class BoatInteractable : InteractiveController {
 
     private void ExitBoat() {
 
-        if (isActive && Input.GetKeyDown(KeyCode.E)) {
-
-            //Set bools to false
-            isInteracted = false;
-            isActive = false;
+        if (isActive && boatActive && Input.GetKeyDown(KeyCode.E)) {
 
             //Take player prefab out of parent and teleport player to Activate zone 
             player.transform.SetParent(null);
@@ -128,6 +125,15 @@ public class BoatInteractable : InteractiveController {
 
             vechicleSystem.inputActive = false;
             boatPlayer.SetActive(false);
+
+            //Set bools to false
+            isInteracted = false;
+            isActive = false;
+            boatActive = false;
+        }
+
+        else if (isActive && !boatActive && Input.GetKeyDown(KeyCode.E)) {
+            boatActive = true;
         }
     }
 }
