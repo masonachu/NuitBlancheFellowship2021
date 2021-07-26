@@ -2305,6 +2305,18 @@ PrefabInstance:
       propertyPath: linkedPortal
       value: 
       objectReference: {fileID: 2009889645}
+    - target: {fileID: 5352766155247113813, guid: f2fa5db93b958da40928ecb8b8915e59, type: 3}
+      propertyPath: m_HDR
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5352766155247113813, guid: f2fa5db93b958da40928ecb8b8915e59, type: 3}
+      propertyPath: m_AllowMSAA
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771664415114018030, guid: f2fa5db93b958da40928ecb8b8915e59, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2fa5db93b958da40928ecb8b8915e59, type: 3}
 --- !u!1 &1124653398 stripped
@@ -4453,6 +4465,18 @@ PrefabInstance:
     - target: {fileID: 5263175181081373022, guid: f2fa5db93b958da40928ecb8b8915e59, type: 3}
       propertyPath: m_Name
       value: InteractableShed V2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5352766155247113813, guid: f2fa5db93b958da40928ecb8b8915e59, type: 3}
+      propertyPath: m_HDR
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5352766155247113813, guid: f2fa5db93b958da40928ecb8b8915e59, type: 3}
+      propertyPath: m_AllowMSAA
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771664415114018030, guid: f2fa5db93b958da40928ecb8b8915e59, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2fa5db93b958da40928ecb8b8915e59, type: 3}
