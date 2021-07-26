@@ -7,15 +7,14 @@ public class InteractiveController : MonoBehaviour
 {
     public GameObject interactableObject;
 
-    public Canvas canvas;
-    public Image image;
+    [HideInInspector] public Canvas canvas;
+    [HideInInspector] public Image image;
 
-    public bool canvasActive = false;
+    [HideInInspector] public bool canvasActive = false;
+    [HideInInspector] public bool inTrigger = false;
+    [HideInInspector] public bool isInteracted = false;
 
-    public bool inTrigger = false;
-    public bool isInteracted = false;
-
-    private void Awake() {
+    public virtual void Awake() {
         canvas = GetComponentInChildren<Canvas>();
         image = GetComponentInChildren<Image>();
         image.gameObject.SetActive(false);
@@ -30,6 +29,7 @@ public class InteractiveController : MonoBehaviour
     }
 
     public virtual void OnTriggerEnter(Collider other) {
+
         if (other.CompareTag("Player") && !canvasActive & !inTrigger) {
 
             canvas.transform.LookAt(Camera.main.transform.position, Vector3.up);
@@ -43,6 +43,7 @@ public class InteractiveController : MonoBehaviour
     }
 
     public virtual void OnTriggerExit(Collider other) {
+
         if (other.CompareTag("Player") && canvasActive && inTrigger) {
 
             image.gameObject.SetActive(false);
@@ -57,7 +58,7 @@ public class InteractiveController : MonoBehaviour
     public virtual void CheckInteractable() {
         
         //If the mouse click is pushed down and the object is currently not interacted with ...
-        if(Input.GetMouseButtonDown(0) && !isInteracted) {
+        if(Input.GetKeyDown(KeyCode.E) && !isInteracted) {
 
             //Shoot a raycast from the mouse and get the name of the object being interacted with
             RaycastHit hit;

@@ -5,6 +5,7 @@ using UnityEngine;
 public class SimpleButtonActivate : MonoBehaviour
 {
     public string button;
+    public bool DebugMode;
 
     [SerializeField] private GameObject portal;
     [SerializeField] private bool isActive = false;
@@ -16,10 +17,17 @@ public class SimpleButtonActivate : MonoBehaviour
 
     private void Update()
     {
-        ActivatePortal(button);
+        if (DebugMode) {
+
+            DebugActivatePortal(button);
+        }
+        else {
+
+
+        }
     }
 
-    private void ActivatePortal(string key)
+    private void DebugActivatePortal(string key)
     {
         if(Input.GetKeyDown(key) && !isActive)
         {
@@ -33,5 +41,16 @@ public class SimpleButtonActivate : MonoBehaviour
             isActive = false;
             Debug.Log("Portal is Not Active");
         }
+    }
+    
+    public void ActivatePortal()
+    {
+        if(!isActive) {
+
+            portal.SetActive(true);
+            isActive = true;
+            Debug.Log("Portal is Active");
+        }
+
     }
 }

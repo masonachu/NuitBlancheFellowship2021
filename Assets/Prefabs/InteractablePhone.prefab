@@ -193,7 +193,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: left click to interact
+  m_text: press E to interact
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: addc15b44a5c55f45affc0ddb05e5580, type: 2}
   m_sharedMaterial: {fileID: 4783954783876836202, guid: addc15b44a5c55f45affc0ddb05e5580, type: 2}
@@ -497,10 +497,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableObject: {fileID: 5995364930964908202}
+  canvas: {fileID: 0}
+  image: {fileID: 0}
   canvasActive: 0
   inTrigger: 0
   isInteracted: 0
   phoneReceiver: {fileID: 8778924361894140113}
+  phonePickup: event:/sfx/sfx_PhonePickup
+  phonePutdown: event:/sfx/sfx_PhonePutdown
+  poem: event:/Poem/Poem_I 1
 --- !u!1 &8778924361894140113
 GameObject:
   m_ObjectHideFlags: 0

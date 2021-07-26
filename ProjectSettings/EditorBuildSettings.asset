@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Scenes/Main.unity
     guid: e3054848ff244e04e97305d8d2a342d2
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/Test_Teleport.unity
     guid: 4bdc5b656bf72bd49a28be7445823180
+  - enabled: 1
+    path: Assets/_Scenes/Scene_Landscape.unity
+    guid: f33cf181b8091884bb6cff6a93c04090
   m_configObjects: {}
