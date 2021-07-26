@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     private Transform PlayerLocation;
 
     [Header("Teleport Zones")]
-    [SerializeField] private Transform SpawnLocation;
+    [SerializeField] private Transform StartLocation;
     [SerializeField] private Transform UnderwaterLocation;
     [SerializeField] private Transform SpaceLocation;
 
@@ -25,20 +25,17 @@ public class GameManager : MonoBehaviour
     private void Awake() {
 
         GameCanvas.SetActive(true);
+        TeleportPlayer(StartLocation);
+
         TimelineManager.ChangePlayable(introTimeline);
         TimelineManager.PlayTimeline();
-        //SpawnPlayer(SpawnLocation);
     }
 
     public void SpawnPlayer(Transform tf) {
-        //float randomValue = Random.Range(-1f, 1f);
         
         GameObject.Instantiate(PlayerPrefab, new Vector3
             (tf.transform.position.x, tf.transform.position.y,
              tf.transform.position.z), Quaternion.identity);
-
-        //GameCanvas.SetActive(false);
-        //SceneCamera.SetActive(false);
     }
 
     public void TeleportPlayer(Transform tf) {
