@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     public GameObject PlayerPrefab;
     public GameObject GameCanvas;
     public TimelineManager TimelineManager;
+
+    public bool DebugMode;
+
     [SerializeField] private PlayableAsset introTimeline;
     //public GameObject SceneCamera;
 
@@ -18,21 +21,26 @@ public class GameManager : MonoBehaviour
 
     [Header("Teleport Zones")]
     [SerializeField] private Transform StartLocation;
+    [SerializeField] private Transform WaterLocation;
+    [SerializeField] private Transform IslandLocation;
     [SerializeField] private Transform UnderwaterLocation;
     [SerializeField] private Transform SpaceLocation;
 
     
     private void Awake() {
 
-        GameCanvas.SetActive(true);
-        TeleportPlayer(StartLocation);
+        if (!DebugMode) {
 
-        TimelineManager.ChangePlayable(introTimeline);
-        TimelineManager.PlayTimeline();
+            GameCanvas.SetActive(true);
+            TeleportPlayer(StartLocation);
+
+            TimelineManager.ChangePlayable(introTimeline);
+            TimelineManager.PlayTimeline();
+        }
     }
 
     public void SpawnPlayer(Transform tf) {
-        
+
         GameObject.Instantiate(PlayerPrefab, new Vector3
             (tf.transform.position.x, tf.transform.position.y,
              tf.transform.position.z), Quaternion.identity);
@@ -41,6 +49,37 @@ public class GameManager : MonoBehaviour
     public void TeleportPlayer(Transform tf) {
 
         PlayerLocation = GameObject.FindGameObjectWithTag("Player").transform;
-        PlayerLocation.position = tf.position;
+        PlayerLocation.SetPositionAndRotation(tf.position, tf.rotation);
+    }
+
+    private void Update() {
+
+        if (DebugMode) {
+
+            DebugTeleport();
+        }
+    }
+
+    public void DebugTeleport() {
+
+        if (Input.GetKeyDown(KeyCode.Keypad1)) {
+            TeleportPlayer(StartLocation);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Keypad2)) {
+            TeleportPlayer(WaterLocation);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Keypad3)) {
+            TeleportPlayer(IslandLocation);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Keypad4)) {
+            TeleportPlayer(UnderwaterLocation);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Keypad4)) {
+            TeleportPlayer(SpaceLocation);
+        }
     }
 }

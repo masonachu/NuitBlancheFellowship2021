@@ -15,6 +15,7 @@ public class Portal : MonoBehaviour {
     public float nearClipLimit = 0.2f;
 
     // Private variables
+    public GameObject player;
     RenderTexture viewTexture;
     Camera portalCam;
     Camera playerCam;
@@ -23,12 +24,20 @@ public class Portal : MonoBehaviour {
     MeshFilter screenMeshFilter;
 
     void Awake () {
-        playerCam = Camera.main;
-        portalCam = GetComponentInChildren<Camera> ();
-        trackedTravellers = new List<PortalTraveller> ();
-        screenMeshFilter = screen.GetComponent<MeshFilter> ();
-        screen.material.SetInt ("displayMask", 1);
-        portalCam.enabled = false;
+
+        player = GameObject.FindWithTag("Player");
+
+        if (player != null) {
+
+            playerCam = player.gameObject.GetComponentInChildren<Camera>();
+            portalCam = GetComponentInChildren<Camera>();
+            trackedTravellers = new List<PortalTraveller>();
+            screenMeshFilter = screen.GetComponent<MeshFilter>();
+            screen.material.SetInt("displayMask", 1);
+            portalCam.enabled = false;
+        }
+        else
+            Debug.Log("Can't find player in Scene!");
     }
 
     void LateUpdate () {
