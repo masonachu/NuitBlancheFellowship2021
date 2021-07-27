@@ -6,44 +6,20 @@ using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
-    [SerializeField] private string gameVersion = "0.1";
-    [SerializeField] private GameObject UsernameMenu;
-    [SerializeField] private GameObject ConnectPanel;
-    [SerializeField] private GameObject MainMenu;
+    [SerializeField] private GameObject MenuCanvas;
     [SerializeField] private GameObject OptionsMenu;
+    [SerializeField] private GameObject ControlsMenu;
 
-    [SerializeField] private InputField UsernameInput;
-    [SerializeField] private InputField CreateGameInput;
-    [SerializeField] private InputField JoinGameInput;
-
-    [SerializeField] private GameObject StartButton;
+    List<AsyncOperation> scenesToLoad = new List<AsyncOperation>();
 
 
-
-    private void Awake()
-    {
-        //PhotonNetwork.ConnectUsingSettings();
+    private void Start() {
+        MenuCanvas.SetActive(true);
     }
 
-    private void Start()
-    {
-        MainMenu.SetActive(true);
-    }
 
-    public void ChangeUsernameInput()
-    {
-        if(UsernameInput.text.Length >= 3 && UsernameInput.text.Length != 0)
-        {
-            StartButton.SetActive(true);
-        }
-        else
-        {
-            StartButton.SetActive(false);
-        }
-    }
-
-    public void StartGame()
-    {
-        SceneManager.LoadScene("Main");
+    public void StartGame() {
+        scenesToLoad.Add(SceneManager.LoadSceneAsync("Main"));
+        scenesToLoad.Add(SceneManager.LoadSceneAsync("Scene_01", LoadSceneMode.Additive));
     }
 }

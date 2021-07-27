@@ -3,11 +3,21 @@ using UnityEngine.Rendering;
 
 public class MainCamera : MonoBehaviour {
 
+    GameObject player;
     Portal[] portals;
 
     void Awake () {
         portals = FindObjectsOfType<Portal> ();
-        RenderPipelineManager.beginCameraRendering += OnBeginCameraRendering;
+        player = GameObject.FindWithTag("Player");
+
+        if(player != null) {
+
+            RenderPipelineManager.beginCameraRendering += OnBeginCameraRendering;
+        }
+        else {
+
+            Debug.Log("Player not found - try resetting?");
+        }
     }
 
     void OnBeginCameraRendering(ScriptableRenderContext context, Camera camera) {
