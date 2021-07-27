@@ -22,7 +22,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 7.666666666666667
+    m_Start: 7.218938005622476
     m_ClipIn: 0
     m_Asset: {fileID: -4377262323305857018}
     m_Duration: 7.883333333333334
@@ -130,7 +130,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 8628009192539810852}
-    m_Duration: 55.3
+    m_Duration: 53.2
     m_TimeScale: 1
     m_ParentTrack: {fileID: -5822686875675712900}
     m_EaseInDuration: 0
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 0.1
+    m_Start: 0.8
     m_ClipIn: 0
     m_Asset: {fileID: -6334967749751529893}
     m_Duration: 7.666666666666667
@@ -552,10 +552,10 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 41.7
+    m_Start: 42.25
     m_ClipIn: 0
     m_Asset: {fileID: 292361941190775521}
-    m_Duration: 11.5
+    m_Duration: 9.109999656677246
     m_TimeScale: 1
     m_ParentTrack: {fileID: -917566130921877424}
     m_EaseInDuration: 0
@@ -702,7 +702,7 @@ MonoBehaviour:
       slot13: 0
       slot14: 0
       slot15: 0
-  eventLength: 11.5
+  eventLength: 9.11
   eventName: event:/Poem/Poem_I 1
   stopType: 0
   parameters: []

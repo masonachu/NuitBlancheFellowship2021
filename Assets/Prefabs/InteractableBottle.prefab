@@ -240,7 +240,8 @@ MonoBehaviour:
   canvasActive: 0
   inTrigger: 0
   isInteracted: 0
-  cork: {fileID: 7308359413758674487}
+  cork: {fileID: 452327927287104103}
+  islandAnimator: {fileID: 0}
   bottleOpen: event:/sfx/sfx_BottleOpen
   poem: event:/Poem/Poem_I 2
 --- !u!1 &3213817082896202494
@@ -449,6 +450,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Bottle '
       objectReference: {fileID: 0}
+    - target: {fileID: 7971818306010136455, guid: b90d998bca9d40b44a34ba2531aa5d2c, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057468292682085342, guid: b90d998bca9d40b44a34ba2531aa5d2c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057468292682085342, guid: b90d998bca9d40b44a34ba2531aa5d2c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057468292682085342, guid: b90d998bca9d40b44a34ba2531aa5d2c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8760407967015408042, guid: b90d998bca9d40b44a34ba2531aa5d2c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -7387706064836869012, guid: 5b0729afe0610e440bf4825ecd8c7eef, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b90d998bca9d40b44a34ba2531aa5d2c, type: 3}
 --- !u!1 &5414198830634474608 stripped
@@ -461,8 +482,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3774557789913058820, guid: b90d998bca9d40b44a34ba2531aa5d2c, type: 3}
   m_PrefabInstance: {fileID: 8361255714350319822}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &7308359413758674487 stripped
+--- !u!1 &452327927287104103 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1253592720022802169, guid: b90d998bca9d40b44a34ba2531aa5d2c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8237039874526513833, guid: b90d998bca9d40b44a34ba2531aa5d2c, type: 3}
   m_PrefabInstance: {fileID: 8361255714350319822}
   m_PrefabAsset: {fileID: 0}

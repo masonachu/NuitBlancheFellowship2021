@@ -7,6 +7,11 @@ public class TimelineManager : MonoBehaviour
 {
     [SerializeField] private PlayableDirector timeline;
 
+    private void Start() {
+
+        timeline = GameObject.FindWithTag("Timeline").GetComponent<PlayableDirector>();
+    }
+
     public void ChangePlayable(PlayableAsset newTimelineAsset)
     {
         timeline.playableAsset = newTimelineAsset;
