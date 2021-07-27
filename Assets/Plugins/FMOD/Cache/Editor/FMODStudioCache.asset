@@ -1,70 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
-<<<<<<< Updated upstream
 --- !u!114 &-9129949973409480220
-=======
---- !u!114 &-8979096694527754523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/mus_DeepSea_old/Volume
-  m_EditorClassIdentifier: 
-  Name: Volume
-  Min: 0
-  Max: 1
-  Default: 1
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 0
---- !u!114 &-8361460533968953585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/sfx_Birds/Glitch
-  m_EditorClassIdentifier: 
-  Name: Glitch
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 0
---- !u!114 &-8341215943908344886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/mus_DeepSea_old/Volume
-  m_EditorClassIdentifier: 
-  Name: Volume
-  Min: 0
-  Max: 1
-  Default: 1
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 0
---- !u!114 &-8306691869371402128
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,31 +39,7 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
-<<<<<<< Updated upstream
 --- !u!114 &-7627290354985976814
-=======
---- !u!114 &-8125414745557847965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 'parameter:/mus_Comp/Intensity '
-  m_EditorClassIdentifier: 
-  Name: 'Intensity '
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 0
---- !u!114 &-7779919521017666637
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,17 +51,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/Desktop/Music.bank
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   Path: FMOD/Desktop/Music.bank
   Name: Desktop/Music
   StudioPath: bank:/Music
   lastModified: 637625692920000000
-=======
-  Path: FMOD/Desktop/Bank A.bank
-  Name: Bank A
-  StudioPath: bank:/Bank A
-  lastModified: 637629290340000000
->>>>>>> Stashed changes
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -168,11 +73,7 @@ MonoBehaviour:
   Path: event:/sfx/sfx_PhonePickup
   guid: e67d17ff6685b54680b756f806846fda
   Banks:
-<<<<<<< Updated upstream
   - {fileID: -62121626085693583}
-=======
-  - {fileID: 3536571762244086578}
->>>>>>> Stashed changes
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -195,7 +96,6 @@ MonoBehaviour:
   Path: event:/sfx/sfx_Footsteps_wood
   guid: 6bd9a091125e9a4585f24816acb1d622
   Banks:
-<<<<<<< Updated upstream
   - {fileID: -62121626085693583}
   IsStream: 0
   Is3D: 0
@@ -205,39 +105,6 @@ MonoBehaviour:
   MaxDistance: 0
   Length: 661
 --- !u!114 &-6453165728647343433
-=======
-  - {fileID: 3536571762244086578}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: -791238951646941488}
-  - {fileID: -2419957304800238847}
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 193235
---- !u!114 &-7435066526680031137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 'parameter:/mus_DeepSea/Intensity '
-  m_EditorClassIdentifier: 
-  Name: 'Intensity '
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 0
---- !u!114 &-7114106501576504505
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -249,7 +116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/Desktop/Bank A.bank
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   Path: FMOD/Desktop/Bank A.bank
   Name: Desktop/Bank A
   StudioPath: bank:/Bank A
@@ -258,82 +124,6 @@ MonoBehaviour:
   FileSizes: []
   Exists: 1
 --- !u!114 &-6342013813909566373
-=======
-  Path: FMOD/Desktop/Poem.assets.bank
-  Name: Poem.assets
-  StudioPath: bank:/Poem.assets
-  lastModified: 637629290340000000
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
---- !u!114 &-7004831706398983253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Ambience/amb_Comp
-  m_EditorClassIdentifier: 
-  Path: event:/Ambience/amb_Comp
-  guid: 711df926d137ed4aa99a5be57bba1ed6
-  Banks:
-  - {fileID: 3536571762244086578}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 60000
---- !u!114 &-6826383735906012153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/sfx/sfx_DoorOpen
-  m_EditorClassIdentifier: 
-  Path: event:/sfx/sfx_DoorOpen
-  guid: 9f67d25129ffbe44900e805a8405c073
-  Banks:
-  - {fileID: 3536571762244086578}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 5500
---- !u!114 &-6718075933653449380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 'parameter:/mus_DeepSea/Intensity '
-  m_EditorClassIdentifier: 
-  Name: 'Intensity '
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 0
---- !u!114 &-6622347082778282393
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -348,11 +138,7 @@ MonoBehaviour:
   Path: event:/sfx/sfx_BottleOpen
   guid: 614dc9f4457d3743b5928a3e9310bb18
   Banks:
-<<<<<<< Updated upstream
   - {fileID: -62121626085693583}
-=======
-  - {fileID: 3536571762244086578}
->>>>>>> Stashed changes
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -360,31 +146,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1000
-<<<<<<< Updated upstream
 --- !u!114 &-5678315658373076448
-=======
---- !u!114 &-6406105206721357048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/mus_DeepSea_old/Activate
-  m_EditorClassIdentifier: 
-  Name: Activate
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 0
---- !u!114 &-5932657339933489447
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -396,7 +158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: parameter:/mus_DeepSea/Volume
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   Name: Volume
   Min: 0
   Max: 1
@@ -406,20 +167,6 @@ MonoBehaviour:
     data2: 0
   Exists: 0
 --- !u!114 &-5632773286380341520
-=======
-  Path: event:/Music/mus_Drone_SeaSurface
-  guid: eb0afbd2b3551349bfbdd0d6c79bcb84
-  Banks:
-  - {fileID: 3536571762244086578}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 244657
---- !u!114 &-5641067864335048215
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -434,86 +181,16 @@ MonoBehaviour:
   Path: event:/Poem/Poem_I 2
   guid: a62800df184aaa4894dbb43eb0c5a0e6
   Banks:
-<<<<<<< Updated upstream
   - {fileID: -8933473724938671389}
   - {fileID: -1221686539693466909}
   IsStream: 1
-=======
-  - {fileID: 3536571762244086578}
-  IsStream: 0
->>>>>>> Stashed changes
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-<<<<<<< Updated upstream
   Length: 12250
 --- !u!114 &-5484949757377656006
-=======
-  Length: 70500
---- !u!114 &-5603739737033209496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/mus_TrialLoop/Volume
-  m_EditorClassIdentifier: 
-  Name: Volume
-  Min: 0
-  Max: 1
-  Default: 1
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 0
---- !u!114 &-5596832171415212220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/mus_Comp/Parameter 1
-  m_EditorClassIdentifier: 
-  Name: Parameter 1
-  Min: 0
-  Max: 11
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 0
---- !u!114 &-5027272374209640578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/mus_TrialLoop/Volume
-  m_EditorClassIdentifier: 
-  Name: Volume
-  Min: 0
-  Max: 1
-  Default: 1
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 0
---- !u!114 &-4911412443515097704
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -530,57 +207,10 @@ MonoBehaviour:
   Max: 2
   Default: 0
   ID:
-<<<<<<< Updated upstream
     data1: 0
     data2: 0
   Exists: 1
 --- !u!114 &-4922287470556740238
-=======
-    data1: 1100541435
-    data2: 252280373
-  Exists: 0
---- !u!114 &-4898940321569991267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/SetAmbience
-  m_EditorClassIdentifier: 
-  Name: SetAmbience
-  Min: 0
-  Max: 4
-  Default: 0
-  ID:
-    data1: 1100541435
-    data2: 252280373
-  Exists: 0
---- !u!114 &-4602066374049275402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/sfx_Birds/Glitch
-  m_EditorClassIdentifier: 
-  Name: Glitch
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 0
---- !u!114 &-4276187930514166456
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -595,14 +225,9 @@ MonoBehaviour:
   Path: event:/Poem/Poem_I 5
   guid: 9321d6252e7ca44f8f848c60ff7864b5
   Banks:
-<<<<<<< Updated upstream
   - {fileID: -8933473724938671389}
   - {fileID: -1221686539693466909}
   IsStream: 1
-=======
-  - {fileID: 3536571762244086578}
-  IsStream: 0
->>>>>>> Stashed changes
   Is3D: 0
   IsOneShot: 1
   Parameters: []
@@ -621,7 +246,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: parameter:/mus_TrialLoop/Volume
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   Name: Volume
   Min: 0
   Max: 1
@@ -631,20 +255,6 @@ MonoBehaviour:
     data2: 0
   Exists: 1
 --- !u!114 &-4776560586519591393
-=======
-  Path: event:/sfx/sfx_PhonePickup
-  guid: e67d17ff6685b54680b756f806846fda
-  Banks:
-  - {fileID: 3536571762244086578}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 600
---- !u!114 &-4046991522319723317
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -656,7 +266,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/Desktop/Master.strings.bank
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   Path: FMOD/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
@@ -667,20 +276,6 @@ MonoBehaviour:
     Value: 2508
   Exists: 1
 --- !u!114 &-4772847711228758162
-=======
-  Path: event:/sfx/sfx_Ui
-  guid: 06b269e635362444ad1092f4a7321a41
-  Banks:
-  - {fileID: 3536571762244086578}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 30000
---- !u!114 &-3937701125648851041
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -695,26 +290,15 @@ MonoBehaviour:
   Path: event:/sfx/sfx_PhonePutdown
   guid: e8882d2aa28c4f47a80cd512ea16c6f0
   Banks:
-<<<<<<< Updated upstream
   - {fileID: -62121626085693583}
-=======
-  - {fileID: 3536571762244086578}
->>>>>>> Stashed changes
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []
-<<<<<<< Updated upstream
   MinDistance: 1
   MaxDistance: 20
   Length: 750
 --- !u!114 &-4341548720652479788
-=======
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 246674
---- !u!114 &-3889996322662126849
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -723,44 +307,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< Updated upstream
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: event:/Music/mus_DeepSea
-=======
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 'parameter:/mus_DeepSea/Intensity '
-  m_EditorClassIdentifier: 
-  Name: 'Intensity '
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 0
---- !u!114 &-3512521202641457914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/sfx/sfx_MoonCampfire-Loop
->>>>>>> Stashed changes
   m_EditorClassIdentifier: 
   Path: event:/Music/mus_DeepSea
   guid: 41be19076ef875408a1cb5402d779b9b
   Banks:
-<<<<<<< Updated upstream
   - {fileID: -7627290354985976814}
   IsStream: 1
-=======
-  - {fileID: 3536571762244086578}
-  IsStream: 0
->>>>>>> Stashed changes
   Is3D: 0
   IsOneShot: 0
   Parameters:
@@ -768,53 +322,8 @@ MonoBehaviour:
   - {fileID: 4298709845065695136}
   MinDistance: 0
   MaxDistance: 0
-<<<<<<< Updated upstream
   Length: 189915
 --- !u!114 &-3824247388099606011
-=======
-  Length: 80000
---- !u!114 &-3512419744465763372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/SetAmbience
-  m_EditorClassIdentifier: 
-  Name: SetAmbience
-  Min: 0
-  Max: 4
-  Default: 0
-  ID:
-    data1: 1100541435
-    data2: 252280373
-  Exists: 0
---- !u!114 &-2992573860998048127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/mus_TrialLoop/Volume
-  m_EditorClassIdentifier: 
-  Name: Volume
-  Min: 0
-  Max: 1
-  Default: 1
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 0
---- !u!114 &-2990919094543423130
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -869,11 +378,7 @@ MonoBehaviour:
   Path: event:/sfx/sfx_Footsteps_Grass
   guid: 200c955df43e09438916317786ea1f76
   Banks:
-<<<<<<< Updated upstream
   - {fileID: -62121626085693583}
-=======
-  - {fileID: 3536571762244086578}
->>>>>>> Stashed changes
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -893,44 +398,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: parameter:/mus_DeepSea2/Intensity
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   Name: Intensity
   Min: 0
   Max: 2
-=======
-  Path: FMOD/Desktop/Music.bank
-  Name: Music
-  StudioPath: bank:/Music
-  lastModified: 637629290340000000
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
---- !u!114 &-2776607812309018877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/mus_DeepSea_old/Activate
-  m_EditorClassIdentifier: 
-  Name: Activate
-  Min: 0
-  Max: 1
->>>>>>> Stashed changes
   Default: 0
   ID:
     data1: 0
     data2: 0
   Exists: 0
-<<<<<<< Updated upstream
 --- !u!114 &-2923255050354929429
-=======
---- !u!114 &-2486368945177867573
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -945,45 +421,15 @@ MonoBehaviour:
   Path: event:/Music/mus_MoonJourney
   guid: 4532ebf57901b043a1a1ec8c13ce70ba
   Banks:
-<<<<<<< Updated upstream
   - {fileID: -7627290354985976814}
   IsStream: 1
-=======
-  - {fileID: 3536571762244086578}
-  IsStream: 0
->>>>>>> Stashed changes
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-<<<<<<< Updated upstream
   Length: 72500
 --- !u!114 &-2872883724735628243
-=======
-  Length: 750
---- !u!114 &-2419957304800238847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/mus_Comp/Parameter 1
-  m_EditorClassIdentifier: 
-  Name: Parameter 1
-  Min: 0
-  Max: 11
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 1
---- !u!114 &-2138626845001088711
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -995,7 +441,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: event:/Poem/Poem_I 1
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   Path: event:/Poem/Poem_I 1
   guid: c60662fbf01d4b44b5b054b2b1e41b05
   Banks:
@@ -1009,16 +454,6 @@ MonoBehaviour:
   MaxDistance: 0
   Length: 11500
 --- !u!114 &-2792605550435169929
-=======
-  Path: FMOD/Desktop/Bank B.bank
-  Name: Bank B
-  StudioPath: bank:/Bank B
-  lastModified: 637629290340000000
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
---- !u!114 &-1973148152821938611
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1033,45 +468,16 @@ MonoBehaviour:
   Path: event:/Poem/Poem_I 4
   guid: b22f5d2a1d06d543819bd58c1347d5ce
   Banks:
-<<<<<<< Updated upstream
   - {fileID: -8933473724938671389}
   - {fileID: -1221686539693466909}
-=======
-  - {fileID: 3536571762244086578}
->>>>>>> Stashed changes
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-<<<<<<< Updated upstream
   Length: 9500
 --- !u!114 &-2494802287428771771
-=======
-  Length: 14000
---- !u!114 &-1914381829445584983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 'parameter:/mus_Comp/Intensity '
-  m_EditorClassIdentifier: 
-  Name: 'Intensity '
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 0
---- !u!114 &-1626244823400605752
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1086,13 +492,8 @@ MonoBehaviour:
   Path: event:/Music/mus_Drone_SeaSurface
   guid: eb0afbd2b3551349bfbdd0d6c79bcb84
   Banks:
-<<<<<<< Updated upstream
   - {fileID: -7627290354985976814}
   IsStream: 1
-=======
-  - {fileID: 3536571762244086578}
-  IsStream: 0
->>>>>>> Stashed changes
   Is3D: 0
   IsOneShot: 0
   Parameters: []
@@ -1137,11 +538,7 @@ MonoBehaviour:
   Path: event:/sfx/sfx_Footsteps_Moon
   guid: 0b3327bbf53acb438e8aaf32a23e331e
   Banks:
-<<<<<<< Updated upstream
   - {fileID: -62121626085693583}
-=======
-  - {fileID: 3536571762244086578}
->>>>>>> Stashed changes
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1149,51 +546,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 531
-<<<<<<< Updated upstream
 --- !u!114 &-1773522301560580962
-=======
---- !u!114 &-880220252302689627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/SetAmbience
-  m_EditorClassIdentifier: 
-  Name: SetAmbience
-  Min: 0
-  Max: 4
-  Default: 0
-  ID:
-    data1: 1100541435
-    data2: 252280373
-  Exists: 0
---- !u!114 &-791238951646941488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 'parameter:/mus_Comp/Intensity '
-  m_EditorClassIdentifier: 
-  Name: 'Intensity '
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 1
---- !u!114 &-642003740578253310
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1228,14 +581,9 @@ MonoBehaviour:
   Path: event:/Poem/Poem_I 3
   guid: c408e2cf7122a742974b242f4b183e0b
   Banks:
-<<<<<<< Updated upstream
   - {fileID: -8933473724938671389}
   - {fileID: -1221686539693466909}
   IsStream: 1
-=======
-  - {fileID: 3536571762244086578}
-  IsStream: 0
->>>>>>> Stashed changes
   Is3D: 0
   IsOneShot: 1
   Parameters: []
@@ -1254,7 +602,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: event:/Music/mus_CreditsTheme
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   Path: event:/Music/mus_CreditsTheme
   guid: 68bfd54357557f418157ef71be6e0069
   Banks:
@@ -1267,63 +614,6 @@ MonoBehaviour:
   MaxDistance: 20
   Length: 246558
 --- !u!114 &-1365792185844102062
-=======
-  EditorBanks:
-  - {fileID: 883589483281547827}
-  - {fileID: 8402512340482555257}
-  - {fileID: 3142691454854666447}
-  - {fileID: -7779919521017666637}
-  - {fileID: 6966257618416050766}
-  - {fileID: -2138626845001088711}
-  - {fileID: 701545147696831683}
-  - {fileID: 3536571762244086578}
-  - {fileID: 8265674188552041996}
-  - {fileID: -2888610807175528244}
-  - {fileID: 549662396027749743}
-  - {fileID: 7270393175235600294}
-  - {fileID: -7114106501576504505}
-  - {fileID: 2082933055011329828}
-  - {fileID: 6757535304276716943}
-  EditorEvents:
-  - {fileID: -7004831706398983253}
-  - {fileID: -3512521202641457914}
-  - {fileID: -1973148152821938611}
-  - {fileID: 7203440650702890980}
-  - {fileID: -78664933059429441}
-  - {fileID: 9160996751530132877}
-  - {fileID: -1626244823400605752}
-  - {fileID: 5137809207330641735}
-  - {fileID: -7551603667724499509}
-  - {fileID: -4276187930514166456}
-  - {fileID: -3937701125648851041}
-  - {fileID: 2539142479043405828}
-  - {fileID: -5641067864335048215}
-  - {fileID: -7504583353766289191}
-  - {fileID: 1225926982135665275}
-  - {fileID: 5074149088080919167}
-  - {fileID: 1906933798526485775}
-  - {fileID: 9093083231669878623}
-  - {fileID: -5932657339933489447}
-  - {fileID: 8442795658603001014}
-  - {fileID: -4046991522319723317}
-  - {fileID: -1032140087369129088}
-  - {fileID: 1146573027961726393}
-  - {fileID: -6622347082778282393}
-  - {fileID: 2181108813745786506}
-  - {fileID: 3796806223553885908}
-  - {fileID: -6826383735906012153}
-  - {fileID: -2949395297002854427}
-  - {fileID: -4095667082825659074}
-  - {fileID: -2486368945177867573}
-  EditorParameters: []
-  MasterBanks:
-  - {fileID: 3536571762244086578}
-  StringsBanks:
-  - {fileID: 883589483281547827}
-  stringsBankWriteTime: 637629290340000000
-  cacheVersion: 6
---- !u!114 &549662396027749743
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1335,7 +625,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: event:/Unused/Poem_You
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   Path: event:/Unused/Poem_You
   guid: 5583eaebc79f964aaec64b845ef1b4ed
   Banks:
@@ -1348,16 +637,6 @@ MonoBehaviour:
   MaxDistance: 20
   Length: 68392
 --- !u!114 &-1221686539693466909
-=======
-  Path: FMOD/Desktop/Music.assets.bank
-  Name: Music.assets
-  StudioPath: bank:/Music.assets
-  lastModified: 637629290340000000
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
---- !u!114 &701545147696831683
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1369,17 +648,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/Desktop/Poem.bank
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   Path: FMOD/Desktop/Poem.bank
   Name: Desktop/Poem
   StudioPath: bank:/Poem
   lastModified: 637625692920000000
-=======
-  Path: FMOD/Desktop/Bank B.assets.bank
-  Name: Bank B.assets
-  StudioPath: bank:/Bank B.assets
-  lastModified: 637629290340000000
->>>>>>> Stashed changes
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -1395,7 +667,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: parameter:/mus_Shed/Intensity
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   Name: Intensity
   Min: 0
   Max: 2
@@ -1403,16 +674,6 @@ MonoBehaviour:
   ID:
     data1: 0
     data2: 0
-=======
-  Path: FMOD/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 637629290340000000
-  LoadResult: 0
-  FileSizes:
-  - Name: 
-    Value: 2920
->>>>>>> Stashed changes
   Exists: 1
 --- !u!114 &-457284926792772939
 MonoBehaviour:
@@ -1458,51 +719,7 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
-<<<<<<< Updated upstream
 --- !u!114 &-62121626085693583
-=======
---- !u!114 &1007492396850004710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/sfx_Birds/Glitch
-  m_EditorClassIdentifier: 
-  Name: Glitch
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 0
---- !u!114 &1126124833412424160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/mus_TrialLoop/Volume
-  m_EditorClassIdentifier: 
-  Name: Volume
-  Min: 0
-  Max: 1
-  Default: 1
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 0
---- !u!114 &1146573027961726393
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1514,7 +731,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/Desktop/Sound Design.bank
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   Path: FMOD/Desktop/Sound Design.bank
   Name: Desktop/Sound Design
   StudioPath: bank:/Sound Design
@@ -1523,21 +739,6 @@ MonoBehaviour:
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
-=======
-  Path: event:/sfx/sfx_Birds
-  guid: 5560cba99f2a994baf3542568f2d044b
-  Banks:
-  - {fileID: 3536571762244086578}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 7720478653248241059}
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 30046
---- !u!114 &1225926982135665275
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1549,7 +750,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   EditorBanks:
   - {fileID: -4776560586519591393}
   - {fileID: -6453165728647343433}
@@ -1598,21 +798,6 @@ MonoBehaviour:
   stringsBankWriteTime: 637625692920000000
   cacheVersion: 6
 --- !u!114 &278328446655950521
-=======
-  Path: event:/Music/mus_DeepSea
-  guid: 5a8e8d057d357648a1f06228a9ab3ff7
-  Banks:
-  - {fileID: 3536571762244086578}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 4137544891647231924}
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 193235
---- !u!114 &1906933798526485775
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1627,21 +812,12 @@ MonoBehaviour:
   Path: event:/Music/mus_Shed
   guid: 29fdf063d057174e95780aea95c295cc
   Banks:
-<<<<<<< Updated upstream
   - {fileID: -7627290354985976814}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
   - {fileID: -602930582452525540}
-=======
-  - {fileID: 3536571762244086578}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 5587115514549588805}
->>>>>>> Stashed changes
   MinDistance: 0
   MaxDistance: 0
   Length: 246674
@@ -1657,7 +833,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: event:/sfx/sfx_Wave
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   Path: event:/sfx/sfx_Wave
   guid: 9de240e3e7441642bebd0d0c5a43e763
   Banks:
@@ -1670,16 +845,6 @@ MonoBehaviour:
   MaxDistance: 20
   Length: 19000
 --- !u!114 &785411743281624434
-=======
-  Path: FMOD/Desktop/Sound Design.bank
-  Name: Sound Design
-  StudioPath: bank:/Sound Design
-  lastModified: 637629290340000000
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
---- !u!114 &2181108813745786506
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1691,48 +856,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: parameter:/mus_DeepSea/Activate
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   Name: Activate
   Min: 0
   Max: 1
-=======
-  Path: event:/sfx/sfx_Footsteps_wood
-  guid: 6bd9a091125e9a4585f24816acb1d622
-  Banks:
-  - {fileID: 3536571762244086578}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 661
---- !u!114 &2471650877739314890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/sfx_Birds/Glitch
-  m_EditorClassIdentifier: 
-  Name: Glitch
-  Min: 0
-  Max: 2
->>>>>>> Stashed changes
   Default: 0
   ID:
     data1: 0
     data2: 0
   Exists: 0
-<<<<<<< Updated upstream
 --- !u!114 &823009637855086875
-=======
---- !u!114 &2539142479043405828
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1747,22 +879,12 @@ MonoBehaviour:
   Path: event:/sfx/sfx_Birds
   guid: 5560cba99f2a994baf3542568f2d044b
   Banks:
-<<<<<<< Updated upstream
   - {fileID: -62121626085693583}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
   - {fileID: -1773522301560580962}
-=======
-  - {fileID: 3536571762244086578}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 3624238307072115408}
-  - {fileID: 7533059810964328690}
->>>>>>> Stashed changes
   MinDistance: 0
   MaxDistance: 0
   Length: 30046
@@ -1778,7 +900,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: event:/sfx/sfx_DoorOpen
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   Path: event:/sfx/sfx_DoorOpen
   guid: 9f67d25129ffbe44900e805a8405c073
   Banks:
@@ -1791,37 +912,6 @@ MonoBehaviour:
   MaxDistance: 20
   Length: 5500
 --- !u!114 &959602538163608329
-=======
-  Name: Volume
-  Min: 0
-  Max: 1
-  Default: 1
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 1
---- !u!114 &2637780079123365594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/mus_DeepSea_old/Activate
-  m_EditorClassIdentifier: 
-  Name: Activate
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 0
---- !u!114 &3142691454854666447
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1833,7 +923,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: event:/Ambience/amb_Comp
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   Path: event:/Ambience/amb_Comp
   guid: 711df926d137ed4aa99a5be57bba1ed6
   Banks:
@@ -1847,16 +936,6 @@ MonoBehaviour:
   MaxDistance: 0
   Length: 60000
 --- !u!114 &2466901657867710556
-=======
-  Path: FMOD/Desktop/Ambience.assets.bank
-  Name: Ambience.assets
-  StudioPath: bank:/Ambience.assets
-  lastModified: 637629290340000000
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
---- !u!114 &3536571762244086578
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1868,45 +947,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: parameter:/mus_Shed/Intensity
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   Name: Intensity
   Min: 0
   Max: 2
-=======
-  Path: FMOD/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 637629290340000000
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
---- !u!114 &3624238307072115408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/mus_DeepSea_old/Activate
-  m_EditorClassIdentifier: 
-  Name: Activate
-  Min: 0
-  Max: 1
->>>>>>> Stashed changes
   Default: 0
   ID:
     data1: 0
     data2: 0
-<<<<<<< Updated upstream
   Exists: 0
 --- !u!114 &3590699006260673854
-=======
-  Exists: 1
---- !u!114 &3796806223553885908
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1921,7 +970,6 @@ MonoBehaviour:
   Path: event:/Ambience/amb_Shed
   guid: f7e0177ae8d3dc46a67eb65324ebc09c
   Banks:
-<<<<<<< Updated upstream
   - {fileID: -8933473724938671389}
   - {fileID: 6866099902786078032}
   IsStream: 1
@@ -1932,117 +980,6 @@ MonoBehaviour:
   MaxDistance: 0
   Length: 130000
 --- !u!114 &3673683764406900445
-=======
-  - {fileID: 3536571762244086578}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 19000
---- !u!114 &4137544891647231924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 'parameter:/mus_DeepSea/Intensity '
-  m_EditorClassIdentifier: 
-  Name: 'Intensity '
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 1
---- !u!114 &4332528444789678007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/mus_DeepSea_old/Volume
-  m_EditorClassIdentifier: 
-  Name: Volume
-  Min: 0
-  Max: 1
-  Default: 1
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 0
---- !u!114 &4561525932702851038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/mus_Comp/Parameter 1
-  m_EditorClassIdentifier: 
-  Name: Parameter 1
-  Min: 0
-  Max: 11
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 0
---- !u!114 &4630192675773705828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/SetAmbience
-  m_EditorClassIdentifier: 
-  Name: SetAmbience
-  Min: 0
-  Max: 4
-  Default: 0
-  ID:
-    data1: 1100541435
-    data2: 252280373
-  Exists: 0
---- !u!114 &4630321194363193812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 'parameter:/mus_DeepSea/Intensity '
-  m_EditorClassIdentifier: 
-  Name: 'Intensity '
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 0
---- !u!114 &5074149088080919167
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2057,13 +994,8 @@ MonoBehaviour:
   Path: event:/Music/mus_IntroTheme
   guid: be9d55c35e75234c84d6fea6520f8ad7
   Banks:
-<<<<<<< Updated upstream
   - {fileID: -7627290354985976814}
   IsStream: 1
-=======
-  - {fileID: 3536571762244086578}
-  IsStream: 0
->>>>>>> Stashed changes
   Is3D: 0
   IsOneShot: 1
   Parameters: []
@@ -2085,105 +1017,16 @@ MonoBehaviour:
   Path: event:/Ambience/amb_SeaSurface
   guid: ee43e7183dd0634399af2d3bedf7a8d4
   Banks:
-<<<<<<< Updated upstream
   - {fileID: -8933473724938671389}
   - {fileID: 6866099902786078032}
   IsStream: 1
-=======
-  - {fileID: 3536571762244086578}
-  IsStream: 0
->>>>>>> Stashed changes
   Is3D: 0
   IsOneShot: 0
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
   Length: 78000
-<<<<<<< Updated upstream
 --- !u!114 &4298709845065695136
-=======
---- !u!114 &5587115514549588805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/mus_TrialLoop/Volume
-  m_EditorClassIdentifier: 
-  Name: Volume
-  Min: 0
-  Max: 1
-  Default: 1
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 1
---- !u!114 &5596334003765229240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 'parameter:/mus_Comp/Intensity '
-  m_EditorClassIdentifier: 
-  Name: 'Intensity '
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 0
---- !u!114 &6165470800913924015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/mus_DeepSea_old/Activate
-  m_EditorClassIdentifier: 
-  Name: Activate
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 0
---- !u!114 &6414896374940653728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/SetAmbience
-  m_EditorClassIdentifier: 
-  Name: SetAmbience
-  Min: 0
-  Max: 4
-  Default: 0
-  ID:
-    data1: 1100541435
-    data2: 252280373
-  Exists: 1
---- !u!114 &6757535304276716943
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2195,7 +1038,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: parameter:/mus_DeepSea/Volume
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   Name: Volume
   Min: 0
   Max: 1
@@ -2203,14 +1045,6 @@ MonoBehaviour:
   ID:
     data1: 0
     data2: 0
-=======
-  Path: FMOD/Desktop/Sound Design.assets.bank
-  Name: Sound Design.assets
-  StudioPath: bank:/Sound Design.assets
-  lastModified: 637629290340000000
-  LoadResult: 0
-  FileSizes: []
->>>>>>> Stashed changes
   Exists: 1
 --- !u!114 &4448453527051314737
 MonoBehaviour:
@@ -2224,7 +1058,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: parameter:/mus_Comp/Intensity
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   Name: Intensity
   Min: 0
   Max: 2
@@ -2234,16 +1067,6 @@ MonoBehaviour:
     data2: 0
   Exists: 0
 --- !u!114 &4654830300958899056
-=======
-  Path: FMOD/Desktop/Bank A.assets.bank
-  Name: Bank A.assets
-  StudioPath: bank:/Bank A.assets
-  lastModified: 637629290340000000
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
---- !u!114 &7203440650702890980
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2255,7 +1078,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: parameter:/SetAmbience
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   Name: SetAmbience
   Min: 0
   Max: 4
@@ -2265,20 +1087,6 @@ MonoBehaviour:
     data2: 252280373
   Exists: 1
 --- !u!114 &6304956433148641471
-=======
-  Path: event:/Poem/Poem_I 2
-  guid: a62800df184aaa4894dbb43eb0c5a0e6
-  Banks:
-  - {fileID: 3536571762244086578}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 12250
---- !u!114 &7270393175235600294
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2290,7 +1098,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: parameter:/mus_DeepSea2/Intensity
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   Name: Intensity
   Min: 0
   Max: 2
@@ -2300,76 +1107,6 @@ MonoBehaviour:
     data2: 0
   Exists: 1
 --- !u!114 &6815172680677080140
-=======
-  Path: FMOD/Desktop/Poem.bank
-  Name: Poem
-  StudioPath: bank:/Poem
-  lastModified: 637629290340000000
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
---- !u!114 &7521411299698526965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 'parameter:/mus_Comp/Intensity '
-  m_EditorClassIdentifier: 
-  Name: 'Intensity '
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 0
---- !u!114 &7533059810964328690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/mus_DeepSea_old/Volume
-  m_EditorClassIdentifier: 
-  Name: Volume
-  Min: 0
-  Max: 1
-  Default: 1
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 1
---- !u!114 &7720478653248241059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/sfx_Birds/Glitch
-  m_EditorClassIdentifier: 
-  Name: Glitch
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 1
---- !u!114 &8265674188552041996
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2381,7 +1118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: event:/sfx/sfx_PhoneRing
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   Path: event:/sfx/sfx_PhoneRing
   guid: b0ff1b79e4afbd41a201247d4f4c1f81
   Banks:
@@ -2394,16 +1130,6 @@ MonoBehaviour:
   MaxDistance: 20
   Length: 9500
 --- !u!114 &6866099902786078032
-=======
-  Path: FMOD/Desktop/Master.assets.bank
-  Name: Master.assets
-  StudioPath: bank:/Master.assets
-  lastModified: 637629290340000000
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
---- !u!114 &8402512340482555257
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2415,17 +1141,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/Desktop/Bank B.bank
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   Path: FMOD/Desktop/Bank B.bank
   Name: Desktop/Bank B
   StudioPath: bank:/Bank B
   lastModified: 637625692920000000
-=======
-  Path: FMOD/Desktop/Ambience.bank
-  Name: Ambience
-  StudioPath: bank:/Ambience
-  lastModified: 637629290340000000
->>>>>>> Stashed changes
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -2452,73 +1171,8 @@ MonoBehaviour:
   - {fileID: -5484949757377656006}
   MinDistance: 1
   MaxDistance: 20
-<<<<<<< Updated upstream
   Length: 193235
 --- !u!114 &7197318453566887684
-=======
-  Length: 68392
---- !u!114 &8610501018655556052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/mus_Comp/Parameter 1
-  m_EditorClassIdentifier: 
-  Name: Parameter 1
-  Min: 0
-  Max: 11
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 0
---- !u!114 &8865580141408484553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/mus_Comp/Parameter 1
-  m_EditorClassIdentifier: 
-  Name: Parameter 1
-  Min: 0
-  Max: 11
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 0
---- !u!114 &8997954810973177333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/mus_DeepSea_old/Volume
-  m_EditorClassIdentifier: 
-  Name: Volume
-  Min: 0
-  Max: 1
-  Default: 1
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 0
---- !u!114 &9093083231669878623
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2533,13 +1187,8 @@ MonoBehaviour:
   Path: event:/Music/mus_DeepSea2
   guid: 5a8e8d057d357648a1f06228a9ab3ff7
   Banks:
-<<<<<<< Updated upstream
   - {fileID: -7627290354985976814}
   IsStream: 1
-=======
-  - {fileID: 3536571762244086578}
-  IsStream: 0
->>>>>>> Stashed changes
   Is3D: 0
   IsOneShot: 0
   Parameters:
@@ -2581,15 +1230,9 @@ MonoBehaviour:
   Path: event:/sfx/sfx_Ui
   guid: 06b269e635362444ad1092f4a7321a41
   Banks:
-<<<<<<< Updated upstream
   - {fileID: -62121626085693583}
   IsStream: 1
   Is3D: 1
-=======
-  - {fileID: 3536571762244086578}
-  IsStream: 0
-  Is3D: 0
->>>>>>> Stashed changes
   IsOneShot: 1
   Parameters: []
   MinDistance: 1

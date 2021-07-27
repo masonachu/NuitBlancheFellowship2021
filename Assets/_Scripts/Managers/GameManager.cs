@@ -7,18 +7,10 @@ using UnityEngine.Playables;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("Debug Mode")]
-    public bool DebugMode;
-
     [Header("References")]
     public GameObject PlayerPrefab;
     public GameObject GameCanvas;
     public TimelineManager TimelineManager;
-<<<<<<< Updated upstream
-=======
-
-    [Header("Timeline")]
->>>>>>> Stashed changes
     [SerializeField] private PlayableAsset introTimeline;
     //public GameObject SceneCamera;
 
