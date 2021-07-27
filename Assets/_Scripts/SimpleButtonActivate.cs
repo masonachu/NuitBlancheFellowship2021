@@ -7,12 +7,14 @@ public class SimpleButtonActivate : MonoBehaviour
     public string button;
     public bool DebugMode;
 
-    [SerializeField] private GameObject portal;
+    [SerializeField] private GameObject portal1;
+    [SerializeField] private GameObject portal2;
     [SerializeField] private bool isActive = false;
 
     private void Start()
     {
-        portal.SetActive(false);
+        portal1.SetActive(false);
+        portal2.SetActive(false);
     }
 
     private void Update()
@@ -21,23 +23,23 @@ public class SimpleButtonActivate : MonoBehaviour
 
             DebugActivatePortal(button);
         }
-        else {
-
-
-        }
     }
 
     private void DebugActivatePortal(string key)
     {
         if(Input.GetKeyDown(key) && !isActive)
         {
-            portal.SetActive(true);
+            portal1.SetActive(true);
+            portal2.SetActive(true);
+
             isActive = true;
             Debug.Log("Portal is Active");
         }
         else if(Input.GetKeyDown(key) && isActive)
         {
-            portal.SetActive(false);
+            portal1.SetActive(false);
+            portal2.SetActive(false);
+
             isActive = false;
             Debug.Log("Portal is Not Active");
         }
@@ -47,10 +49,11 @@ public class SimpleButtonActivate : MonoBehaviour
     {
         if(!isActive) {
 
-            portal.SetActive(true);
+            portal1.SetActive(true);
+            portal2.SetActive(true);
+
             isActive = true;
             Debug.Log("Portal is Active");
         }
-
     }
 }

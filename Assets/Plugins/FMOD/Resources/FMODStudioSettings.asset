@@ -425,18 +425,11 @@ MonoBehaviour:
   - Master
   Banks:
   - Ambience
-  - Ambience.assets
   - Bank A
-  - Bank A.assets
   - Bank B
-  - Bank B.assets
-  - Master.assets
   - Music
-  - Music.assets
   - Poem
-  - Poem.assets
   - Sound Design
-  - Sound Design.assets
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
