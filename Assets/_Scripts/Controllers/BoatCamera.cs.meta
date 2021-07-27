@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 842b205d922f67542956477625fe08ef
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - playerCamera: {instanceID: 0}
+  - Crosshair: {fileID: 21300000, guid: b5f6bafb69403f749abfd239bb5633cd, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
