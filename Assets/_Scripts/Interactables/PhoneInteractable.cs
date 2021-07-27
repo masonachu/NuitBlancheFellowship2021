@@ -13,6 +13,8 @@ public class PhoneInteractable : InteractiveController {
     [EventRef] public string phonePickup;
     [EventRef] public string phonePutdown;
     [EventRef] public string poem;
+
+    public StudioEventEmitter music;
     private StudioEventEmitter emit;
 
     public override void Awake() {
@@ -24,6 +26,9 @@ public class PhoneInteractable : InteractiveController {
 
     public override void InteractWithObject() {
 
+        portalActivator = GameObject.FindWithTag("Portal").GetComponent<SimpleButtonActivate>();
+        music = GameObject.FindWithTag("Music").GetComponent<StudioEventEmitter>();
+
         StartCoroutine(BeginCall());
     }
 
@@ -34,6 +39,7 @@ public class PhoneInteractable : InteractiveController {
             //Start Coroutine and disable phone receiver object.
             phoneReceiver.SetActive(false);
             RuntimeManager.PlayOneShot(phonePickup, transform.position);
+            music.SetParameter("TrackSelection", 3f);
             isInteracted = true;
 
             //Activate the portal

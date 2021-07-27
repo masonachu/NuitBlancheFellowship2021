@@ -51,7 +51,7 @@ public class BoatInteractable : InteractiveController {
             isActive = true;
 
             //Put player prefab inside of Boat interactable prefab
-            player.transform.SetParent(this.gameObject.transform);
+            //player.transform.SetParent(this.gameObject.transform);
             player.transform.position = activeLocation.position;
 
             //Disable player prefab and turn on BoatPlayer prefab
@@ -72,7 +72,7 @@ public class BoatInteractable : InteractiveController {
             isActive = false;
 
             //Take player prefab out of parent 
-            player.transform.SetParent(null);
+            //player.transform.SetParent(null);
 
             //Revert back to player prefab controls and disable boatPlayer prefab
             playerCamera.gameObject.SetActive(true);
