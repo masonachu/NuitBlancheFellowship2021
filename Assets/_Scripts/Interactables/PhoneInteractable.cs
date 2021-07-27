@@ -18,7 +18,7 @@ public class PhoneInteractable : InteractiveController {
     public override void Awake() {
 
         base.Awake();
-        emit = gameObject.AddComponent<StudioEventEmitter>();
+        emit = GetComponent<StudioEventEmitter>();
     }
 
 
@@ -40,6 +40,7 @@ public class PhoneInteractable : InteractiveController {
             portalActivator.ActivatePortal();
 
             //set and play poem
+            emit.Stop();
             emit.Event = poem;
             emit.Play();
 
