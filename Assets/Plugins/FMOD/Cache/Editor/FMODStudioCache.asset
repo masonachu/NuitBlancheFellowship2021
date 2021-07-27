@@ -1347,8 +1347,7 @@ MonoBehaviour:
   - {fileID: 348783043556825559}
   - {fileID: 3566338060684947622}
   - {fileID: 7082858841224173832}
-  EditorParameters:
-  - {fileID: -8114229350980995571}
+  EditorParameters: []
   MasterBanks:
   - {fileID: -3932642250010342973}
   StringsBanks:
