@@ -48,7 +48,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3092204880677608802}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -186,7 +186,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 300
+  far clip plane: 10000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -397,6 +397,10 @@ MonoBehaviour:
   headbobHeight: 1
   headbobSideMovement: 0.5
   jumpLandIntensity: 3
+  grassStep: event:/sfx/sfx_Footsteps_Grass
+  woodStep: event:/sfx/sfx_Footsteps_wood
+  moonStep: event:/sfx/sfx_Footsteps_Moon
+  underwaterStep: 
   enableAudioSFX: 0
   Volume: 5
   jumpSound: {fileID: 0}
@@ -465,7 +469,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 73f938638097f8042ad7842aa5b04ac5, type: 3}
     - {fileID: 8300000, guid: e06c6ae1948cafd45a952ab85ebe4fa7, type: 3}
   playerText: {fileID: 2444532352134877457}
-  enableFootprints: 0
+  enableFootprints: 1
 --- !u!114 &1293934107004298782
 MonoBehaviour:
   m_ObjectHideFlags: 0
