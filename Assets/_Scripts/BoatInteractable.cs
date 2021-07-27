@@ -28,9 +28,10 @@ public class BoatInteractable : InteractiveController {
             image.gameObject.SetActive(false);
 
             //Currently, does not work as it immediately calls when boat is active
-            //if (boatPlayer.gameObject.activeSelf) {
-            //ExitBoat();
-            //}
+            if (boatPlayer.gameObject.activeSelf) {
+    
+                ExitBoat();
+            }
         }
         else {
             
@@ -64,29 +65,13 @@ public class BoatInteractable : InteractiveController {
             //Complete single interaction loop
             isInteracted = false;
         }
-
-        else if (isActive && !isInteracted) {
-
-            //Set bools to false
-            isInteracted = false;
-            isActive = false;
-
-            //Take player prefab out of parent 
-            player.transform.SetParent(null);
-
-            //Revert back to player prefab controls and disable boatPlayer prefab
-            playerCamera.gameObject.SetActive(true);
-            playerController.enableCameraMovement = true;
-            playerController.controllerPauseState = false;
-
-            vechicleSystem.inputActive = false;
-            boatPlayer.SetActive(false);
-        }
     }
 
     public void OnChildTriggerEntered(Collider other, Vector3 childPosition) {
 
-        if (other.CompareTag("Player") && !canvasActive & !inTrigger) {
+
+        //Need to figure this out
+        if (other.CompareTag("Player") && !canvasActive & !inTrigger ) {
 
             canvas.transform.LookAt(Camera.main.transform.position, Vector3.up);
 

@@ -11,6 +11,8 @@ public class WaveTransitionTrigger : TimelineManager
 
     public void TransitionToUnderwater() {
 
+        timeline = GameObject.FindWithTag("Timeline").GetComponent<PlayableDirector>();
+
         ChangePlayable(waveTimelineAsset);
         PlayTimeline();
     }

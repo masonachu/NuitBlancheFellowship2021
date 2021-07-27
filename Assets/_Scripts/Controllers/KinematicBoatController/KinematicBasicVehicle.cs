@@ -138,7 +138,7 @@ namespace KinematicVehicleSystem
             forward.y = 0;
             Heading = Quaternion.LookRotation(forward).eulerAngles.y;
 
-            UpdateRemote();
+            //UpdateRemote();
 
             if (!CanMove())
             {
@@ -168,7 +168,11 @@ namespace KinematicVehicleSystem
 
         private void UpdatePlayerInput()
         {
-            if(inputActive) {
+            if (!inputActive && Motor > 0f) {
+                Motor = Mathf.Lerp(Motor, Vaxis, MotorDeceleration * Time.deltaTime);
+            }
+
+            if (inputActive) {
 
                 if (Vaxis > 0f) {
                     Motor = Mathf.Lerp(Motor, Vaxis, MotorForwardAcceleration * Time.deltaTime);
@@ -194,6 +198,5 @@ namespace KinematicVehicleSystem
                 // Send network update here
             }
         }
-
     }
 }

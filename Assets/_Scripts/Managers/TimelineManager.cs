@@ -5,7 +5,7 @@ using UnityEngine.Playables;
 
 public class TimelineManager : MonoBehaviour
 {
-    [SerializeField] private PlayableDirector timeline;
+    [SerializeField] public PlayableDirector timeline;
 
     public void ChangePlayable(PlayableAsset newTimelineAsset)
     {
