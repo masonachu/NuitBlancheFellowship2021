@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using KinematicVehicleSystem;
 
-public class BoatInteractable : InteractiveController 
-{
+public class BoatInteractable : InteractiveController {
     private bool isActive;
+    private bool boatActive;
     private GameObject player;
     private FirstPersonAIO playerController;
     private BoxCollider bc;
@@ -25,7 +25,16 @@ public class BoatInteractable : InteractiveController
 
         if (isActive) {
 
-            ExitBoat();
+            image.gameObject.SetActive(false);
+
+            //Currently, does not work as it immediately calls when boat is active
+            //if (boatPlayer.gameObject.activeSelf) {
+            //ExitBoat();
+            //}
+        }
+        else {
+            
+            image.gameObject.SetActive(true);
         }
     }
 
@@ -36,7 +45,7 @@ public class BoatInteractable : InteractiveController
         playerCamera = player.GetComponentInChildren<Camera>();
 
         if (!isActive && !isInteracted) {
-            
+
             //Set bools to true
             isInteracted = true;
             isActive = true;
@@ -103,11 +112,7 @@ public class BoatInteractable : InteractiveController
 
     private void ExitBoat() {
 
-        if(isActive && Input.GetKeyDown(KeyCode.E)) {
-
-            //Set bools to false
-            isInteracted = false;
-            isActive = false;
+        if (isActive && boatActive && Input.GetKeyDown(KeyCode.E)) {
 
             //Take player prefab out of parent and teleport player to Activate zone 
             player.transform.SetParent(null);
@@ -120,6 +125,15 @@ public class BoatInteractable : InteractiveController
 
             vechicleSystem.inputActive = false;
             boatPlayer.SetActive(false);
+
+            //Set bools to false
+            isInteracted = false;
+            isActive = false;
+            boatActive = false;
+        }
+
+        else if (isActive && !boatActive && Input.GetKeyDown(KeyCode.E)) {
+            boatActive = true;
         }
     }
 }
