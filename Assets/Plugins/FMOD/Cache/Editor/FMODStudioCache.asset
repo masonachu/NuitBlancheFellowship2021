@@ -140,7 +140,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -7065980907175535826}
+  - {fileID: -3820425335393168115}
   MinDistance: 0
   MaxDistance: 0
   Length: 211141
@@ -204,11 +204,31 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 4267178505053572788}
-  - {fileID: -2338449973872981083}
+  - {fileID: -6096370168217078850}
+  - {fileID: 4833414771838595235}
   MinDistance: 0
   MaxDistance: 0
   Length: 189915
+--- !u!114 &-6096370168217078850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/DeepSea_Ambiance/Activate
+  m_EditorClassIdentifier: 
+  Name: Activate
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-6016276737563854540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,10 +389,30 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -6016276737563854540}
+  - {fileID: 1776824996711572977}
   MinDistance: 0
   MaxDistance: 0
   Length: 250642
+--- !u!114 &-3820425335393168115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/2DeepSea_Ambiance/Intensity
+  m_EditorClassIdentifier: 
+  Name: Intensity
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-3558237560888059844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,7 +428,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Music_Ambiance.bank
   Name: Music_Ambiance
   StudioPath: bank:/Music_Ambiance
-  lastModified: 637617764940000000
+  lastModified: 637629779380000000
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -584,7 +624,7 @@ MonoBehaviour:
   - {fileID: 1594438003626916120}
   StringsBanks:
   - {fileID: 3738876912074084581}
-  stringsBankWriteTime: 637617764940000000
+  stringsBankWriteTime: 637629779380000000
   cacheVersion: 6
 --- !u!114 &687665902555240101
 MonoBehaviour:
@@ -621,9 +661,29 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637617764940000000
+  lastModified: 637629779380000000
   LoadResult: 0
   FileSizes: []
+  Exists: 1
+--- !u!114 &1776824996711572977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Trial_loop/Volume
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 0
+    data2: 0
   Exists: 1
 --- !u!114 &3367263887772240543
 MonoBehaviour:
@@ -680,7 +740,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637617764940000000
+  lastModified: 637629779380000000
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -762,6 +822,26 @@ MonoBehaviour:
   Min: 0
   Max: 2
   Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
+--- !u!114 &4833414771838595235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/DeepSea_Ambiance/Volume
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 1
+  Default: 1
   ID:
     data1: 0
     data2: 0
@@ -864,7 +944,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Sound Design.bank
   Name: Sound Design
   StudioPath: bank:/Sound Design
-  lastModified: 637617764940000000
+  lastModified: 637629779380000000
   LoadResult: 0
   FileSizes: []
   Exists: 1
