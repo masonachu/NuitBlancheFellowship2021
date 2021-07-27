@@ -58,6 +58,7 @@ using UnityEngine.UI;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 
 #if UNITY_EDITOR
     using UnityEditor;
@@ -213,6 +214,11 @@ public class FirstPersonAIO : PortalTraveller {
     #endregion
 
     #region Audio Settings
+
+    [EventRef] public string grassStep;
+    [EventRef] public string woodStep;
+    [EventRef] public string moonStep;
+    [EventRef] public string underwaterStep;
 
     public bool enableAudioSFX = true;
     public float Volume = 5f;
@@ -888,7 +894,7 @@ public class FirstPersonAIO : PortalTraveller {
         RaycastHit hit;
         if (Physics.Raycast(from, direction, out hit) == true)
         {
-            //where the ray hits is where the footprint decal will print
+            ////where the ray hits is where the footprint decal will print
             GameObject decal = Instantiate(Prefab);
             decal.transform.position = hit.point;
             decal.transform.Rotate(Vector3.up, this.transform.eulerAngles.y);
@@ -905,26 +911,29 @@ public class FirstPersonAIO : PortalTraveller {
         if (Physics.Raycast(from, direction, out hit) == true)
         {
             //where the ray hits is where the footprint decal will print
-            GameObject decal = Instantiate(LeftFootPrefab);
-            decal.transform.position = hit.point;
-            decal.transform.Rotate(Vector3.up, this.transform.eulerAngles.y);
+            //GameObject decal = Instantiate(LeftFootPrefab);
+            //decal.transform.position = hit.point;
+            //decal.transform.Rotate(Vector3.up, this.transform.eulerAngles.y);
+
+            RuntimeManager.PlayOneShot(grassStep, this.transform.position);
+
         }
     }    
     
     private void StepRight()
     {
-        Vector3 from = this.transform.position;
-        Vector3 to = new Vector3(this.transform.position.x, this.transform.position.y - (this.transform.localScale.y / 2.0f) + 0.1f, this.transform.position.z);
-        Vector3 direction = to - from;
+        //Vector3 from = this.transform.position;
+        //Vector3 to = new Vector3(this.transform.position.x, this.transform.position.y - (this.transform.localScale.y / 2.0f) + 0.1f, this.transform.position.z);
+        //Vector3 direction = to - from;
 
-        RaycastHit hit;
-        if (Physics.Raycast(from, direction, out hit) == true)
-        {
-            //where the ray hits is where the footprint decal will print
-            GameObject decal = Instantiate(RightFootPrefab);
-            decal.transform.position = hit.point;
-            decal.transform.Rotate(Vector3.up, this.transform.eulerAngles.y);
-        }
+        //RaycastHit hit;
+        //if (Physics.Raycast(from, direction, out hit) == true)
+        //{
+        //    //where the ray hits is where the footprint decal will print
+        //    GameObject decal = Instantiate(RightFootPrefab);
+        //    decal.transform.position = hit.point;
+        //    decal.transform.Rotate(Vector3.up, this.transform.eulerAngles.y);
+        //}
     }
 
 
@@ -1152,6 +1161,7 @@ public class FirstPersonAIO : PortalTraveller {
         t.LeftFootPrefab = (GameObject)EditorGUILayout.ObjectField(new GUIContent("Left Foot Prefab", "Attach the left footprint prefab here"), t.LeftFootPrefab, typeof(GameObject), true);
         t.RightFootPrefab = (GameObject)EditorGUILayout.ObjectField(new GUIContent("Right Foot Prefab", "Attach the right footprint prefab here"), t.RightFootPrefab, typeof(GameObject), true);
         t.graphicsObject = (GameObject)EditorGUILayout.ObjectField(new GUIContent("Graphics Object", "Model that will go through teleporters"), t.graphicsObject, typeof(GameObject), true);
+
         EditorGUILayout.Space();
 
         #endregion
@@ -1160,461 +1170,467 @@ public class FirstPersonAIO : PortalTraveller {
             GUILayout.Label("Audio/SFX Setup",new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter,fontStyle = FontStyle.Bold, fontSize = 13},GUILayout.ExpandWidth(true));
             EditorGUILayout.Space();
             EditorGUILayout.Space();
-            t.enableAudioSFX = EditorGUILayout.ToggleLeft(new GUIContent("Enable Audio/SFX", "Enable Audio/SFX systems?"),t.enableAudioSFX);
-            GUI.enabled = t.enableAudioSFX;
-            t.Volume = EditorGUILayout.Slider(new GUIContent("Volume","Volume to play audio at."),t.Volume,0,10);
-            EditorGUILayout.Space();
-            t.fsmode = (FirstPersonAIO.FSMode)EditorGUILayout.EnumPopup(new GUIContent("Footstep Mode","Determines the method used to trigger footsetps."),t. fsmode);
-            EditorGUILayout.Space();
 
-            #region FS Static
-            if(t.fsmode == FirstPersonAIO.FSMode.Static){
-                showStaticFS = EditorGUILayout.BeginFoldoutHeaderGroup(showStaticFS,new GUIContent("Footstep Clips","Audio clips available as footstep sounds."));
-                if(showStaticFS){
-                    GUILayout.BeginVertical("box");
-                    for(int i=0; i<staticFS.arraySize; i++){
-                    SerializedProperty LS_ref = staticFS.GetArrayElementAtIndex(i);
-                    EditorGUILayout.BeginHorizontal("box");
-                    LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("Clip "+(i+1)+":",LS_ref.objectReferenceValue,typeof(AudioClip),false);
-                    if(GUILayout.Button(new GUIContent("X", "Remove this clip"),GUILayout.MaxWidth(20))){ this.t.footStepSounds.RemoveAt(i);}
-                    EditorGUILayout.EndHorizontal();
-                    }
+            t.grassStep = EditorGUILayout.TextField(new GUIContent("Grass Step", "SFX for grass footstep"), t.grassStep);
+            t.woodStep = EditorGUILayout.TextField(new GUIContent("Wood Step", "SFX for wood footstep"), t.woodStep);
+            t.moonStep = EditorGUILayout.TextField(new GUIContent("Moon Step", "SFX for moon footstep"), t.moonStep);
+            t.underwaterStep = EditorGUILayout.TextField(new GUIContent("Underwater Step", "SFX for underwater footstep"), t.underwaterStep);
 
-                    EditorGUILayout.Space();
-                    EditorGUILayout.BeginHorizontal();
-                    
-                    if(GUILayout.Button(new GUIContent("Add Clip", "Add new clip entry"))){ this.t.footStepSounds.Add(null);}
-                    if(GUILayout.Button(new GUIContent("Remove All Clips", "Remove all clip entries"))){ this.t.footStepSounds.Clear();}
-                    EditorGUILayout.EndHorizontal();
-                    GUILayout.EndVertical();
-                    DropAreaGUI(t.footStepSounds,GUILayoutUtility.GetLastRect());
-                } 
+        //    t.enableAudioSFX = EditorGUILayout.ToggleLeft(new GUIContent("Enable Audio/SFX", "Enable Audio/SFX systems?"),t.enableAudioSFX);
+        //    GUI.enabled = t.enableAudioSFX;
+        //    t.Volume = EditorGUILayout.Slider(new GUIContent("Volume","Volume to play audio at."),t.Volume,0,10);
+        //    EditorGUILayout.Space();
+        //    t.fsmode = (FirstPersonAIO.FSMode)EditorGUILayout.EnumPopup(new GUIContent("Footstep Mode","Determines the method used to trigger footsetps."),t. fsmode);
+        //    EditorGUILayout.Space();
+
+        //    #region FS Static
+        //    if(t.fsmode == FirstPersonAIO.FSMode.Static){
+        //        showStaticFS = EditorGUILayout.BeginFoldoutHeaderGroup(showStaticFS,new GUIContent("Footstep Clips","Audio clips available as footstep sounds."));
+        //        if(showStaticFS){
+        //            GUILayout.BeginVertical("box");
+        //            for(int i=0; i<staticFS.arraySize; i++){
+        //            SerializedProperty LS_ref = staticFS.GetArrayElementAtIndex(i);
+        //            EditorGUILayout.BeginHorizontal("box");
+        //            LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("Clip "+(i+1)+":",LS_ref.objectReferenceValue,typeof(AudioClip),false);
+        //            if(GUILayout.Button(new GUIContent("X", "Remove this clip"),GUILayout.MaxWidth(20))){ this.t.footStepSounds.RemoveAt(i);}
+        //            EditorGUILayout.EndHorizontal();
+        //            }
+
+        //            EditorGUILayout.Space();
+        //            EditorGUILayout.BeginHorizontal();
+
+        //            if(GUILayout.Button(new GUIContent("Add Clip", "Add new clip entry"))){ this.t.footStepSounds.Add(null);}
+        //            if(GUILayout.Button(new GUIContent("Remove All Clips", "Remove all clip entries"))){ this.t.footStepSounds.Clear();}
+        //            EditorGUILayout.EndHorizontal();
+        //            GUILayout.EndVertical();
+        //            DropAreaGUI(t.footStepSounds,GUILayoutUtility.GetLastRect());
+        //        } 
+        //        EditorGUILayout.EndFoldoutHeaderGroup();
+        //        t.jumpSound = (AudioClip)EditorGUILayout.ObjectField(new GUIContent("Jump Clip","An audio clip that will play when jumping."),t.jumpSound,typeof(AudioClip),false);
+        //        t.landSound = (AudioClip)EditorGUILayout.ObjectField(new GUIContent("Land Clip","An audio clip that will play when landing."),t.landSound,typeof(AudioClip),false);
+
+        //    }
+        //    #endregion
+
+        //    else{
+        //        t.dynamicFootstep.materialMode = (FirstPersonAIO.DynamicFootStep.matMode)EditorGUILayout.EnumPopup(new GUIContent("Material Type", "Determines the type of material will trigger footstep audio."),t.dynamicFootstep.materialMode);
+        //        EditorGUILayout.Space();
+        //        #region Wood Section
+        //        showWoodFS = EditorGUILayout.BeginFoldoutHeaderGroup(showWoodFS,new GUIContent("Wood Clips","Audio clips available as footsteps when walking on a collider with the Physic Material assigned to 'Wood Physic Material'"));
+        //        if(showWoodFS){
+        //            GUILayout.BeginVertical("box");
+        //            if(t.dynamicFootstep.materialMode == FirstPersonAIO.DynamicFootStep.matMode.physicMaterial){
+        //                if(! t.dynamicFootstep.woodPhysMat.Any()){EditorGUILayout.HelpBox("At least one Physic Material must be assigned first.",MessageType.Warning);}
+        //                EditorGUILayout.LabelField("Wood Physic Materials",new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
+        //                for(int i=0; i<woodPhysMat.arraySize; i++){ 
+        //                SerializedProperty LS_ref = woodPhysMat.GetArrayElementAtIndex(i);
+        //                EditorGUILayout.BeginHorizontal("box");
+        //                LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(PhysicMaterial),false);
+        //                if(GUILayout.Button(new GUIContent("X", "Remove this Physic Material"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.woodPhysMat.RemoveAt(i);}
+        //                EditorGUILayout.EndHorizontal();
+        //                }
+
+
+        //                if(GUILayout.Button(new GUIContent("Add new Physic Material entry", "Add new Physic Material entry"))){ t.dynamicFootstep.woodPhysMat.Add(null);}
+        //                GUI.enabled = t.dynamicFootstep.woodPhysMat.Any();}
+
+        //            else{
+        //                if(!t.dynamicFootstep.woodMat.Any()){EditorGUILayout.HelpBox("At least one Material must be assigned first.",MessageType.Warning);}
+        //                EditorGUILayout.LabelField("Wood Materials", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
+        //                for(int i=0; i<woodMat.arraySize; i++){ 
+        //                SerializedProperty LS_ref = woodMat.GetArrayElementAtIndex(i);
+        //                EditorGUILayout.BeginHorizontal("box");
+        //                LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(Material),false);
+        //                if(GUILayout.Button(new GUIContent("X", "Remove this Material"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.woodMat.RemoveAt(i);}
+        //                EditorGUILayout.EndHorizontal();
+        //                }
+        //                if(GUILayout.Button(new GUIContent("Add new Material entry", "Add new Material entry"))){ t.dynamicFootstep.woodMat.Add(null);}
+        //                GUI.enabled = t.dynamicFootstep.woodMat.Any();
+        //            }
+        //            EditorGUILayout.Space();
+        //            EditorGUILayout.LabelField("Wood Audio Clips", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
+        //            for(int i=0; i<woodFS.arraySize; i++){ 
+        //            SerializedProperty LS_ref = woodFS.GetArrayElementAtIndex(i);
+        //            EditorGUILayout.BeginHorizontal("box");
+        //            LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("Clip "+(i+1)+":",LS_ref.objectReferenceValue,typeof(AudioClip),false);
+        //            if(GUILayout.Button(new GUIContent("X", "Remove this clip"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.woodClipSet.RemoveAt(i);}
+        //            EditorGUILayout.EndHorizontal();
+        //            }
+
+        //            EditorGUILayout.Space();
+        //            EditorGUILayout.BeginHorizontal();
+
+        //            if(GUILayout.Button(new GUIContent("Add Clip", "Add new clip entry"))){ t.dynamicFootstep.woodClipSet.Add(null);}
+        //            if(GUILayout.Button(new GUIContent("Remove All Clips", "Remove all clip entries"))){ t.dynamicFootstep.woodClipSet.Clear();}
+        //            EditorGUILayout.EndHorizontal();
+        //            GUILayout.EndVertical();
+        //            DropAreaGUI(t.dynamicFootstep.woodClipSet,GUILayoutUtility.GetLastRect());
+        //        } 
+        //        GUI.enabled = t.enableAudioSFX;
+        //        EditorGUILayout.EndFoldoutHeaderGroup();
+        //        EditorGUILayout.Space();
+        //        #endregion 
+        //        #region Metal Section
+        //        showMetalFS = EditorGUILayout.BeginFoldoutHeaderGroup(showMetalFS,new GUIContent("Metal & Glass Clips","Audio clips available as footsteps when walking on a collider with the Physic Material assigned to 'Metal & Glass Physic Material'"));
+        //        if(showMetalFS){
+        //            GUILayout.BeginVertical("box");
+
+        //            if(t.dynamicFootstep.materialMode == FirstPersonAIO.DynamicFootStep.matMode.physicMaterial){
+        //                if(! t.dynamicFootstep.metalAndGlassPhysMat.Any()){EditorGUILayout.HelpBox("At least one Physic Material must be assigned first.",MessageType.Warning);}
+        //                EditorGUILayout.LabelField("Metal & Glass Physic Materials",new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
+        //                for(int i=0; i<metalAndGlassPhysMat.arraySize; i++){ 
+        //                SerializedProperty LS_ref = metalAndGlassPhysMat.GetArrayElementAtIndex(i);
+        //                EditorGUILayout.BeginHorizontal("box");
+        //                LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(PhysicMaterial),false);
+        //                if(GUILayout.Button(new GUIContent("X", "Remove this Physic Material"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.metalAndGlassPhysMat.RemoveAt(i);}
+        //                EditorGUILayout.EndHorizontal();
+        //                }
+
+
+        //                if(GUILayout.Button(new GUIContent("Add new Physic Material entry", "Add new Physic Material entry"))){ t.dynamicFootstep.metalAndGlassPhysMat.Add(null);}
+        //                GUI.enabled = t.dynamicFootstep.metalAndGlassPhysMat.Any();}
+
+        //            else{
+        //                if(!t.dynamicFootstep.metalAndGlassMat.Any()){EditorGUILayout.HelpBox("At least one Material must be assigned first.",MessageType.Warning);}
+        //                EditorGUILayout.LabelField("Metal & Glass Materials", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
+        //                for(int i=0; i<metalAndGlassMat.arraySize; i++){ 
+        //                SerializedProperty LS_ref = metalAndGlassMat.GetArrayElementAtIndex(i);
+        //                EditorGUILayout.BeginHorizontal("box");
+        //                LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(Material),false);
+        //                if(GUILayout.Button(new GUIContent("X", "Remove this Material"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.metalAndGlassMat.RemoveAt(i);}
+        //                EditorGUILayout.EndHorizontal();
+        //                }
+        //                if(GUILayout.Button(new GUIContent("Add new Material entry", "Add new Material entry"))){ t.dynamicFootstep.metalAndGlassMat.Add(null);}
+        //                GUI.enabled = t.dynamicFootstep.metalAndGlassMat.Any();
+        //            }
+
+        //            EditorGUILayout.LabelField("Metal & Glass Audio Clips", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
+        //            for(int i=0; i<metalFS.arraySize; i++){ 
+        //            SerializedProperty LS_ref = metalFS.GetArrayElementAtIndex(i);
+        //            EditorGUILayout.BeginHorizontal("box");
+        //            LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("Clip "+(i+1)+":",LS_ref.objectReferenceValue,typeof(AudioClip),false);
+        //            if(GUILayout.Button(new GUIContent("X", "Remove this clip"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.metalAndGlassClipSet.RemoveAt(i);}
+        //            EditorGUILayout.EndHorizontal();
+        //            }
+
+        //            EditorGUILayout.Space();
+        //            EditorGUILayout.BeginHorizontal();
+
+        //            if(GUILayout.Button(new GUIContent("Add Clip", "Add new clip entry"))){ t.dynamicFootstep.metalAndGlassClipSet.Add(null);}
+        //            if(GUILayout.Button(new GUIContent("Remove All Clips", "Remove all clip entries"))){ t.dynamicFootstep.metalAndGlassClipSet.Clear();}
+        //            EditorGUILayout.EndHorizontal();
+        //            GUILayout.EndVertical();
+        //            DropAreaGUI(t.dynamicFootstep.metalAndGlassClipSet,GUILayoutUtility.GetLastRect());
+        //        } 
+        //        GUI.enabled = t.enableAudioSFX;
+        //        EditorGUILayout.EndFoldoutHeaderGroup();
+        //        EditorGUILayout.Space();
+        //        #endregion
+        //        #region Grass Section
+        //        showGrassFS = EditorGUILayout.BeginFoldoutHeaderGroup(showGrassFS,new GUIContent("Grass Clips","Audio clips available as footsteps when walking on a collider with the Physic Material assigned to 'Grass Physic Material'"));
+        //        if(showGrassFS){
+        //            GUILayout.BeginVertical("box");
+
+        //            if(t.dynamicFootstep.materialMode == FirstPersonAIO.DynamicFootStep.matMode.physicMaterial){
+        //                if(! t.dynamicFootstep.grassPhysMat.Any()){EditorGUILayout.HelpBox("At least one Physic Material must be assigned first.",MessageType.Warning);}
+        //                EditorGUILayout.LabelField("Grass Physic Materials",new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
+        //                for(int i=0; i<grassPhysMat.arraySize; i++){ 
+        //                SerializedProperty LS_ref = grassPhysMat.GetArrayElementAtIndex(i);
+        //                EditorGUILayout.BeginHorizontal("box");
+        //                LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(PhysicMaterial),false);
+        //                if(GUILayout.Button(new GUIContent("X", "Remove this Physic Material"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.grassPhysMat.RemoveAt(i);}
+        //                EditorGUILayout.EndHorizontal();
+        //                }
+
+
+        //                if(GUILayout.Button(new GUIContent("Add new Physic Material entry", "Add new Physic Material entry"))){ t.dynamicFootstep.grassPhysMat.Add(null);}
+        //                GUI.enabled = t.dynamicFootstep.grassPhysMat.Any();}
+
+        //            else{
+        //                if(!t.dynamicFootstep.grassMat.Any()){EditorGUILayout.HelpBox("At least one Material must be assigned first.",MessageType.Warning);}
+        //                EditorGUILayout.LabelField("Grass Materials", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
+        //                for(int i=0; i<grassMat.arraySize; i++){ 
+        //                SerializedProperty LS_ref = grassMat.GetArrayElementAtIndex(i);
+        //                EditorGUILayout.BeginHorizontal("box");
+        //                LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(Material),false);
+        //                if(GUILayout.Button(new GUIContent("X", "Remove this Material"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.grassMat.RemoveAt(i);}
+        //                EditorGUILayout.EndHorizontal();
+        //                }
+        //                if(GUILayout.Button(new GUIContent("Add new Material entry", "Add new Material entry"))){ t.dynamicFootstep.grassMat.Add(null);}
+        //                GUI.enabled = t.dynamicFootstep.grassMat.Any();
+        //            }
+
+        //            EditorGUILayout.LabelField("Grass Audio Clips", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
+        //            for(int i=0; i<grassFS.arraySize; i++){ 
+        //            SerializedProperty LS_ref = grassFS.GetArrayElementAtIndex(i);
+        //            EditorGUILayout.BeginHorizontal("box");
+        //            LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("Clip "+(i+1)+":",LS_ref.objectReferenceValue,typeof(AudioClip),false);
+        //            if(GUILayout.Button(new GUIContent("X", "Remove this clip"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.grassClipSet.RemoveAt(i);}
+        //            EditorGUILayout.EndHorizontal();
+        //            }
+
+        //            EditorGUILayout.Space();
+        //            EditorGUILayout.BeginHorizontal();
+
+        //            if(GUILayout.Button(new GUIContent("Add Clip", "Add new clip entry"))){ t.dynamicFootstep.grassClipSet.Add(null);}
+        //            if(GUILayout.Button(new GUIContent("Remove All Clips", "Remove all clip entries"))){ t.dynamicFootstep.grassClipSet.Clear();}
+        //            EditorGUILayout.EndHorizontal();
+        //            GUILayout.EndVertical();
+        //            DropAreaGUI(t.dynamicFootstep.grassClipSet,GUILayoutUtility.GetLastRect());
+        //        } 
+        //        GUI.enabled = t.enableAudioSFX;
+        //        EditorGUILayout.EndFoldoutHeaderGroup();
+        //        EditorGUILayout.Space();
+        //        #endregion
+        //        #region Dirt Section
+        //        showDirtFS = EditorGUILayout.BeginFoldoutHeaderGroup(showDirtFS,new GUIContent("Dirt & Gravel Clips","Audio clips available as footsteps when walking on a collider with the Physic Material assigned to 'Dirt & Gravel Physic Material'"));
+        //        if(showDirtFS){
+        //            GUILayout.BeginVertical("box");
+
+        //            if(t.dynamicFootstep.materialMode == FirstPersonAIO.DynamicFootStep.matMode.physicMaterial){
+        //                if(! t.dynamicFootstep.dirtAndGravelPhysMat.Any()){EditorGUILayout.HelpBox("At least one Physic Material must be assigned first.",MessageType.Warning);}
+        //                EditorGUILayout.LabelField("Dirt & Gravel Physic Materials",new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
+        //                for(int i=0; i<dirtAndGravelPhysMat.arraySize; i++){ 
+        //                SerializedProperty LS_ref = dirtAndGravelPhysMat.GetArrayElementAtIndex(i);
+        //                EditorGUILayout.BeginHorizontal("box");
+        //                LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(PhysicMaterial),false);
+        //                if(GUILayout.Button(new GUIContent("X", "Remove this Physic Material"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.dirtAndGravelPhysMat.RemoveAt(i);}
+        //                EditorGUILayout.EndHorizontal();
+        //                }
+
+
+        //                if(GUILayout.Button(new GUIContent("Add new Physic Material entry", "Add new Physic Material entry"))){ t.dynamicFootstep.dirtAndGravelPhysMat.Add(null);}
+        //                GUI.enabled = t.dynamicFootstep.dirtAndGravelPhysMat.Any();}
+
+        //            else{
+        //                if(!t.dynamicFootstep.dirtAndGravelMat.Any()){EditorGUILayout.HelpBox("At least one Material must be assigned first.",MessageType.Warning);}
+        //                EditorGUILayout.LabelField("Dirt & Gravel Materials", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
+        //                for(int i=0; i<dirtAndGravelMat.arraySize; i++){ 
+        //                SerializedProperty LS_ref = dirtAndGravelMat.GetArrayElementAtIndex(i);
+        //                EditorGUILayout.BeginHorizontal("box");
+        //                LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(Material),false);
+        //                if(GUILayout.Button(new GUIContent("X", "Remove this Material"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.dirtAndGravelMat.RemoveAt(i);}
+        //                EditorGUILayout.EndHorizontal();
+        //                }
+        //                if(GUILayout.Button(new GUIContent("Add new Material entry", "Add new Material entry"))){ t.dynamicFootstep.dirtAndGravelMat.Add(null);}
+        //                GUI.enabled = t.dynamicFootstep.dirtAndGravelMat.Any();
+        //            }
+
+        //            EditorGUILayout.LabelField("Dirt & Gravel Audio Clips", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
+        //            for(int i=0; i<dirtFS.arraySize; i++){ 
+        //            SerializedProperty LS_ref = dirtFS.GetArrayElementAtIndex(i);
+        //            EditorGUILayout.BeginHorizontal("box");
+        //            LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("Clip "+(i+1)+":",LS_ref.objectReferenceValue,typeof(AudioClip),false);
+        //            if(GUILayout.Button(new GUIContent("X", "Remove this clip"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.dirtAndGravelClipSet.RemoveAt(i);}
+        //            EditorGUILayout.EndHorizontal();
+        //            }
+
+        //            EditorGUILayout.Space();
+        //            EditorGUILayout.BeginHorizontal();
+
+        //            if(GUILayout.Button(new GUIContent("Add Clip", "Add new clip entry"))){ t.dynamicFootstep.dirtAndGravelClipSet.Add(null);}
+        //            if(GUILayout.Button(new GUIContent("Remove All Clips", "Remove all clip entries"))){ t.dynamicFootstep.dirtAndGravelClipSet.Clear();}
+        //            EditorGUILayout.EndHorizontal();
+        //            GUILayout.EndVertical();
+        //            DropAreaGUI(t.dynamicFootstep.dirtAndGravelClipSet,GUILayoutUtility.GetLastRect());
+        //        } 
+        //        GUI.enabled = t.enableAudioSFX;
+        //        EditorGUILayout.EndFoldoutHeaderGroup();
+        //        EditorGUILayout.Space();
+        //        #endregion
+        //        #region Rock Section
+        //        showConcreteFS = EditorGUILayout.BeginFoldoutHeaderGroup(showConcreteFS,new GUIContent("Rock & Concrete Clips","Audio clips available as footsteps when walking on a collider with the Physic Material assigned to 'Rock & Concrete Physic Material'"));
+        //        if(showConcreteFS){
+        //            GUILayout.BeginVertical("box");
+
+        //            if(t.dynamicFootstep.materialMode == FirstPersonAIO.DynamicFootStep.matMode.physicMaterial){
+        //                if(! t.dynamicFootstep.rockAndConcretePhysMat.Any()){EditorGUILayout.HelpBox("At least one Physic Material must be assigned first.",MessageType.Warning);}
+        //                EditorGUILayout.LabelField("Rock & Concrete Physic Materials",new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
+        //                for(int i=0; i<rockAndConcretePhysMat.arraySize; i++){ 
+        //                SerializedProperty LS_ref = rockAndConcretePhysMat.GetArrayElementAtIndex(i);
+        //                EditorGUILayout.BeginHorizontal("box");
+        //                LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(PhysicMaterial),false);
+        //                if(GUILayout.Button(new GUIContent("X", "Remove this Physic Material"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.rockAndConcretePhysMat.RemoveAt(i);}
+        //                EditorGUILayout.EndHorizontal();
+        //                }
+
+
+        //                if(GUILayout.Button(new GUIContent("Add new Physic Material entry", "Add new Physic Material entry"))){ t.dynamicFootstep.rockAndConcretePhysMat.Add(null);}
+        //                GUI.enabled = t.dynamicFootstep.rockAndConcretePhysMat.Any();}
+
+        //            else{
+        //                if(!t.dynamicFootstep.rockAndConcreteMat.Any()){EditorGUILayout.HelpBox("At least one Material must be assigned first.",MessageType.Warning);}
+        //                EditorGUILayout.LabelField("Rock & Concrete Materials", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
+        //                for(int i=0; i<rockAndConcreteMat.arraySize; i++){ 
+        //                SerializedProperty LS_ref = rockAndConcreteMat.GetArrayElementAtIndex(i);
+        //                EditorGUILayout.BeginHorizontal("box");
+        //                LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(Material),false); 
+        //                if(GUILayout.Button(new GUIContent("X", "Remove this Material"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.rockAndConcreteMat.RemoveAt(i);}
+        //                EditorGUILayout.EndHorizontal();
+        //                }
+        //                if(GUILayout.Button(new GUIContent("Add new Material entry", "Add new Material entry"))){ t.dynamicFootstep.rockAndConcreteMat.Add(null);}
+        //                GUI.enabled = t.dynamicFootstep.rockAndConcreteMat.Any();
+        //            }
+
+        //            EditorGUILayout.LabelField("Rock & Concrete Audio Clips", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
+        //            for(int i=0; i<concreteFS.arraySize; i++){ 
+        //            SerializedProperty LS_ref = concreteFS.GetArrayElementAtIndex(i);
+        //            EditorGUILayout.BeginHorizontal("box");
+        //            LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("Clip "+(i+1)+":",LS_ref.objectReferenceValue,typeof(AudioClip),false);
+        //            if(GUILayout.Button(new GUIContent("X", "Remove this clip"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.rockAndConcreteClipSet.RemoveAt(i);}
+        //            EditorGUILayout.EndHorizontal();
+        //            }
+
+        //            EditorGUILayout.Space();
+        //            EditorGUILayout.BeginHorizontal();
+
+        //            if(GUILayout.Button(new GUIContent("Add Clip", "Add new clip entry"))){ t.dynamicFootstep.rockAndConcreteClipSet.Add(null);}
+        //            if(GUILayout.Button(new GUIContent("Remove All Clips", "Remove all clip entries"))){ t.dynamicFootstep.rockAndConcreteClipSet.Clear();}
+        //            EditorGUILayout.EndHorizontal();
+        //            GUILayout.EndVertical();
+        //            DropAreaGUI(t.dynamicFootstep.rockAndConcreteClipSet,GUILayoutUtility.GetLastRect());
+        //        } 
+        //        GUI.enabled = t.enableAudioSFX;
+        //        EditorGUILayout.EndFoldoutHeaderGroup();
+        //        EditorGUILayout.Space();
+        //        #endregion
+        //        #region Mud Section
+        //        showMudFS = EditorGUILayout.BeginFoldoutHeaderGroup(showMudFS,new GUIContent("Mud Clips","Audio clips available as footsteps when walking on a collider with the Physic Material assigned to 'Mud Physic Material'"));
+        //        if(showMudFS){
+        //            GUILayout.BeginVertical("box");
+
+        //            if(t.dynamicFootstep.materialMode == FirstPersonAIO.DynamicFootStep.matMode.physicMaterial){
+        //                if(! t.dynamicFootstep.mudPhysMat.Any()){EditorGUILayout.HelpBox("At least one Physic Material must be assigned first.",MessageType.Warning);}
+        //                EditorGUILayout.LabelField("Mud Physic Materials",new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
+        //                for(int i=0; i<mudPhysMat.arraySize; i++){ 
+        //                SerializedProperty LS_ref = mudPhysMat.GetArrayElementAtIndex(i);
+        //                EditorGUILayout.BeginHorizontal("box");
+        //                LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(PhysicMaterial),false);
+        //                if(GUILayout.Button(new GUIContent("X", "Remove this Physic Material"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.mudPhysMat.RemoveAt(i);}
+        //                EditorGUILayout.EndHorizontal();
+        //                }
+
+
+        //                if(GUILayout.Button(new GUIContent("Add new Physic Material entry", "Add new Physic Material entry"))){ t.dynamicFootstep.mudPhysMat.Add(null);}
+        //                GUI.enabled = t.dynamicFootstep.mudPhysMat.Any();}
+
+        //            else{
+        //                if(!t.dynamicFootstep.mudMat.Any()){EditorGUILayout.HelpBox("At least one Material must be assigned first.",MessageType.Warning);}
+        //                EditorGUILayout.LabelField("Mud Materials", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
+        //                for(int i=0; i<mudMat.arraySize; i++){ 
+        //                SerializedProperty LS_ref = mudMat.GetArrayElementAtIndex(i);
+        //                EditorGUILayout.BeginHorizontal("box");
+        //                LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(Material),false);
+        //                if(GUILayout.Button(new GUIContent("X", "Remove this Material"),GUILayout.MaxWidth(20))){t.dynamicFootstep.mudMat.RemoveAt(i);}
+        //                EditorGUILayout.EndHorizontal();
+        //                }
+        //                if(GUILayout.Button(new GUIContent("Add new Material entry", "Add new Material entry"))){t.dynamicFootstep.mudMat.Add(null);}
+        //                GUI.enabled = t.dynamicFootstep.mudMat.Any();
+        //            }
+
+        //            EditorGUILayout.LabelField("Mud Audio Clips", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
+        //            for(int i=0; i<mudFS.arraySize; i++){ 
+        //            SerializedProperty LS_ref = mudFS.GetArrayElementAtIndex(i);
+        //            EditorGUILayout.BeginHorizontal("box");
+        //            LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("Clip "+(i+1)+":",LS_ref.objectReferenceValue,typeof(AudioClip),false);
+        //            if(GUILayout.Button(new GUIContent("X", "Remove this clip"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.mudClipSet.RemoveAt(i);}
+        //            EditorGUILayout.EndHorizontal();
+        //            }
+
+        //            EditorGUILayout.Space();
+        //            EditorGUILayout.BeginHorizontal();
+
+        //            if(GUILayout.Button(new GUIContent("Add Clip", "Add new clip entry"))){ t.dynamicFootstep.mudClipSet.Add(null);}
+        //            if(GUILayout.Button(new GUIContent("Remove All Clips", "Remove all clip entries"))){ t.dynamicFootstep.mudClipSet.Clear();}
+        //            EditorGUILayout.EndHorizontal();
+        //            GUILayout.EndVertical();
+        //            DropAreaGUI(t.dynamicFootstep.mudClipSet,GUILayoutUtility.GetLastRect());
+        //        } 
+        //        GUI.enabled = t.enableAudioSFX;
+        //        EditorGUILayout.EndFoldoutHeaderGroup();
+        //        EditorGUILayout.Space();
+        //        #endregion
+        //        #region Custom Section
+        //        showCustomFS = EditorGUILayout.BeginFoldoutHeaderGroup(showCustomFS,new GUIContent("Custom Material Clips","Audio clips available as footsteps when walking on a collider with the Physic Material assigned to 'Custom Physic Material'"));
+        //        if(showCustomFS){
+        //            GUILayout.BeginVertical("box");
+
+        //            if(t.dynamicFootstep.materialMode == FirstPersonAIO.DynamicFootStep.matMode.physicMaterial){
+        //                if(! t.dynamicFootstep.customPhysMat.Any()){EditorGUILayout.HelpBox("At least one Physic Material must be assigned first.",MessageType.Warning);}
+        //                EditorGUILayout.LabelField("Custom Physic Materials",new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
+        //                for(int i=0; i<customPhysMat.arraySize; i++){ 
+        //                SerializedProperty LS_ref = customPhysMat.GetArrayElementAtIndex(i);
+        //                EditorGUILayout.BeginHorizontal("box");
+        //                LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(PhysicMaterial),false);
+        //                if(GUILayout.Button(new GUIContent("X", "Remove this Physic Material"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.customPhysMat.RemoveAt(i);}
+        //                EditorGUILayout.EndHorizontal();
+        //                }
+
+
+        //                if(GUILayout.Button(new GUIContent("Add new Physic Material entry", "Add new Physic Material entry"))){ t.dynamicFootstep.customPhysMat.Add(null);}
+        //                GUI.enabled = t.dynamicFootstep.customPhysMat.Any();}
+
+        //            else{
+        //                if(!t.dynamicFootstep.customMat.Any()){EditorGUILayout.HelpBox("At least one Material must be assigned first.",MessageType.Warning);}
+        //                EditorGUILayout.LabelField("Custom Materials", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
+        //                for(int i=0; i<customMat.arraySize; i++){ 
+        //                SerializedProperty LS_ref = customMat.GetArrayElementAtIndex(i);
+        //                EditorGUILayout.BeginHorizontal("box");
+        //                LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(Material),false);
+        //                if(GUILayout.Button(new GUIContent("X", "Remove this Material"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.customMat.RemoveAt(i);}
+        //                EditorGUILayout.EndHorizontal();
+        //                }
+        //                if(GUILayout.Button(new GUIContent("Add new Material entry", "Add new Material entry"))){ t.dynamicFootstep.customMat.Add(null);}
+        //                GUI.enabled = t.dynamicFootstep.customMat.Any();
+        //            }
+
+        //            EditorGUILayout.LabelField("Custom Audio Clips", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
+        //            for(int i=0; i<customFS.arraySize; i++){ 
+        //            SerializedProperty LS_ref = customFS.GetArrayElementAtIndex(i);
+        //            EditorGUILayout.BeginHorizontal("box");
+        //            LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("Clip "+(i+1)+":",LS_ref.objectReferenceValue,typeof(AudioClip),false);
+        //            if(GUILayout.Button(new GUIContent("X", "Remove this clip"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.customClipSet.RemoveAt(i);}
+        //            EditorGUILayout.EndHorizontal();
+        //            }
+
+        //            EditorGUILayout.Space();
+        //            EditorGUILayout.BeginHorizontal();
+
+        //            if(GUILayout.Button(new GUIContent("Add Clip", "Add new clip entry"))){ t.dynamicFootstep.customClipSet.Add(null);}
+        //            if(GUILayout.Button(new GUIContent("Remove All Clips", "Remove all clip entries"))){ t.dynamicFootstep.customClipSet.Clear();}
+        //            EditorGUILayout.EndHorizontal();
+        //            GUILayout.EndVertical();
+        //            DropAreaGUI(t.dynamicFootstep.customClipSet,GUILayoutUtility.GetLastRect());
+        //        }
+        //        GUI.enabled = t.enableAudioSFX;
+        //        EditorGUILayout.EndFoldoutHeaderGroup();
+        //        EditorGUILayout.Space();
+        //        #endregion
+        //        #region Fallback Section
+        //        showStaticFS = EditorGUILayout.BeginFoldoutHeaderGroup(showStaticFS,new GUIContent("Fallback Footstep Clips","Audio clips available as footsteps in case a collider with an unrecognized/null Physic Material is walked on."));
+        //        if(showStaticFS){
+        //            GUILayout.BeginVertical("box");
+        //            for(int i=0; i<staticFS.arraySize; i++){
+        //            SerializedProperty LS_ref = staticFS.GetArrayElementAtIndex(i);
+        //            EditorGUILayout.BeginHorizontal("box");
+        //            LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("Clip "+(i+1)+":",LS_ref.objectReferenceValue,typeof(AudioClip),false);
+        //            if(GUILayout.Button(new GUIContent("X", "Remove this clip"),GUILayout.MaxWidth(20))){ this.t.footStepSounds.RemoveAt(i);}
+        //            EditorGUILayout.EndHorizontal();
+        //            }
+
+        //            EditorGUILayout.Space();
+        //            EditorGUILayout.BeginHorizontal();
+
+        //            if(GUILayout.Button(new GUIContent("Add Clip", "Add new clip entry"))){ this.t.footStepSounds.Add(null);}
+        //            if(GUILayout.Button(new GUIContent("Remove All Clips", "Remove all clip entries"))){ this.t.footStepSounds.Clear();}
+        //            EditorGUILayout.EndHorizontal();
+        //            GUILayout.EndVertical();
+        //            DropAreaGUI(t.footStepSounds,GUILayoutUtility.GetLastRect());
+        //        } 
                 EditorGUILayout.EndFoldoutHeaderGroup();
-                t.jumpSound = (AudioClip)EditorGUILayout.ObjectField(new GUIContent("Jump Clip","An audio clip that will play when jumping."),t.jumpSound,typeof(AudioClip),false);
-                t.landSound = (AudioClip)EditorGUILayout.ObjectField(new GUIContent("Land Clip","An audio clip that will play when landing."),t.landSound,typeof(AudioClip),false);
-
-            }
-            #endregion
-            
-            else{
-                t.dynamicFootstep.materialMode = (FirstPersonAIO.DynamicFootStep.matMode)EditorGUILayout.EnumPopup(new GUIContent("Material Type", "Determines the type of material will trigger footstep audio."),t.dynamicFootstep.materialMode);
-                EditorGUILayout.Space();
-                #region Wood Section
-                showWoodFS = EditorGUILayout.BeginFoldoutHeaderGroup(showWoodFS,new GUIContent("Wood Clips","Audio clips available as footsteps when walking on a collider with the Physic Material assigned to 'Wood Physic Material'"));
-                if(showWoodFS){
-                    GUILayout.BeginVertical("box");
-                    if(t.dynamicFootstep.materialMode == FirstPersonAIO.DynamicFootStep.matMode.physicMaterial){
-                        if(! t.dynamicFootstep.woodPhysMat.Any()){EditorGUILayout.HelpBox("At least one Physic Material must be assigned first.",MessageType.Warning);}
-                        EditorGUILayout.LabelField("Wood Physic Materials",new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
-                        for(int i=0; i<woodPhysMat.arraySize; i++){ 
-                        SerializedProperty LS_ref = woodPhysMat.GetArrayElementAtIndex(i);
-                        EditorGUILayout.BeginHorizontal("box");
-                        LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(PhysicMaterial),false);
-                        if(GUILayout.Button(new GUIContent("X", "Remove this Physic Material"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.woodPhysMat.RemoveAt(i);}
-                        EditorGUILayout.EndHorizontal();
-                        }
-                          
-                      
-                        if(GUILayout.Button(new GUIContent("Add new Physic Material entry", "Add new Physic Material entry"))){ t.dynamicFootstep.woodPhysMat.Add(null);}
-                        GUI.enabled = t.dynamicFootstep.woodPhysMat.Any();}
-
-                    else{
-                        if(!t.dynamicFootstep.woodMat.Any()){EditorGUILayout.HelpBox("At least one Material must be assigned first.",MessageType.Warning);}
-                        EditorGUILayout.LabelField("Wood Materials", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
-                        for(int i=0; i<woodMat.arraySize; i++){ 
-                        SerializedProperty LS_ref = woodMat.GetArrayElementAtIndex(i);
-                        EditorGUILayout.BeginHorizontal("box");
-                        LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(Material),false);
-                        if(GUILayout.Button(new GUIContent("X", "Remove this Material"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.woodMat.RemoveAt(i);}
-                        EditorGUILayout.EndHorizontal();
-                        }
-                        if(GUILayout.Button(new GUIContent("Add new Material entry", "Add new Material entry"))){ t.dynamicFootstep.woodMat.Add(null);}
-                        GUI.enabled = t.dynamicFootstep.woodMat.Any();
-                    }
-                    EditorGUILayout.Space();
-                    EditorGUILayout.LabelField("Wood Audio Clips", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
-                    for(int i=0; i<woodFS.arraySize; i++){ 
-                    SerializedProperty LS_ref = woodFS.GetArrayElementAtIndex(i);
-                    EditorGUILayout.BeginHorizontal("box");
-                    LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("Clip "+(i+1)+":",LS_ref.objectReferenceValue,typeof(AudioClip),false);
-                    if(GUILayout.Button(new GUIContent("X", "Remove this clip"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.woodClipSet.RemoveAt(i);}
-                    EditorGUILayout.EndHorizontal();
-                    }
-
-                    EditorGUILayout.Space();
-                    EditorGUILayout.BeginHorizontal();
-                    
-                    if(GUILayout.Button(new GUIContent("Add Clip", "Add new clip entry"))){ t.dynamicFootstep.woodClipSet.Add(null);}
-                    if(GUILayout.Button(new GUIContent("Remove All Clips", "Remove all clip entries"))){ t.dynamicFootstep.woodClipSet.Clear();}
-                    EditorGUILayout.EndHorizontal();
-                    GUILayout.EndVertical();
-                    DropAreaGUI(t.dynamicFootstep.woodClipSet,GUILayoutUtility.GetLastRect());
-                } 
-                GUI.enabled = t.enableAudioSFX;
-                EditorGUILayout.EndFoldoutHeaderGroup();
-                EditorGUILayout.Space();
-                #endregion 
-                #region Metal Section
-                showMetalFS = EditorGUILayout.BeginFoldoutHeaderGroup(showMetalFS,new GUIContent("Metal & Glass Clips","Audio clips available as footsteps when walking on a collider with the Physic Material assigned to 'Metal & Glass Physic Material'"));
-                if(showMetalFS){
-                    GUILayout.BeginVertical("box");
-                    
-                    if(t.dynamicFootstep.materialMode == FirstPersonAIO.DynamicFootStep.matMode.physicMaterial){
-                        if(! t.dynamicFootstep.metalAndGlassPhysMat.Any()){EditorGUILayout.HelpBox("At least one Physic Material must be assigned first.",MessageType.Warning);}
-                        EditorGUILayout.LabelField("Metal & Glass Physic Materials",new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
-                        for(int i=0; i<metalAndGlassPhysMat.arraySize; i++){ 
-                        SerializedProperty LS_ref = metalAndGlassPhysMat.GetArrayElementAtIndex(i);
-                        EditorGUILayout.BeginHorizontal("box");
-                        LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(PhysicMaterial),false);
-                        if(GUILayout.Button(new GUIContent("X", "Remove this Physic Material"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.metalAndGlassPhysMat.RemoveAt(i);}
-                        EditorGUILayout.EndHorizontal();
-                        }
-                          
-                      
-                        if(GUILayout.Button(new GUIContent("Add new Physic Material entry", "Add new Physic Material entry"))){ t.dynamicFootstep.metalAndGlassPhysMat.Add(null);}
-                        GUI.enabled = t.dynamicFootstep.metalAndGlassPhysMat.Any();}
-
-                    else{
-                        if(!t.dynamicFootstep.metalAndGlassMat.Any()){EditorGUILayout.HelpBox("At least one Material must be assigned first.",MessageType.Warning);}
-                        EditorGUILayout.LabelField("Metal & Glass Materials", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
-                        for(int i=0; i<metalAndGlassMat.arraySize; i++){ 
-                        SerializedProperty LS_ref = metalAndGlassMat.GetArrayElementAtIndex(i);
-                        EditorGUILayout.BeginHorizontal("box");
-                        LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(Material),false);
-                        if(GUILayout.Button(new GUIContent("X", "Remove this Material"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.metalAndGlassMat.RemoveAt(i);}
-                        EditorGUILayout.EndHorizontal();
-                        }
-                        if(GUILayout.Button(new GUIContent("Add new Material entry", "Add new Material entry"))){ t.dynamicFootstep.metalAndGlassMat.Add(null);}
-                        GUI.enabled = t.dynamicFootstep.metalAndGlassMat.Any();
-                    }
-
-                    EditorGUILayout.LabelField("Metal & Glass Audio Clips", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
-                    for(int i=0; i<metalFS.arraySize; i++){ 
-                    SerializedProperty LS_ref = metalFS.GetArrayElementAtIndex(i);
-                    EditorGUILayout.BeginHorizontal("box");
-                    LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("Clip "+(i+1)+":",LS_ref.objectReferenceValue,typeof(AudioClip),false);
-                    if(GUILayout.Button(new GUIContent("X", "Remove this clip"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.metalAndGlassClipSet.RemoveAt(i);}
-                    EditorGUILayout.EndHorizontal();
-                    }
-
-                    EditorGUILayout.Space();
-                    EditorGUILayout.BeginHorizontal();
-                    
-                    if(GUILayout.Button(new GUIContent("Add Clip", "Add new clip entry"))){ t.dynamicFootstep.metalAndGlassClipSet.Add(null);}
-                    if(GUILayout.Button(new GUIContent("Remove All Clips", "Remove all clip entries"))){ t.dynamicFootstep.metalAndGlassClipSet.Clear();}
-                    EditorGUILayout.EndHorizontal();
-                    GUILayout.EndVertical();
-                    DropAreaGUI(t.dynamicFootstep.metalAndGlassClipSet,GUILayoutUtility.GetLastRect());
-                } 
-                GUI.enabled = t.enableAudioSFX;
-                EditorGUILayout.EndFoldoutHeaderGroup();
-                EditorGUILayout.Space();
                 #endregion
-                #region Grass Section
-                showGrassFS = EditorGUILayout.BeginFoldoutHeaderGroup(showGrassFS,new GUIContent("Grass Clips","Audio clips available as footsteps when walking on a collider with the Physic Material assigned to 'Grass Physic Material'"));
-                if(showGrassFS){
-                    GUILayout.BeginVertical("box");
-
-                    if(t.dynamicFootstep.materialMode == FirstPersonAIO.DynamicFootStep.matMode.physicMaterial){
-                        if(! t.dynamicFootstep.grassPhysMat.Any()){EditorGUILayout.HelpBox("At least one Physic Material must be assigned first.",MessageType.Warning);}
-                        EditorGUILayout.LabelField("Grass Physic Materials",new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
-                        for(int i=0; i<grassPhysMat.arraySize; i++){ 
-                        SerializedProperty LS_ref = grassPhysMat.GetArrayElementAtIndex(i);
-                        EditorGUILayout.BeginHorizontal("box");
-                        LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(PhysicMaterial),false);
-                        if(GUILayout.Button(new GUIContent("X", "Remove this Physic Material"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.grassPhysMat.RemoveAt(i);}
-                        EditorGUILayout.EndHorizontal();
-                        }
-                          
-                      
-                        if(GUILayout.Button(new GUIContent("Add new Physic Material entry", "Add new Physic Material entry"))){ t.dynamicFootstep.grassPhysMat.Add(null);}
-                        GUI.enabled = t.dynamicFootstep.grassPhysMat.Any();}
-
-                    else{
-                        if(!t.dynamicFootstep.grassMat.Any()){EditorGUILayout.HelpBox("At least one Material must be assigned first.",MessageType.Warning);}
-                        EditorGUILayout.LabelField("Grass Materials", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
-                        for(int i=0; i<grassMat.arraySize; i++){ 
-                        SerializedProperty LS_ref = grassMat.GetArrayElementAtIndex(i);
-                        EditorGUILayout.BeginHorizontal("box");
-                        LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(Material),false);
-                        if(GUILayout.Button(new GUIContent("X", "Remove this Material"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.grassMat.RemoveAt(i);}
-                        EditorGUILayout.EndHorizontal();
-                        }
-                        if(GUILayout.Button(new GUIContent("Add new Material entry", "Add new Material entry"))){ t.dynamicFootstep.grassMat.Add(null);}
-                        GUI.enabled = t.dynamicFootstep.grassMat.Any();
-                    }
-                    
-                    EditorGUILayout.LabelField("Grass Audio Clips", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
-                    for(int i=0; i<grassFS.arraySize; i++){ 
-                    SerializedProperty LS_ref = grassFS.GetArrayElementAtIndex(i);
-                    EditorGUILayout.BeginHorizontal("box");
-                    LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("Clip "+(i+1)+":",LS_ref.objectReferenceValue,typeof(AudioClip),false);
-                    if(GUILayout.Button(new GUIContent("X", "Remove this clip"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.grassClipSet.RemoveAt(i);}
-                    EditorGUILayout.EndHorizontal();
-                    }
-
-                    EditorGUILayout.Space();
-                    EditorGUILayout.BeginHorizontal();
-                    
-                    if(GUILayout.Button(new GUIContent("Add Clip", "Add new clip entry"))){ t.dynamicFootstep.grassClipSet.Add(null);}
-                    if(GUILayout.Button(new GUIContent("Remove All Clips", "Remove all clip entries"))){ t.dynamicFootstep.grassClipSet.Clear();}
-                    EditorGUILayout.EndHorizontal();
-                    GUILayout.EndVertical();
-                    DropAreaGUI(t.dynamicFootstep.grassClipSet,GUILayoutUtility.GetLastRect());
-                } 
-                GUI.enabled = t.enableAudioSFX;
-                EditorGUILayout.EndFoldoutHeaderGroup();
-                EditorGUILayout.Space();
-                #endregion
-                #region Dirt Section
-                showDirtFS = EditorGUILayout.BeginFoldoutHeaderGroup(showDirtFS,new GUIContent("Dirt & Gravel Clips","Audio clips available as footsteps when walking on a collider with the Physic Material assigned to 'Dirt & Gravel Physic Material'"));
-                if(showDirtFS){
-                    GUILayout.BeginVertical("box");
-
-                    if(t.dynamicFootstep.materialMode == FirstPersonAIO.DynamicFootStep.matMode.physicMaterial){
-                        if(! t.dynamicFootstep.dirtAndGravelPhysMat.Any()){EditorGUILayout.HelpBox("At least one Physic Material must be assigned first.",MessageType.Warning);}
-                        EditorGUILayout.LabelField("Dirt & Gravel Physic Materials",new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
-                        for(int i=0; i<dirtAndGravelPhysMat.arraySize; i++){ 
-                        SerializedProperty LS_ref = dirtAndGravelPhysMat.GetArrayElementAtIndex(i);
-                        EditorGUILayout.BeginHorizontal("box");
-                        LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(PhysicMaterial),false);
-                        if(GUILayout.Button(new GUIContent("X", "Remove this Physic Material"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.dirtAndGravelPhysMat.RemoveAt(i);}
-                        EditorGUILayout.EndHorizontal();
-                        }
-                          
-                      
-                        if(GUILayout.Button(new GUIContent("Add new Physic Material entry", "Add new Physic Material entry"))){ t.dynamicFootstep.dirtAndGravelPhysMat.Add(null);}
-                        GUI.enabled = t.dynamicFootstep.dirtAndGravelPhysMat.Any();}
-
-                    else{
-                        if(!t.dynamicFootstep.dirtAndGravelMat.Any()){EditorGUILayout.HelpBox("At least one Material must be assigned first.",MessageType.Warning);}
-                        EditorGUILayout.LabelField("Dirt & Gravel Materials", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
-                        for(int i=0; i<dirtAndGravelMat.arraySize; i++){ 
-                        SerializedProperty LS_ref = dirtAndGravelMat.GetArrayElementAtIndex(i);
-                        EditorGUILayout.BeginHorizontal("box");
-                        LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(Material),false);
-                        if(GUILayout.Button(new GUIContent("X", "Remove this Material"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.dirtAndGravelMat.RemoveAt(i);}
-                        EditorGUILayout.EndHorizontal();
-                        }
-                        if(GUILayout.Button(new GUIContent("Add new Material entry", "Add new Material entry"))){ t.dynamicFootstep.dirtAndGravelMat.Add(null);}
-                        GUI.enabled = t.dynamicFootstep.dirtAndGravelMat.Any();
-                    }
-
-                    EditorGUILayout.LabelField("Dirt & Gravel Audio Clips", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
-                    for(int i=0; i<dirtFS.arraySize; i++){ 
-                    SerializedProperty LS_ref = dirtFS.GetArrayElementAtIndex(i);
-                    EditorGUILayout.BeginHorizontal("box");
-                    LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("Clip "+(i+1)+":",LS_ref.objectReferenceValue,typeof(AudioClip),false);
-                    if(GUILayout.Button(new GUIContent("X", "Remove this clip"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.dirtAndGravelClipSet.RemoveAt(i);}
-                    EditorGUILayout.EndHorizontal();
-                    }
-
-                    EditorGUILayout.Space();
-                    EditorGUILayout.BeginHorizontal();
-                    
-                    if(GUILayout.Button(new GUIContent("Add Clip", "Add new clip entry"))){ t.dynamicFootstep.dirtAndGravelClipSet.Add(null);}
-                    if(GUILayout.Button(new GUIContent("Remove All Clips", "Remove all clip entries"))){ t.dynamicFootstep.dirtAndGravelClipSet.Clear();}
-                    EditorGUILayout.EndHorizontal();
-                    GUILayout.EndVertical();
-                    DropAreaGUI(t.dynamicFootstep.dirtAndGravelClipSet,GUILayoutUtility.GetLastRect());
-                } 
-                GUI.enabled = t.enableAudioSFX;
-                EditorGUILayout.EndFoldoutHeaderGroup();
-                EditorGUILayout.Space();
-                #endregion
-                #region Rock Section
-                showConcreteFS = EditorGUILayout.BeginFoldoutHeaderGroup(showConcreteFS,new GUIContent("Rock & Concrete Clips","Audio clips available as footsteps when walking on a collider with the Physic Material assigned to 'Rock & Concrete Physic Material'"));
-                if(showConcreteFS){
-                    GUILayout.BeginVertical("box");
-
-                    if(t.dynamicFootstep.materialMode == FirstPersonAIO.DynamicFootStep.matMode.physicMaterial){
-                        if(! t.dynamicFootstep.rockAndConcretePhysMat.Any()){EditorGUILayout.HelpBox("At least one Physic Material must be assigned first.",MessageType.Warning);}
-                        EditorGUILayout.LabelField("Rock & Concrete Physic Materials",new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
-                        for(int i=0; i<rockAndConcretePhysMat.arraySize; i++){ 
-                        SerializedProperty LS_ref = rockAndConcretePhysMat.GetArrayElementAtIndex(i);
-                        EditorGUILayout.BeginHorizontal("box");
-                        LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(PhysicMaterial),false);
-                        if(GUILayout.Button(new GUIContent("X", "Remove this Physic Material"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.rockAndConcretePhysMat.RemoveAt(i);}
-                        EditorGUILayout.EndHorizontal();
-                        }
-                          
-                      
-                        if(GUILayout.Button(new GUIContent("Add new Physic Material entry", "Add new Physic Material entry"))){ t.dynamicFootstep.rockAndConcretePhysMat.Add(null);}
-                        GUI.enabled = t.dynamicFootstep.rockAndConcretePhysMat.Any();}
-
-                    else{
-                        if(!t.dynamicFootstep.rockAndConcreteMat.Any()){EditorGUILayout.HelpBox("At least one Material must be assigned first.",MessageType.Warning);}
-                        EditorGUILayout.LabelField("Rock & Concrete Materials", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
-                        for(int i=0; i<rockAndConcreteMat.arraySize; i++){ 
-                        SerializedProperty LS_ref = rockAndConcreteMat.GetArrayElementAtIndex(i);
-                        EditorGUILayout.BeginHorizontal("box");
-                        LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(Material),false); 
-                        if(GUILayout.Button(new GUIContent("X", "Remove this Material"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.rockAndConcreteMat.RemoveAt(i);}
-                        EditorGUILayout.EndHorizontal();
-                        }
-                        if(GUILayout.Button(new GUIContent("Add new Material entry", "Add new Material entry"))){ t.dynamicFootstep.rockAndConcreteMat.Add(null);}
-                        GUI.enabled = t.dynamicFootstep.rockAndConcreteMat.Any();
-                    }
-
-                    EditorGUILayout.LabelField("Rock & Concrete Audio Clips", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
-                    for(int i=0; i<concreteFS.arraySize; i++){ 
-                    SerializedProperty LS_ref = concreteFS.GetArrayElementAtIndex(i);
-                    EditorGUILayout.BeginHorizontal("box");
-                    LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("Clip "+(i+1)+":",LS_ref.objectReferenceValue,typeof(AudioClip),false);
-                    if(GUILayout.Button(new GUIContent("X", "Remove this clip"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.rockAndConcreteClipSet.RemoveAt(i);}
-                    EditorGUILayout.EndHorizontal();
-                    }
-
-                    EditorGUILayout.Space();
-                    EditorGUILayout.BeginHorizontal();
-                    
-                    if(GUILayout.Button(new GUIContent("Add Clip", "Add new clip entry"))){ t.dynamicFootstep.rockAndConcreteClipSet.Add(null);}
-                    if(GUILayout.Button(new GUIContent("Remove All Clips", "Remove all clip entries"))){ t.dynamicFootstep.rockAndConcreteClipSet.Clear();}
-                    EditorGUILayout.EndHorizontal();
-                    GUILayout.EndVertical();
-                    DropAreaGUI(t.dynamicFootstep.rockAndConcreteClipSet,GUILayoutUtility.GetLastRect());
-                } 
-                GUI.enabled = t.enableAudioSFX;
-                EditorGUILayout.EndFoldoutHeaderGroup();
-                EditorGUILayout.Space();
-                #endregion
-                #region Mud Section
-                showMudFS = EditorGUILayout.BeginFoldoutHeaderGroup(showMudFS,new GUIContent("Mud Clips","Audio clips available as footsteps when walking on a collider with the Physic Material assigned to 'Mud Physic Material'"));
-                if(showMudFS){
-                    GUILayout.BeginVertical("box");
-                    
-                    if(t.dynamicFootstep.materialMode == FirstPersonAIO.DynamicFootStep.matMode.physicMaterial){
-                        if(! t.dynamicFootstep.mudPhysMat.Any()){EditorGUILayout.HelpBox("At least one Physic Material must be assigned first.",MessageType.Warning);}
-                        EditorGUILayout.LabelField("Mud Physic Materials",new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
-                        for(int i=0; i<mudPhysMat.arraySize; i++){ 
-                        SerializedProperty LS_ref = mudPhysMat.GetArrayElementAtIndex(i);
-                        EditorGUILayout.BeginHorizontal("box");
-                        LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(PhysicMaterial),false);
-                        if(GUILayout.Button(new GUIContent("X", "Remove this Physic Material"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.mudPhysMat.RemoveAt(i);}
-                        EditorGUILayout.EndHorizontal();
-                        }
-                          
-                      
-                        if(GUILayout.Button(new GUIContent("Add new Physic Material entry", "Add new Physic Material entry"))){ t.dynamicFootstep.mudPhysMat.Add(null);}
-                        GUI.enabled = t.dynamicFootstep.mudPhysMat.Any();}
-
-                    else{
-                        if(!t.dynamicFootstep.mudMat.Any()){EditorGUILayout.HelpBox("At least one Material must be assigned first.",MessageType.Warning);}
-                        EditorGUILayout.LabelField("Mud Materials", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
-                        for(int i=0; i<mudMat.arraySize; i++){ 
-                        SerializedProperty LS_ref = mudMat.GetArrayElementAtIndex(i);
-                        EditorGUILayout.BeginHorizontal("box");
-                        LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(Material),false);
-                        if(GUILayout.Button(new GUIContent("X", "Remove this Material"),GUILayout.MaxWidth(20))){t.dynamicFootstep.mudMat.RemoveAt(i);}
-                        EditorGUILayout.EndHorizontal();
-                        }
-                        if(GUILayout.Button(new GUIContent("Add new Material entry", "Add new Material entry"))){t.dynamicFootstep.mudMat.Add(null);}
-                        GUI.enabled = t.dynamicFootstep.mudMat.Any();
-                    }
-
-                    EditorGUILayout.LabelField("Mud Audio Clips", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
-                    for(int i=0; i<mudFS.arraySize; i++){ 
-                    SerializedProperty LS_ref = mudFS.GetArrayElementAtIndex(i);
-                    EditorGUILayout.BeginHorizontal("box");
-                    LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("Clip "+(i+1)+":",LS_ref.objectReferenceValue,typeof(AudioClip),false);
-                    if(GUILayout.Button(new GUIContent("X", "Remove this clip"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.mudClipSet.RemoveAt(i);}
-                    EditorGUILayout.EndHorizontal();
-                    }
-
-                    EditorGUILayout.Space();
-                    EditorGUILayout.BeginHorizontal();
-                    
-                    if(GUILayout.Button(new GUIContent("Add Clip", "Add new clip entry"))){ t.dynamicFootstep.mudClipSet.Add(null);}
-                    if(GUILayout.Button(new GUIContent("Remove All Clips", "Remove all clip entries"))){ t.dynamicFootstep.mudClipSet.Clear();}
-                    EditorGUILayout.EndHorizontal();
-                    GUILayout.EndVertical();
-                    DropAreaGUI(t.dynamicFootstep.mudClipSet,GUILayoutUtility.GetLastRect());
-                } 
-                GUI.enabled = t.enableAudioSFX;
-                EditorGUILayout.EndFoldoutHeaderGroup();
-                EditorGUILayout.Space();
-                #endregion
-                #region Custom Section
-                showCustomFS = EditorGUILayout.BeginFoldoutHeaderGroup(showCustomFS,new GUIContent("Custom Material Clips","Audio clips available as footsteps when walking on a collider with the Physic Material assigned to 'Custom Physic Material'"));
-                if(showCustomFS){
-                    GUILayout.BeginVertical("box");
-
-                    if(t.dynamicFootstep.materialMode == FirstPersonAIO.DynamicFootStep.matMode.physicMaterial){
-                        if(! t.dynamicFootstep.customPhysMat.Any()){EditorGUILayout.HelpBox("At least one Physic Material must be assigned first.",MessageType.Warning);}
-                        EditorGUILayout.LabelField("Custom Physic Materials",new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
-                        for(int i=0; i<customPhysMat.arraySize; i++){ 
-                        SerializedProperty LS_ref = customPhysMat.GetArrayElementAtIndex(i);
-                        EditorGUILayout.BeginHorizontal("box");
-                        LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(PhysicMaterial),false);
-                        if(GUILayout.Button(new GUIContent("X", "Remove this Physic Material"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.customPhysMat.RemoveAt(i);}
-                        EditorGUILayout.EndHorizontal();
-                        }
-                          
-                      
-                        if(GUILayout.Button(new GUIContent("Add new Physic Material entry", "Add new Physic Material entry"))){ t.dynamicFootstep.customPhysMat.Add(null);}
-                        GUI.enabled = t.dynamicFootstep.customPhysMat.Any();}
-
-                    else{
-                        if(!t.dynamicFootstep.customMat.Any()){EditorGUILayout.HelpBox("At least one Material must be assigned first.",MessageType.Warning);}
-                        EditorGUILayout.LabelField("Custom Materials", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
-                        for(int i=0; i<customMat.arraySize; i++){ 
-                        SerializedProperty LS_ref = customMat.GetArrayElementAtIndex(i);
-                        EditorGUILayout.BeginHorizontal("box");
-                        LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("",LS_ref.objectReferenceValue,typeof(Material),false);
-                        if(GUILayout.Button(new GUIContent("X", "Remove this Material"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.customMat.RemoveAt(i);}
-                        EditorGUILayout.EndHorizontal();
-                        }
-                        if(GUILayout.Button(new GUIContent("Add new Material entry", "Add new Material entry"))){ t.dynamicFootstep.customMat.Add(null);}
-                        GUI.enabled = t.dynamicFootstep.customMat.Any();
-                    }
-
-                    EditorGUILayout.LabelField("Custom Audio Clips", new GUIStyle(GUI.skin.label){alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold});
-                    for(int i=0; i<customFS.arraySize; i++){ 
-                    SerializedProperty LS_ref = customFS.GetArrayElementAtIndex(i);
-                    EditorGUILayout.BeginHorizontal("box");
-                    LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("Clip "+(i+1)+":",LS_ref.objectReferenceValue,typeof(AudioClip),false);
-                    if(GUILayout.Button(new GUIContent("X", "Remove this clip"),GUILayout.MaxWidth(20))){ t.dynamicFootstep.customClipSet.RemoveAt(i);}
-                    EditorGUILayout.EndHorizontal();
-                    }
-
-                    EditorGUILayout.Space();
-                    EditorGUILayout.BeginHorizontal();
-                    
-                    if(GUILayout.Button(new GUIContent("Add Clip", "Add new clip entry"))){ t.dynamicFootstep.customClipSet.Add(null);}
-                    if(GUILayout.Button(new GUIContent("Remove All Clips", "Remove all clip entries"))){ t.dynamicFootstep.customClipSet.Clear();}
-                    EditorGUILayout.EndHorizontal();
-                    GUILayout.EndVertical();
-                    DropAreaGUI(t.dynamicFootstep.customClipSet,GUILayoutUtility.GetLastRect());
-                }
-                GUI.enabled = t.enableAudioSFX;
-                EditorGUILayout.EndFoldoutHeaderGroup();
-                EditorGUILayout.Space();
-                #endregion
-                #region Fallback Section
-                showStaticFS = EditorGUILayout.BeginFoldoutHeaderGroup(showStaticFS,new GUIContent("Fallback Footstep Clips","Audio clips available as footsteps in case a collider with an unrecognized/null Physic Material is walked on."));
-                if(showStaticFS){
-                    GUILayout.BeginVertical("box");
-                    for(int i=0; i<staticFS.arraySize; i++){
-                    SerializedProperty LS_ref = staticFS.GetArrayElementAtIndex(i);
-                    EditorGUILayout.BeginHorizontal("box");
-                    LS_ref.objectReferenceValue = EditorGUILayout.ObjectField("Clip "+(i+1)+":",LS_ref.objectReferenceValue,typeof(AudioClip),false);
-                    if(GUILayout.Button(new GUIContent("X", "Remove this clip"),GUILayout.MaxWidth(20))){ this.t.footStepSounds.RemoveAt(i);}
-                    EditorGUILayout.EndHorizontal();
-                    }
-
-                    EditorGUILayout.Space();
-                    EditorGUILayout.BeginHorizontal();
-                    
-                    if(GUILayout.Button(new GUIContent("Add Clip", "Add new clip entry"))){ this.t.footStepSounds.Add(null);}
-                    if(GUILayout.Button(new GUIContent("Remove All Clips", "Remove all clip entries"))){ this.t.footStepSounds.Clear();}
-                    EditorGUILayout.EndHorizontal();
-                    GUILayout.EndVertical();
-                    DropAreaGUI(t.footStepSounds,GUILayoutUtility.GetLastRect());
-                } 
-                EditorGUILayout.EndFoldoutHeaderGroup();
-                #endregion
-            }
-        #endregion
+        //    }
+        //#endregion
 
         /*   
         #region FunctionSnipets
