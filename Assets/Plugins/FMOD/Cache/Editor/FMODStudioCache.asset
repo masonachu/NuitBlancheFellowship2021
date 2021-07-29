@@ -1953,7 +1953,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Bank A.bank
   Name: Bank A
   StudioPath: bank:/Bank A
-  lastModified: 637629989540000000
+  lastModified: 637631532140000000
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -2079,11 +2079,11 @@ MonoBehaviour:
   guid: 8f03de198f949145894688bbebbb2f14
   Banks:
   - {fileID: 4026345087149809781}
+  - {fileID: -1328259149105907125}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
-  Parameters:
-  - {fileID: -4364432114924457564}
+  Parameters: []
   MinDistance: 0
   MaxDistance: 0
   Length: 250642
