@@ -4,46 +4,42 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MenuController : MonoBehaviour
-{
-    [SerializeField] private string gameVersion = "0.1";
-    [SerializeField] private GameObject UsernameMenu;
-    [SerializeField] private GameObject ConnectPanel;
-    [SerializeField] private GameObject MainMenu;
+public class MenuController : MonoBehaviour {
+
+    [SerializeField] private GameObject LoadingCanvas;
+    [SerializeField] private GameObject MenuCanvas;
     [SerializeField] private GameObject OptionsMenu;
+    [SerializeField] private GameObject ControlsMenu;
 
-    [SerializeField] private InputField UsernameInput;
-    [SerializeField] private InputField CreateGameInput;
-    [SerializeField] private InputField JoinGameInput;
+    private bool isLoaded = false;
 
-    [SerializeField] private GameObject StartButton;
+    List<AsyncOperation> scenesToLoad = new List<AsyncOperation>();
 
+    private void Start() {
 
-
-    private void Awake()
-    {
-        //PhotonNetwork.ConnectUsingSettings();
+        MenuCanvas.SetActive(false);
+        LoadingCanvas.SetActive(true);
     }
 
-    private void Start()
-    {
-        MainMenu.SetActive(true);
-    }
+    private void Update() {
+        
+        if(FMODUnity.RuntimeManager.HasBankLoaded("Master") && !isLoaded) {
 
-    public void ChangeUsernameInput()
-    {
-        if(UsernameInput.text.Length >= 3 && UsernameInput.text.Length != 0)
-        {
-            StartButton.SetActive(true);
-        }
-        else
-        {
-            StartButton.SetActive(false);
+            isLoaded = true;
+            MenuCanvas.SetActive(true); 
+            LoadingCanvas.SetActive(false);
+
+            Debug.Log("FMOD Loaded, Menu Canvas activated");
         }
     }
 
-    public void StartGame()
-    {
-        SceneManager.LoadScene("Main");
+
+    public void StartGame() {
+
+        if (FMODUnity.RuntimeManager.HasBankLoaded("Master")) {
+
+            scenesToLoad.Add(SceneManager.LoadSceneAsync("Main"));
+            scenesToLoad.Add(SceneManager.LoadSceneAsync("MainScene_01", LoadSceneMode.Additive));
+        }
     }
 }

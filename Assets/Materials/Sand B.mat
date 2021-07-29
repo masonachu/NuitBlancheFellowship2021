@@ -94,7 +94,7 @@ Material:
     - _DistanceOffset: 100
     - _DistanceStrength: 100
     - _DunesScale: 50
-    - _DunesStrength: 0.75
+    - _DunesStrength: 0.935
     - _Float0: 1
     - _Float1: 0.001
     - _Float2: 10
@@ -162,9 +162,10 @@ Material:
     m_Colors:
     - _Color: {r: 0.9622642, g: 0.8318471, b: 0.73985404, a: 1}
     - _Lit: {r: 0.8867924, g: 0.8528969, b: 0.6901922, a: 0}
-    - _LitColor: {r: 0.8862745, g: 0.8509804, b: 0.6901961, a: 1}
-    - _ShadedColor: {r: 0.8, g: 0.4117647, b: 0.29803923, a: 1}
+    - _LitColor: {r: 0.5849056, g: 0.4589043, b: 0.36142755, a: 1}
+    - _ShadedColor: {r: 0.3679245, g: 0.26993695, b: 0.24123353, a: 1}
     - _Shadow: {r: 0.8, g: 0.413001, b: 0.29803926, a: 0}
     - _Vector0: {r: 1, g: 1, b: 1, a: 0}
     - _Vector1: {r: 1.5, g: 0.5, b: 0, a: 0}
     - _shadowcolor: {r: 0.764151, g: 0.65988404, b: 0.5803222, a: 0}
+  m_BuildTextureStacks: []
