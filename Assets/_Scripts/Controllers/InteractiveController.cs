@@ -15,6 +15,7 @@ public class InteractiveController : MonoBehaviour
     [HideInInspector] public bool isInteracted = false;
 
     public virtual void Awake() {
+
         canvas = GetComponentInChildren<Canvas>();
         image = GetComponentInChildren<Image>();
         image.gameObject.SetActive(false);

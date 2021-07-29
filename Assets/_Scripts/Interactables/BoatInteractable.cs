@@ -4,16 +4,18 @@ using UnityEngine;
 using KinematicVehicleSystem;
 
 public class BoatInteractable : InteractiveController {
+
     private bool isActive;
     private bool boatActive;
+
+    [Header("References")]
+    public Camera playerCamera;
+    public KinematicBasicVehicle vechicleSystem;
+    public GameObject boatPlayer;
+
     private GameObject player;
     private FirstPersonAIO playerController;
     private BoxCollider bc;
-
-    public Camera playerCamera;
-    public KinematicBasicVehicle vechicleSystem;
-
-    public GameObject boatPlayer;
 
     [Header("Teleport Zones")]
     public Transform activeLocation;
@@ -21,16 +23,12 @@ public class BoatInteractable : InteractiveController {
 
 
     public override void Update() {
+
         base.Update();
 
         if (isActive) {
 
             image.gameObject.SetActive(false);
-
-            //Currently, does not work as it immediately calls when boat is active
-            //if (boatPlayer.gameObject.activeSelf) {
-            //ExitBoat();
-            //}
         }
         else {
             
@@ -49,10 +47,6 @@ public class BoatInteractable : InteractiveController {
             //Set bools to true
             isInteracted = true;
             isActive = true;
-
-            //Put player prefab inside of Boat interactable prefab
-            //player.transform.SetParent(this.gameObject.transform);
-            player.transform.position = activeLocation.position;
 
             //Disable player prefab and turn on BoatPlayer prefab
             boatPlayer.SetActive(true);
@@ -95,6 +89,7 @@ public class BoatInteractable : InteractiveController {
 
             //Sound effect here
             canvasActive = true;
+            Debug.Log("In Trigger");
         }
     }
 
@@ -107,6 +102,7 @@ public class BoatInteractable : InteractiveController {
 
             //Sound effect here
             canvasActive = false;
+            Debug.Log("Outside");
         }
     }
 
