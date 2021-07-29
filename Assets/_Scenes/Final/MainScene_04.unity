@@ -324,9 +324,74 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5282663935718982721, guid: e4775876f01950a469a3a4f17b5db46c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5213210242672364886, guid: e4775876f01950a469a3a4f17b5db46c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e4775876f01950a469a3a4f17b5db46c, type: 3}
       propertyPath: m_Name
       value: Moon_5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4775876f01950a469a3a4f17b5db46c, type: 3}
+--- !u!1001 &5008125073512652128
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7745747320668158744, guid: 0e42dacca35ae7b47a3f09f4c564d702, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7745747320668158744, guid: 0e42dacca35ae7b47a3f09f4c564d702, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 7745747320668158744, guid: 0e42dacca35ae7b47a3f09f4c564d702, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 7745747320668158744, guid: 0e42dacca35ae7b47a3f09f4c564d702, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2381.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 7745747320668158744, guid: 0e42dacca35ae7b47a3f09f4c564d702, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7745747320668158744, guid: 0e42dacca35ae7b47a3f09f4c564d702, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7745747320668158744, guid: 0e42dacca35ae7b47a3f09f4c564d702, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7745747320668158744, guid: 0e42dacca35ae7b47a3f09f4c564d702, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7745747320668158744, guid: 0e42dacca35ae7b47a3f09f4c564d702, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7745747320668158744, guid: 0e42dacca35ae7b47a3f09f4c564d702, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7745747320668158744, guid: 0e42dacca35ae7b47a3f09f4c564d702, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7745747320668158749, guid: 0e42dacca35ae7b47a3f09f4c564d702, type: 3}
+      propertyPath: m_Name
+      value: InteractableCampfire
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0e42dacca35ae7b47a3f09f4c564d702, type: 3}
