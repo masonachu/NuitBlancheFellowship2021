@@ -578,6 +578,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 4.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6440619999296200132, guid: 37521e6c6fd8f804c8bf099edb9ed0d6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.38268328
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440619999296200132, guid: 37521e6c6fd8f804c8bf099edb9ed0d6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440619999296200132, guid: 37521e6c6fd8f804c8bf099edb9ed0d6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.92387956
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440619999296200132, guid: 37521e6c6fd8f804c8bf099edb9ed0d6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440619999296200132, guid: 37521e6c6fd8f804c8bf099edb9ed0d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6856412528226193533, guid: 37521e6c6fd8f804c8bf099edb9ed0d6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -58.021164
@@ -702,8 +722,40 @@ PrefabInstance:
       propertyPath: poem
       value: event:/sfx/sfx_Sink
       objectReference: {fileID: 0}
+    - target: {fileID: 8336183658345872787, guid: 37521e6c6fd8f804c8bf099edb9ed0d6, type: 3}
+      propertyPath: UnderwaterTransition
+      value: 
+      objectReference: {fileID: 11400000, guid: d467953346acd9b46a6e30416727e561, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37521e6c6fd8f804c8bf099edb9ed0d6, type: 3}
+--- !u!1 &6857248599512390317 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8336183658345872784, guid: 37521e6c6fd8f804c8bf099edb9ed0d6, type: 3}
+  m_PrefabInstance: {fileID: 6857248599512390316}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6857248599512390318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6857248599512390317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/sfx/sfx_Sink
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1001 &8989664007145561627
 PrefabInstance:
   m_ObjectHideFlags: 0
