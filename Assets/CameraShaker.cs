@@ -10,10 +10,6 @@ public class CameraShaker : MonoBehaviour
     public ShakePreset EarthquakeShake;
     private ShakeInstance myShakeInstance;
 
-    private void Start() {
-
-    }
-
     public void BeginShaking() {
 
         myShakeInstance = Shaker.ShakeAll(EarthquakeShake);

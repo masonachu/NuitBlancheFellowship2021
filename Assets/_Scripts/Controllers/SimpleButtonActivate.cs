@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SimpleButtonActivate : MonoBehaviour
 {
-    public string button;
+    public string button = "q";
     public bool DebugMode;
 
     [SerializeField] private GameObject portal1;
@@ -20,7 +20,6 @@ public class SimpleButtonActivate : MonoBehaviour
     private void Update()
     {
         if (DebugMode) {
-
             DebugActivatePortal(button);
         }
     }
