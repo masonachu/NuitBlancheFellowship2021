@@ -394,6 +394,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3133527932582032817, guid: 0e8c6bdc0afa17b4983de3545af8e470, type: 3}
+      propertyPath: enableCameraShake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133527932582032817, guid: 0e8c6bdc0afa17b4983de3545af8e470, type: 3}
+      propertyPath: enableCameraMovement
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5291420363446478596, guid: 0e8c6bdc0afa17b4983de3545af8e470, type: 3}
       propertyPath: m_IsActive
       value: 0
