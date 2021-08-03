@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
+using UnityEngine.Playables;
 
 public class BottleInteractable : InteractiveController
 {
+    public TimelineManager TimelineManager;
+    public PlayableAsset UnderwaterTransition;
+
     [SerializeField] private GameObject cork;
-    [SerializeField] private Animator islandAnimator;
+    private Animator islandAnimator;
     
     private StudioEventEmitter emit;
 
@@ -26,7 +30,16 @@ public class BottleInteractable : InteractiveController
 
     public override void InteractWithObject() {
 
-        StartCoroutine(BeginCall());
+        cork.SetActive(false);
+        RuntimeManager.PlayOneShot(bottleOpen, transform.position);
+        TimelineManager = GameObject.FindWithTag("Timeline").GetComponent<TimelineManager>();
+        TriggerTimelineEvent();
+    }
+
+    public void TriggerTimelineEvent() {
+
+        TimelineManager.ChangePlayable(UnderwaterTransition);
+        TimelineManager.PlayTimeline();
     }
 
     IEnumerator BeginCall() {

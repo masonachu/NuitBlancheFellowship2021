@@ -4,28 +4,27 @@ using UnityEngine;
 
 public class SimpleButtonActivate : MonoBehaviour
 {
-    public string button;
-    public bool DebugMode;
+    public GameManager GameManager;
 
     [SerializeField] private GameObject portal1;
     [SerializeField] private GameObject portal2;
     [SerializeField] private bool isActive = false;
 
-    private void Start()
-    {
+    private void Start() {
         portal1.SetActive(false);
         portal2.SetActive(false);
+
+        GameManager = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
     }
 
     private void Update()
     {
-        if (DebugMode) {
-
-            DebugActivatePortal(button);
-        }
+        //if (GameManager.DebugMode) {
+        //    DebugActivatePortal(KeyCode.Q);
+        //}
     }
 
-    private void DebugActivatePortal(string key)
+    private void DebugActivatePortal(KeyCode key)
     {
         if(Input.GetKeyDown(key) && !isActive)
         {

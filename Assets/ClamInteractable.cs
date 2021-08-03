@@ -11,8 +11,7 @@ public class ClamInteractable : InteractiveController
 
     //References to FMOD events
     [Header("FMOD Events")]
-    [EventRef] public string bottleOpen;
-    [EventRef] public string poem;
+    [EventRef] public string sfx;
 
     private bool isPlaying;
 
@@ -33,11 +32,11 @@ public class ClamInteractable : InteractiveController
         if (!isInteracted) {
 
             //Start Coroutine and disable phone receiver object.
-            RuntimeManager.PlayOneShot(bottleOpen, transform.position);
+            RuntimeManager.PlayOneShot(sfx, transform.position);
             isInteracted = true;
 
             //set and play poem
-            emit.Event = poem;
+            emit.Event = sfx;
             emit.Play();
 
             //yield until the emitter stops playing.
