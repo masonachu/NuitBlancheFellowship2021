@@ -557,7 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a99a548c758ab740acffb72aab9fcc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerShaker: {fileID: 0}
+  PlayerShaker: {fileID: 706112050}
   EarthquakeShake: {fileID: 11400000, guid: 4681852fa25049f429edac80ac05d903, type: 2}
 --- !u!1 &5291420363446478596
 GameObject:
