@@ -10,9 +10,14 @@ public class CameraShaker : MonoBehaviour
     public ShakePreset EarthquakeShake;
     private ShakeInstance myShakeInstance;
 
-    public void BeginShaking() {
+    private void Start() {
 
         myShakeInstance = Shaker.ShakeAll(EarthquakeShake);
+        myShakeInstance.Stop(1f, false);
+    }
+
+    public void BeginShaking() {
+
         myShakeInstance.Start(0f);
     }
     

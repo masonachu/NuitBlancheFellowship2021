@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SimpleButtonActivate : MonoBehaviour
 {
-    public string button = "q";
     public GameManager GameManager;
 
     [SerializeField] private GameObject portal1;
@@ -20,12 +19,12 @@ public class SimpleButtonActivate : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.DebugMode) {
-            DebugActivatePortal(button);
-        }
+        //if (GameManager.DebugMode) {
+        //    DebugActivatePortal(KeyCode.Q);
+        //}
     }
 
-    private void DebugActivatePortal(string key)
+    private void DebugActivatePortal(KeyCode key)
     {
         if(Input.GetKeyDown(key) && !isActive)
         {
