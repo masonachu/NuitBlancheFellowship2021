@@ -321,5 +321,11 @@ namespace FMODUnity
             }
             return false;
         }
+
+        public void ChangeEvent(string newEvent) {
+            Event = newEvent;
+            Stop();
+            Lookup();
+        }
     }
 }
