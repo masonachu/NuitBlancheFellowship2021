@@ -360,7 +360,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4577692430049571523
 Transform:
   m_ObjectHideFlags: 0
@@ -756,14 +756,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6714616572903045444, guid: 8c8e240240fdafa4cac8b44079b9103a, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: ee8d6f618586c0f49adb8b4599131f25, type: 2}
-    - target: {fileID: 8131259915304009352, guid: 8c8e240240fdafa4cac8b44079b9103a, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: cf75bbe88de8a7e4db86bccf7258ec20, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c8e240240fdafa4cac8b44079b9103a, type: 3}
 --- !u!4 &4767395749036160533 stripped
@@ -778,6 +770,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6430660544927918067}
     m_Modifications:
+    - target: {fileID: 1309314958, guid: f2fa5db93b958da40928ecb8b8915e59, type: 3}
+      propertyPath: StopEvent
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309314958, guid: f2fa5db93b958da40928ecb8b8915e59, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309314958, guid: f2fa5db93b958da40928ecb8b8915e59, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120081308808262404, guid: f2fa5db93b958da40928ecb8b8915e59, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5263175181081373017, guid: f2fa5db93b958da40928ecb8b8915e59, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -829,6 +837,10 @@ PrefabInstance:
     - target: {fileID: 5352766154920033267, guid: f2fa5db93b958da40928ecb8b8915e59, type: 3}
       propertyPath: linkedPortal
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490565923241581625, guid: f2fa5db93b958da40928ecb8b8915e59, type: 3}
+      propertyPath: poem
+      value: event:/sfx/sfx_Noise
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2fa5db93b958da40928ecb8b8915e59, type: 3}

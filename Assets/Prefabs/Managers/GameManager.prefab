@@ -677,7 +677,7 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: 7234189721712044666, guid: 5bfc30611b64f5c4db2d91f2b451b45e, type: 2}
     value: {fileID: 848922841}
-  - key: {fileID: -1657292330959592422, guid: 5bfc30611b64f5c4db2d91f2b451b45e, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 0}
   - key: {fileID: -917566130921877424, guid: 5bfc30611b64f5c4db2d91f2b451b45e, type: 2}
     value: {fileID: 0}
