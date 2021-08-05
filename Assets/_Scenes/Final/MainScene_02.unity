@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4497097, g: 0.49977726, b: 0.57563514, a: 1}
+  m_IndirectSpecularColor: {r: 0.18263806, g: 0.22834924, b: 0.30714592, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -461,6 +461,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2254996581417144135, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2617348844808000340, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2969686028975446916, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -508,6 +516,10 @@ PrefabInstance:
     - target: {fileID: 2969686028975446923, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
       propertyPath: m_Name
       value: Underwater Area
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143666541746746546, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
