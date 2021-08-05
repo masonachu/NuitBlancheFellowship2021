@@ -7,6 +7,7 @@ public class CampfireInteractable : InteractiveController {
 
 
     private StudioEventEmitter emit;
+    public GameObject flame;
 
     //References to FMOD events
     [Header("FMOD Events")]
@@ -24,6 +25,11 @@ public class CampfireInteractable : InteractiveController {
     public override void InteractWithObject() {
 
         StartCoroutine(BeginCall());
+    }
+
+    public override void Update() {
+        base.Update();
+        flame.transform.LookAt(Camera.main.transform.position, Vector3.up);
     }
 
     IEnumerator BeginCall() {

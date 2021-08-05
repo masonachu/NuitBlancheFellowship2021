@@ -9,7 +9,7 @@ public class TimelineManager : MonoBehaviour
 
     private void Start() {
 
-        timeline = GameObject.FindWithTag("Timeline").GetComponent<PlayableDirector>();
+        //timeline = GameObject.FindWithTag("Timeline").GetComponent<PlayableDirector>();
     }
 
     public void ChangePlayable(PlayableAsset newTimelineAsset)
