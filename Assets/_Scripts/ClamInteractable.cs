@@ -5,8 +5,6 @@ using FMODUnity;
 
 public class ClamInteractable : InteractiveController
 {
-
-
     private StudioEventEmitter emit;
 
     //References to FMOD events

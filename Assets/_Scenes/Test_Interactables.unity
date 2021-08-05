@@ -123,48 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &249609032 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3093838695613766007, guid: 0e8c6bdc0afa17b4983de3545af8e470, type: 3}
-  m_PrefabInstance: {fileID: 517657497}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &249609034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 249609032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5faac779c8e530143b91117ec2027ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioEvent: 
-  audioEmit: {fileID: 0}
---- !u!114 &249609035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 249609032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
 --- !u!1001 &270649970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1356,6 +1314,67 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &1204950593817810547
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2720811542126213222, guid: 43133aa9efb243f4b9e1cca6ab6e8c48, type: 3}
+      propertyPath: m_Name
+      value: InteractableLantern
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720811542126213225, guid: 43133aa9efb243f4b9e1cca6ab6e8c48, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720811542126213225, guid: 43133aa9efb243f4b9e1cca6ab6e8c48, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.415
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720811542126213225, guid: 43133aa9efb243f4b9e1cca6ab6e8c48, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.314
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720811542126213225, guid: 43133aa9efb243f4b9e1cca6ab6e8c48, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.654
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720811542126213225, guid: 43133aa9efb243f4b9e1cca6ab6e8c48, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720811542126213225, guid: 43133aa9efb243f4b9e1cca6ab6e8c48, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720811542126213225, guid: 43133aa9efb243f4b9e1cca6ab6e8c48, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720811542126213225, guid: 43133aa9efb243f4b9e1cca6ab6e8c48, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720811542126213225, guid: 43133aa9efb243f4b9e1cca6ab6e8c48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720811542126213225, guid: 43133aa9efb243f4b9e1cca6ab6e8c48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720811542126213225, guid: 43133aa9efb243f4b9e1cca6ab6e8c48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720811543304911737, guid: 43133aa9efb243f4b9e1cca6ab6e8c48, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1182639734}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 43133aa9efb243f4b9e1cca6ab6e8c48, type: 3}
 --- !u!1001 &3213817081244730954
 PrefabInstance:
   m_ObjectHideFlags: 0

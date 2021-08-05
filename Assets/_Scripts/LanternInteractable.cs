@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
+using UnityEngine.Playables;
 
-public class CampfireInteractable : InteractiveController {
+public class LanternInteractable : InteractiveController {
 
+    public TimelineManager TimelineManager;
+    public PlayableAsset SurfacingSequence;
 
     private StudioEventEmitter emit;
 
-    //References to FMOD events
     [Header("FMOD Events")]
-    [EventRef] public string poem;
+    [EventRef] public string sfx;
 
-    private bool isPlaying;
 
     public override void Awake() {
 
@@ -20,21 +21,28 @@ public class CampfireInteractable : InteractiveController {
         emit = gameObject.AddComponent<StudioEventEmitter>();
     }
 
-
     public override void InteractWithObject() {
 
-        StartCoroutine(BeginCall());
+        RuntimeManager.PlayOneShot(sfx, transform.position);
+        TriggerTimelineEvent();
     }
 
-    IEnumerator BeginCall() {
+    public void TriggerTimelineEvent() {
+
+        TimelineManager.ChangePlayable(SurfacingSequence);
+        TimelineManager.PlayTimeline();
+    }
+
+
+    IEnumerator BeginPoem() {
 
         if (!isInteracted) {
 
-            //Start Coroutine and disable phone receiver object.
+            //Start Coroutine.
             isInteracted = true;
 
             //set and play poem
-            emit.Event = poem;
+            emit.Event = sfx;
             emit.Play();
 
             //yield until the emitter stops playing.
