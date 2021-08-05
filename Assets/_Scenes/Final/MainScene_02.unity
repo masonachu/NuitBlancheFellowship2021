@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4497097, g: 0.49977726, b: 0.57563514, a: 1}
+  m_IndirectSpecularColor: {r: 0.426483, g: 0.4592294, b: 0.4860595, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3999,19 +3999,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8655487239920938401, guid: 986c0c1bc3c9657469f1ae8586ccde8d, type: 3}
---- !u!65 &1074734905
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1074734900}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.04914835, y: 0.036125597, z: 0.02326109}
-  m_Center: {x: 0.007324387, y: -0.00060627057, z: 0.016367402}
 --- !u!1 &1078895531 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7258793754007161647, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
@@ -7801,7 +7788,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3091292928734462045, guid: 0e8c6bdc0afa17b4983de3545af8e470, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3091292928734462045, guid: 0e8c6bdc0afa17b4983de3545af8e470, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7846,6 +7833,10 @@ PrefabInstance:
     - target: {fileID: 3093838695613766007, guid: 0e8c6bdc0afa17b4983de3545af8e470, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093838695613766007, guid: 0e8c6bdc0afa17b4983de3545af8e470, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e8c6bdc0afa17b4983de3545af8e470, type: 3}
@@ -8308,7 +8299,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2969686028975446916, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2969686028975446916, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8377,6 +8368,10 @@ PrefabInstance:
     - target: {fileID: 2969686029880312455, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
       propertyPath: m_LocalPosition.z
       value: 1.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 2969686030152894831, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3598151059289978237, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
       propertyPath: spawnCount

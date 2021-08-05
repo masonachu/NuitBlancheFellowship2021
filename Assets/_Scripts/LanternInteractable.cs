@@ -24,7 +24,6 @@ public class LanternInteractable : InteractiveController {
     public override void InteractWithObject() {
 
         RuntimeManager.PlayOneShot(sfx, transform.position);
-        TimelineManager = GameObject.FindWithTag("Timeline").GetComponent<TimelineManager>();
         TriggerTimelineEvent();
     }
 
