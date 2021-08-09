@@ -288,6 +288,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jellyfish
       objectReference: {fileID: 0}
+    - target: {fileID: -9104287277480989909, guid: f1138bdbd8644c74abfc0fa865fdcadc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -8706854754824369672, guid: f1138bdbd8644c74abfc0fa865fdcadc, type: 3}
       propertyPath: m_Mesh
       value: 
