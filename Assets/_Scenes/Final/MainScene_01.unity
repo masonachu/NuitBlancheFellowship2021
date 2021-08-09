@@ -983,14 +983,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1633045311, guid: 3285e1ae2b52b6e46be02c4baa6391fa, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 654499078164945783, guid: 3285e1ae2b52b6e46be02c4baa6391fa, type: 3}
       propertyPath: phoneRing
       value: 
       objectReference: {fileID: 1633045312}
+    - target: {fileID: 3876260315931848215, guid: 3285e1ae2b52b6e46be02c4baa6391fa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 14.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3929790606845656253, guid: 3285e1ae2b52b6e46be02c4baa6391fa, type: 3}
       propertyPath: linkedPortal
       value: 
       objectReference: {fileID: 2009889645}
+    - target: {fileID: 4767395749036160533, guid: 3285e1ae2b52b6e46be02c4baa6391fa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.379999
+      objectReference: {fileID: 0}
     - target: {fileID: 5941825833604496713, guid: 3285e1ae2b52b6e46be02c4baa6391fa, type: 3}
       propertyPath: m_Name
       value: Cabin Scene
@@ -1001,15 +1013,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6430660544927918067, guid: 3285e1ae2b52b6e46be02c4baa6391fa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6430660544927918067, guid: 3285e1ae2b52b6e46be02c4baa6391fa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6430660544927918067, guid: 3285e1ae2b52b6e46be02c4baa6391fa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6430660544927918067, guid: 3285e1ae2b52b6e46be02c4baa6391fa, type: 3}
       propertyPath: m_LocalRotation.w
