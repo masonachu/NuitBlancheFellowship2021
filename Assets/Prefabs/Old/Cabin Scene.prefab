@@ -737,6 +737,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6430660544927918067}
     m_Modifications:
+    - target: {fileID: 1737057823984585177, guid: 8c8e240240fdafa4cac8b44079b9103a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 139
+      objectReference: {fileID: 0}
+    - target: {fileID: 1737057823984585177, guid: 8c8e240240fdafa4cac8b44079b9103a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 121.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1737057823984585177, guid: 8c8e240240fdafa4cac8b44079b9103a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -162.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2559246714877994328, guid: 8c8e240240fdafa4cac8b44079b9103a, type: 3}
       propertyPath: m_Name
       value: Landscape_20210729
@@ -783,6 +795,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2940734006264807394, guid: 8c8e240240fdafa4cac8b44079b9103a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714616572903045444, guid: 8c8e240240fdafa4cac8b44079b9103a, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8989664007324263072, guid: 8c8e240240fdafa4cac8b44079b9103a, type: 3}
@@ -870,6 +886,14 @@ PrefabInstance:
     - target: {fileID: 5352766154920033267, guid: f2fa5db93b958da40928ecb8b8915e59, type: 3}
       propertyPath: linkedPortal
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6089963442201197064, guid: f2fa5db93b958da40928ecb8b8915e59, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038820416592460042, guid: f2fa5db93b958da40928ecb8b8915e59, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8490565923241581625, guid: f2fa5db93b958da40928ecb8b8915e59, type: 3}
       propertyPath: poem
