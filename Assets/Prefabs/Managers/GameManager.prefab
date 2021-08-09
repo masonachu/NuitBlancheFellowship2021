@@ -380,8 +380,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 912093594}
-  m_LocalRotation: {x: 5.8153252e-24, y: -1, z: -1.1102229e-17, w: 0.00000058114523}
-  m_LocalPosition: {x: -8.647862, y: -5.3463, z: -1879.555}
+  m_LocalRotation: {x: -0, y: 0.9997235, z: -0, w: -0.023516558}
+  m_LocalPosition: {x: 1.3934114, y: 0.9999999, z: 2462.3125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2816856880496986888}
@@ -470,8 +470,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579862791}
-  m_LocalRotation: {x: 0, y: -0.6087617, z: -0, w: 0.7933531}
-  m_LocalPosition: {x: 66.57302, y: 7.065, z: 1785.97}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: -0.0000001872535}
+  m_LocalPosition: {x: -28.92, y: 17.87, z: 1733.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2816856880496986888}
@@ -643,7 +643,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1998242899}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 0}
+  m_PlayableAsset: {fileID: 11400000, guid: d467953346acd9b46a6e30416727e561, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -694,6 +694,28 @@ PlayableDirector:
   - key: {fileID: -4468156348974766201, guid: d467953346acd9b46a6e30416727e561, type: 2}
     value: {fileID: 882171973}
   - key: {fileID: 7022862125301911483, guid: d467953346acd9b46a6e30416727e561, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 4563991757454661409, guid: b2f8b86ae920d1c4ea06925cba6081fc, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 7704010109554224662, guid: b2f8b86ae920d1c4ea06925cba6081fc, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -4793620150009929046, guid: b2f8b86ae920d1c4ea06925cba6081fc, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 1850457216238509628, guid: b2f8b86ae920d1c4ea06925cba6081fc, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 5770561582137014802, guid: b2f8b86ae920d1c4ea06925cba6081fc, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 8603539429899909973, guid: b2f8b86ae920d1c4ea06925cba6081fc, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 780913110527965825, guid: b2f8b86ae920d1c4ea06925cba6081fc, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -2947774132388379906, guid: b2f8b86ae920d1c4ea06925cba6081fc, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -7399317086410210433, guid: b2f8b86ae920d1c4ea06925cba6081fc, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 5743266141490139159, guid: b2f8b86ae920d1c4ea06925cba6081fc, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 6374504997039762015, guid: b2f8b86ae920d1c4ea06925cba6081fc, type: 2}
     value: {fileID: 0}
   m_ExposedReferences:
     m_References:
@@ -900,7 +922,7 @@ MonoBehaviour:
   PlayerPrefab: {fileID: 3093838695613766007, guid: 0e8c6bdc0afa17b4983de3545af8e470, type: 3}
   GameCanvas: {fileID: 500177270}
   TimelineManager: {fileID: 1111748827}
-  DebugMode: 1
+  DebugMode: 0
   introTimeline: {fileID: 11400000, guid: 5bfc30611b64f5c4db2d91f2b451b45e, type: 2}
   StartLocation: {fileID: 1732344687541942760}
   WaterLocation: {fileID: 950849009}
