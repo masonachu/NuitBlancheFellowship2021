@@ -673,6 +673,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FMODManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8106559233243903439, guid: a0eb83a068e209645827a7bea0005997, type: 3}
+      propertyPath: PlayEvent
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0eb83a068e209645827a7bea0005997, type: 3}
 --- !u!1001 &1009716833
