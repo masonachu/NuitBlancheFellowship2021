@@ -983,6 +983,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 654499078164945783, guid: 3285e1ae2b52b6e46be02c4baa6391fa, type: 3}
+      propertyPath: phoneRing
+      value: 
+      objectReference: {fileID: 1633045312}
     - target: {fileID: 3929790606845656253, guid: 3285e1ae2b52b6e46be02c4baa6391fa, type: 3}
       propertyPath: linkedPortal
       value: 

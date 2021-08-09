@@ -15,6 +15,7 @@ public class PhoneInteractable : InteractiveController {
     [EventRef] public string poem;
 
     public StudioEventEmitter music;
+    public StudioEventEmitter phoneRing;
     private StudioEventEmitter emit;
 
     public override void Awake() {
@@ -41,6 +42,9 @@ public class PhoneInteractable : InteractiveController {
             RuntimeManager.PlayOneShot(phonePickup, transform.position);
             music.SetParameter("TrackSelection", 3f);
             isInteracted = true;
+
+            //Deactivate phone ringing
+            phoneRing.Stop();
 
             //Activate the portal
             portalActivator.ActivatePortal();
