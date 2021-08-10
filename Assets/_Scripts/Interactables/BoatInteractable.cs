@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using KinematicVehicleSystem;
 
 public class BoatInteractable : InteractiveController {
@@ -21,14 +22,23 @@ public class BoatInteractable : InteractiveController {
     public Transform activeLocation;
     public Transform deactiveLocation;
 
+    public override void Awake() {
+
+        image.gameObject.SetActive(false);
+    }
 
     public override void Update() {
-
-        base.Update();
+        
+        if (inTrigger && canvasActive)
+        {
+            canvas.transform.LookAt(Camera.main.transform.position, Vector3.up);
+            CheckInteractable();
+        }
 
         if (isActive) {
 
             image.gameObject.SetActive(false);
+            ExitBoat();
         }
         else {
             
@@ -59,22 +69,59 @@ public class BoatInteractable : InteractiveController {
             isInteracted = false;
         }
 
-        else if (isActive && !isInteracted) {
+        //else if (isActive && !isInteracted) {
 
-            //Set bools to false
-            isInteracted = false;
-            isActive = false;
+        //    //Set bools to false
+        //    isInteracted = false;
+        //    isActive = false;
 
-            //Take player prefab out of parent 
-            //player.transform.SetParent(null);
+        //    //Take player prefab out of parent 
+        //    //player.transform.SetParent(null);
 
-            //Revert back to player prefab controls and disable boatPlayer prefab
-            playerCamera.gameObject.SetActive(true);
-            playerController.enableCameraMovement = true;
-            playerController.controllerPauseState = false;
+        //    //Revert back to player prefab controls and disable boatPlayer prefab
+        //    playerCamera.gameObject.SetActive(true);
+        //    playerController.enableCameraMovement = true;
+        //    playerController.controllerPauseState = false;
+        //    player.transform.SetPositionAndRotation
+        //        (activeLocation.transform.position, 
+        //         activeLocation.transform.rotation);
+        //    vechicleSystem.inputActive = false;
+        //    boatPlayer.SetActive(false);
+        //}
+    }
 
-            vechicleSystem.inputActive = false;
-            boatPlayer.SetActive(false);
+    public override void CheckInteractable() {
+
+        //If the mouse click is pushed down and the object is currently not interacted with ...
+        if (Input.GetKeyDown(KeyCode.E) && !isInteracted)
+        {
+
+            if (!boatActive)
+            {
+
+                //Shoot a raycast from the mouse and get the name of the object being interacted with
+                RaycastHit hit;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                if (Physics.Raycast(ray, out hit))
+                {
+
+                    //if the interactable object is the same as the one set in the script...
+                    if (hit.transform.name == interactableObject.transform.name)
+                    {
+
+                        //Set IsInteracted to true and run InteractWithObject function.
+                        //This only allows for ONE interaction usage, unless you use get set function on isInteracted in child scripts
+
+                        InteractWithObject();
+                    }
+                }
+            }
+
+            if(boatActive)
+            {
+                Debug.Log("CheckInteractable called");
+            }
         }
     }
 
@@ -108,7 +155,9 @@ public class BoatInteractable : InteractiveController {
 
     private void ExitBoat() {
 
-        if (isActive && boatActive && Input.GetKeyDown(KeyCode.E)) {
+        if (Input.GetKeyDown(KeyCode.R)) {
+
+            Debug.Log("Works");
 
             //Take player prefab out of parent and teleport player to Activate zone 
             player.transform.SetParent(null);
@@ -119,6 +168,8 @@ public class BoatInteractable : InteractiveController {
             playerController.enableCameraMovement = true;
             playerController.controllerPauseState = false;
 
+            player.transform.SetPositionAndRotation(activeLocation.transform.position, activeLocation.transform.rotation);
+
             vechicleSystem.inputActive = false;
             boatPlayer.SetActive(false);
 
@@ -126,10 +177,6 @@ public class BoatInteractable : InteractiveController {
             isInteracted = false;
             isActive = false;
             boatActive = false;
-        }
-
-        else if (isActive && !boatActive && Input.GetKeyDown(KeyCode.E)) {
-            boatActive = true;
         }
     }
 }
