@@ -570,6 +570,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 613455660, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 989377044, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 47238328500948783, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -649,10 +657,6 @@ PrefabInstance:
     - target: {fileID: 2969686028975446923, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
       propertyPath: m_Name
       value: Underwater Area
-      objectReference: {fileID: 0}
-    - target: {fileID: 2969686029018450894, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
-      propertyPath: PlayEvent
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4068562070693494254, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
       propertyPath: m_Mesh
