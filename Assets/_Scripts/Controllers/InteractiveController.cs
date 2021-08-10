@@ -7,8 +7,8 @@ public class InteractiveController : MonoBehaviour
 {
     public GameObject interactableObject;
 
-    [HideInInspector] public Canvas canvas;
-    [HideInInspector] public Image image;
+    public Canvas canvas;
+    public Image image;
 
     [HideInInspector] public bool canvasActive = false;
     [HideInInspector] public bool inTrigger = false;
@@ -54,7 +54,6 @@ public class InteractiveController : MonoBehaviour
             canvasActive = false;
         }
     }
-
 
     public virtual void CheckInteractable() {
         
