@@ -404,6 +404,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 719980777, guid: e0cdc56d52f679b42acfdea41f00bae0, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 848922837, guid: e0cdc56d52f679b42acfdea41f00bae0, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -443,6 +447,10 @@ PrefabInstance:
     - target: {fileID: 1668361818, guid: e0cdc56d52f679b42acfdea41f00bae0, type: 3}
       propertyPath: m_LocalPosition.z
       value: 943.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895704887, guid: e0cdc56d52f679b42acfdea41f00bae0, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1998242901, guid: e0cdc56d52f679b42acfdea41f00bae0, type: 3}
       propertyPath: m_PlayableAsset
@@ -642,7 +650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2816856880496986891, guid: e0cdc56d52f679b42acfdea41f00bae0, type: 3}
       propertyPath: DebugMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3867834603184985459, guid: e0cdc56d52f679b42acfdea41f00bae0, type: 3}
       propertyPath: m_fontColor.a
