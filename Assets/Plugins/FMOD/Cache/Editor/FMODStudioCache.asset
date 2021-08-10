@@ -392,7 +392,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637642031160000000
+  lastModified: 637642041040000000
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -494,7 +494,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637642031160000000
+  lastModified: 637642041040000000
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -827,8 +827,8 @@ MonoBehaviour:
   Path: event:/sfx/sfx_Noise
   guid: cb0dfcf6f728354580de8df30f5aa916
   Banks:
-  - {fileID: 2196359779168843868}
   - {fileID: 7940308673610491890}
+  - {fileID: 2196359779168843868}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -855,7 +855,7 @@ MonoBehaviour:
   ID:
     data1: 2505876200
     data2: 2514825928
-  Exists: 1
+  Exists: 0
 --- !u!114 &-2436924797978670372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1042,6 +1042,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &-1502746399700720602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/sfx_Birds/Glitch
+  m_EditorClassIdentifier: 
+  Name: Glitch
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-1397574965403900462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1057,7 +1077,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Poem.bank
   Name: Poem
   StudioPath: bank:/Poem
-  lastModified: 637642031200000000
+  lastModified: 637642041040000000
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -1266,14 +1286,12 @@ MonoBehaviour:
   - {fileID: 1407432209805554836}
   - {fileID: 6924038459045298657}
   - {fileID: 4427859050055133565}
-  EditorParameters:
-  - {fileID: 499116517835662651}
-  - {fileID: -2449413748352839121}
+  EditorParameters: []
   MasterBanks:
   - {fileID: -5456881868469046202}
   StringsBanks:
   - {fileID: -4632612239351863355}
-  stringsBankWriteTime: 637642031160000000
+  stringsBankWriteTime: 637642041040000000
   cacheVersion: 6
 --- !u!114 &115318051795733141
 MonoBehaviour:
@@ -1402,7 +1420,7 @@ MonoBehaviour:
   ID:
     data1: 1100541435
     data2: 252280373
-  Exists: 1
+  Exists: 0
 --- !u!114 &675376657690909115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1639,7 +1657,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Sound Design.bank
   Name: Sound Design
   StudioPath: bank:/Sound Design
-  lastModified: 637642031200000000
+  lastModified: 637642041040000000
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -2011,8 +2029,8 @@ MonoBehaviour:
   Path: event:/sfx/sfx_Clam
   guid: 5980157a9ebf2d48b498514d141a513c
   Banks:
-  - {fileID: 2196359779168843868}
   - {fileID: -1397574965403900462}
+  - {fileID: 2196359779168843868}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -2445,7 +2463,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 637642031160000000
+  lastModified: 637642041040000000
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -2868,7 +2886,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 3967052615992992430}
+  - {fileID: -1502746399700720602}
   MinDistance: 0
   MaxDistance: 0
   Length: 30046
