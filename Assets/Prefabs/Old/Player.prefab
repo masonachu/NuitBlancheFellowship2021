@@ -105,6 +105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3091518830944287651}
+  - component: {fileID: 4062246851507951269}
   m_Layer: 0
   m_Name: HeadJoint
   m_TagString: Untagged
@@ -128,6 +129,19 @@ Transform:
   m_Father: {fileID: 3091292928734462045}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4062246851507951269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3093326802730998791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1697a0132719bae458729c9e99c0c716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addToGlobalShakers: 1
 --- !u!1 &3093350246013294899
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,8 +286,6 @@ GameObject:
   - component: {fileID: 1293934107004298782}
   - component: {fileID: 1322940487}
   - component: {fileID: 1322940491}
-  - component: {fileID: 278382662270871077}
-  - component: {fileID: 3285472543209226849}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -545,66 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a99a548c758ab740acffb72aab9fcc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerShaker: {fileID: 706112050, guid: 0e8c6bdc0afa17b4983de3545af8e470, type: 3}
-  EarthquakeShake: {fileID: 11400000, guid: 4681852fa25049f429edac80ac05d903, type: 2}
---- !u!114 &278382662270871077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3093838695613766007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: 86a3aa65716474649804a016137fbd42, type: 2}
-    - {fileID: 11400000, guid: 50fdcfc4402f9724196c22fcfffa10f6, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3285472543209226849}
-          m_TargetAssemblyTypeName: CameraShaker, Assembly-CSharp
-          m_MethodName: BeginShaking
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3285472543209226849}
-          m_TargetAssemblyTypeName: CameraShaker, Assembly-CSharp
-          m_MethodName: EndShaking
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &3285472543209226849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3093838695613766007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a99a548c758ab740acffb72aab9fcc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerShaker: {fileID: 0}
+  PlayerShaker: {fileID: 4062246851507951269}
   EarthquakeShake: {fileID: 11400000, guid: 4681852fa25049f429edac80ac05d903, type: 2}
 --- !u!1 &5291420363446478596
 GameObject:
