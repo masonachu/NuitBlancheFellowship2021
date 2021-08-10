@@ -106,6 +106,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &-6981602408247695897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SetAmbience
+  m_EditorClassIdentifier: 
+  Name: SetAmbience
+  Min: 0
+  Max: 4
+  Default: 0
+  ID:
+    data1: 1100541435
+    data2: 252280373
+  Exists: 1
 --- !u!114 &-6961646560525530195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +232,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637641160338293785
+  lastModified: 637641275566457805
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -294,7 +314,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637641160338293785
+  lastModified: 637641275566462803
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -343,6 +363,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 21250
+--- !u!114 &-4123483235006751830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/mus_Comp/Volume
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-4095264017628217946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,6 +493,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 41000
+--- !u!114 &-2471465431325842669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/mus_TrialLoop/Volume
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-2436924797978670372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -554,7 +614,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Poem.bank
   Name: Poem
   StudioPath: bank:/Poem
-  lastModified: 637641160340271399
+  lastModified: 637641275571883815
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -642,12 +702,13 @@ MonoBehaviour:
   - {fileID: -6167765992746720610}
   - {fileID: 1407432209805554836}
   - {fileID: 6924038459045298657}
-  EditorParameters: []
+  EditorParameters:
+  - {fileID: -6981602408247695897}
   MasterBanks:
   - {fileID: -5456881868469046202}
   StringsBanks:
   - {fileID: -4632612239351863355}
-  stringsBankWriteTime: 637641160338293785
+  stringsBankWriteTime: 637641275566462803
   cacheVersion: 6
 --- !u!114 &231576622859019609
 MonoBehaviour:
@@ -692,10 +753,30 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -4647140328031157361}
+  - {fileID: 955144131955545981}
   MinDistance: 0
   MaxDistance: 0
   Length: 193235
+--- !u!114 &955144131955545981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/mus_DeepSea/Piano Distance
+  m_EditorClassIdentifier: 
+  Name: Piano Distance
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &997419224165862287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -743,6 +824,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 209657
+--- !u!114 &1422383516705634516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/mus_Comp/TrackSelection
+  m_EditorClassIdentifier: 
+  Name: TrackSelection
+  Min: 0
+  Max: 11
+  Default: 1.002463
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &1667770526326345145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -849,7 +950,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Sound Design.bank
   Name: Sound Design
   StudioPath: bank:/Sound Design
-  lastModified: 637641160340444623
+  lastModified: 637641275572003795
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -917,7 +1018,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -2377786239019056947}
+  - {fileID: -2471465431325842669}
   MinDistance: 0
   MaxDistance: 0
   Length: 250642
@@ -964,6 +1065,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 623
+--- !u!114 &4359012472396697982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/sfx_Birds/Glitch
+  m_EditorClassIdentifier: 
+  Name: Glitch
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &4502903250742074434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1048,7 +1169,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Bank A.bank
   Name: Bank A
   StudioPath: bank:/Bank A
-  lastModified: 637641160338276487
+  lastModified: 637641275566437805
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -1075,6 +1196,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 502
+--- !u!114 &5338957766782797398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/mus_Comp/Piano Distance
+  m_EditorClassIdentifier: 
+  Name: Piano Distance
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &5365345429434513637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1141,9 +1282,9 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -6961646560525530195}
-  - {fileID: -8758487453925251253}
-  - {fileID: 2994927075213556321}
+  - {fileID: 5338957766782797398}
+  - {fileID: -4123483235006751830}
+  - {fileID: 1422383516705634516}
   MinDistance: 0
   MaxDistance: 0
   Length: 193235
@@ -1208,7 +1349,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 637641160338168178
+  lastModified: 637641275566092747
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -1344,7 +1485,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 637641160340165250
+  lastModified: 637641275571663735
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -1368,7 +1509,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -3830216649732343773}
+  - {fileID: 4359012472396697982}
   MinDistance: 0
   MaxDistance: 0
   Length: 30046
