@@ -11,6 +11,7 @@ public class SimpleButtonActivate : MonoBehaviour
     [SerializeField] private bool isActive = false;
 
     private void Start() {
+
         portal1.SetActive(false);
         portal2.SetActive(false);
 
@@ -29,7 +30,7 @@ public class SimpleButtonActivate : MonoBehaviour
         if(Input.GetKeyDown(key) && !isActive)
         {
             portal1.SetActive(true);
-            portal2.SetActive(true);
+            //portal2.SetActive(true);
 
             isActive = true;
             Debug.Log("Portal is Active");
@@ -37,7 +38,7 @@ public class SimpleButtonActivate : MonoBehaviour
         else if(Input.GetKeyDown(key) && isActive)
         {
             portal1.SetActive(false);
-            portal2.SetActive(false);
+            //portal2.SetActive(false);
 
             isActive = false;
             Debug.Log("Portal is Not Active");
@@ -49,7 +50,7 @@ public class SimpleButtonActivate : MonoBehaviour
         if(!isActive) {
 
             portal1.SetActive(true);
-            portal2.SetActive(true);
+            //portal2.SetActive(true);
 
             isActive = true;
             Debug.Log("Portal is Active");
