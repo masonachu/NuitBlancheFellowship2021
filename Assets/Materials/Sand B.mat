@@ -94,7 +94,7 @@ Material:
     - _DistanceOffset: 100
     - _DistanceStrength: 100
     - _DunesScale: 50
-    - _DunesStrength: 0.935
+    - _DunesStrength: 0.721
     - _Float0: 1
     - _Float1: 0.001
     - _Float2: 10
@@ -110,7 +110,7 @@ Material:
     - _Lambertian: 1
     - _MainTextureScale: 50
     - _ModifiedLambertStength: 0.4
-    - _ModifiedLambertStrength: 0.4
+    - _ModifiedLambertStrength: 0.115
     - _ModulateStrengthByDistance: 1
     - _Mult: 500000
     - _NoiseBlend: 0.794
@@ -128,7 +128,7 @@ Material:
     - _Size: 0.06
     - _SubtractiveShadows: 0
     - _SunSpecExp: 1000
-    - _SunSpecGraininess: 0.5
+    - _SunSpecGraininess: 0.596
     - _SunSpecInShadow: 1
     - _SunSpecInShadows: 0
     - _SunSpecularExponent: 1000

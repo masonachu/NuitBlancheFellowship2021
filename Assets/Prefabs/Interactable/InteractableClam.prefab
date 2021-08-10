@@ -26,10 +26,10 @@ Transform:
   m_GameObject: {fileID: 896021608494030723}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.3, y: 2.3, z: 2.3}
   m_Children:
-  - {fileID: 7770277651089359531}
   - {fileID: 8015687743049321348}
+  - {fileID: 7770277651089359531}
   m_Father: {fileID: 7770277649609021525}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -90,7 +90,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4, y: 4, z: 4}
+  m_Size: {x: 8, y: 8, z: 8}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7770277649609021521
 MonoBehaviour:
@@ -347,17 +347,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7770277651089359528}
-  m_LocalRotation: {x: -0, y: 0.13050331, z: -0, w: -0.9914479}
+  m_LocalRotation: {x: -0, y: 0.1305033, z: -0, w: -0.9914479}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01033, y: 0.01033, z: 0.01033}
+  m_LocalScale: {x: 0.0044913045, y: 0.004491305, z: 0.0044913045}
   m_Children:
   - {fileID: 7770277651027944137}
   m_Father: {fileID: 514710303727682873}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1.19}
+  m_AnchoredPosition: {x: 0, y: 0.682}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7770277651089359532
@@ -430,7 +430,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 9430bf16bca77904395634d469c5c52d, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9430bf16bca77904395634d469c5c52d, type: 3}
       propertyPath: m_LocalScale.x
@@ -534,6 +534,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -447275898630060098, guid: 9430bf16bca77904395634d469c5c52d, type: 3}
       propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65702495048144492, guid: 9430bf16bca77904395634d469c5c52d, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9430bf16bca77904395634d469c5c52d, type: 3}
