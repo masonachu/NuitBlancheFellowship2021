@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour {
 
     public bool spawnedBoids;
 
-    void Awake () {
+    public virtual void Awake () {
 
         if(!spawnedBoids) {
 
