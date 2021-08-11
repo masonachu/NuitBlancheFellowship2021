@@ -987,6 +987,22 @@ public class FirstPersonAIO : PortalTraveller {
         if(advanced.maxSlopeAngle>0){advanced.curntGroundNormal = Vector3.up; advanced.lastKnownSlopeAngle = 0; advanced.isTouchingWalkable = false; advanced.isTouchingUpright = false;}
 
     }
+
+    public void DisableCameraMovement() {
+
+        if (enableCameraMovement) {
+
+            enableCameraMovement = false;
+        }
+    }    
+    
+    public void EnableCameraMovement() {
+
+        if (!enableCameraMovement) {
+
+            enableCameraMovement = true;
+        }
+    }
 }
 
 #if UNITY_EDITOR

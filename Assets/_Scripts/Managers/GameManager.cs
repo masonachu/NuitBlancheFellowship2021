@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     public bool DebugMode;
 
+    private FirstPersonAIO fpsController;
+
     [SerializeField] private PlayableAsset introTimeline;
     //public GameObject SceneCamera;
 
@@ -31,6 +33,9 @@ public class GameManager : MonoBehaviour
     private void Awake() {
 
         if (!DebugMode) {
+
+            fpsController = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonAIO>();
+            fpsController.EnableCameraMovement();
 
             GameCanvas.SetActive(true);
             TeleportPlayer(StartLocation);
