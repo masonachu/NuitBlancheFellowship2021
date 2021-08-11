@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using FMODUnity;
 
 public class ClamInteractable : InteractiveController
 {
+    [SerializeField] private TimelineManager TimelineManager;
     private StudioEventEmitter emit;
+
+    public PlayableAsset timelineEvent;
 
     //References to FMOD events
     [Header("FMOD Events")]
@@ -21,6 +25,11 @@ public class ClamInteractable : InteractiveController
 
 
     public override void InteractWithObject() {
+
+        TimelineManager = GameObject.FindWithTag("Timeline").GetComponent<TimelineManager>();
+
+        TimelineManager.ChangePlayable(timelineEvent);
+        TimelineManager.PlayTimeline();
 
         StartCoroutine(BeginCall());
     }

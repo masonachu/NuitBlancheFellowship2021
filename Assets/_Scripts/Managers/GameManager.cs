@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform UnderwaterLocation;
     [SerializeField] private Transform JellyfishLocation;
     [SerializeField] private Transform SpaceLocation;
+    [SerializeField] private Transform ClamLocation;
 
     
     private void Awake() {
@@ -90,6 +91,10 @@ public class GameManager : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Alpha6)) {
             TeleportPlayer(SpaceLocation);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha7)) {
+            TeleportPlayer(ClamLocation);
         }
     }
 }

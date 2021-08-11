@@ -990,17 +990,19 @@ public class FirstPersonAIO : PortalTraveller {
 
     public void DisableCameraMovement() {
 
-        if (enableCameraMovement) {
+        if (enableCameraMovement && playerCanMove) {
 
             enableCameraMovement = false;
+            playerCanMove = false;
         }
     }    
     
     public void EnableCameraMovement() {
 
-        if (!enableCameraMovement) {
+        if (!enableCameraMovement && !playerCanMove) {
 
             enableCameraMovement = true;
+            playerCanMove = true;
         }
     }
 }
