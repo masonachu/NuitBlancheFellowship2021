@@ -48,5 +48,4 @@ public class Spawner : MonoBehaviour {
         Gizmos.color = new Color (colour.r, colour.g, colour.b, 0.3f);
         Gizmos.DrawSphere (transform.position, spawnRadius);
     }
-
 }
