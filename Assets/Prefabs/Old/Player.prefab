@@ -545,6 +545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerShaker: {fileID: 6548595555856996672}
   EarthquakeShake: {fileID: 11400000, guid: 4681852fa25049f429edac80ac05d903, type: 2}
+  ElectrocuteShake: {fileID: 11400000, guid: d370f110be4f2c0459246da0ea38a762, type: 2}
 --- !u!1 &5291420363446478596
 GameObject:
   m_ObjectHideFlags: 0

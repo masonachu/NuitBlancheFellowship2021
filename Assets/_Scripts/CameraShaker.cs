@@ -7,7 +7,10 @@ public class CameraShaker : MonoBehaviour
 {
 
     public Shaker PlayerShaker;
+
     public ShakePreset EarthquakeShake;
+    public ShakePreset ElectrocuteShake;
+
     private ShakeInstance myShakeInstance;
 
     private void Start() {
@@ -17,7 +20,9 @@ public class CameraShaker : MonoBehaviour
         PlayerShaker.enabled = false;
     }
 
-    public void BeginShaking() {
+    public void BeginShaking(ShakePreset preset) {
+
+        myShakeInstance = Shaker.ShakeAll(preset);
 
         PlayerShaker.enabled = true;
         myShakeInstance.Start(0f);

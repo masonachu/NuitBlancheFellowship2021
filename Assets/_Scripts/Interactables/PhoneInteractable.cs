@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using FMODUnity;
 
 public class PhoneInteractable : InteractiveController {
 
     [SerializeField] private GameObject phoneReceiver;
     [SerializeField] private SimpleButtonActivate portalActivator;
+    [SerializeField] private TimelineManager TimelineManager;
 
     //References to FMOD events
     [Header("FMOD Events")]
@@ -14,8 +16,10 @@ public class PhoneInteractable : InteractiveController {
     [EventRef] public string phonePutdown;
     [EventRef] public string poem;
 
+    [Header("References")]
     public StudioEventEmitter music;
     public StudioEventEmitter phoneRing;
+    public PlayableAsset timelineEvent;
     private StudioEventEmitter emit;
 
     public override void Awake() {
@@ -24,11 +28,14 @@ public class PhoneInteractable : InteractiveController {
         emit = GetComponent<StudioEventEmitter>();
     }
 
-
     public override void InteractWithObject() {
 
         portalActivator = GameObject.FindWithTag("Portal").GetComponent<SimpleButtonActivate>();
         music = GameObject.FindWithTag("Music").GetComponent<StudioEventEmitter>();
+        TimelineManager = GameObject.FindWithTag("Timeline").GetComponent<TimelineManager>();
+
+        TimelineManager.ChangePlayable(timelineEvent);
+        TimelineManager.PlayTimeline();
 
         StartCoroutine(BeginCall());
     }

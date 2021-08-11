@@ -9,18 +9,20 @@ public class DoorController : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-        anim = GetComponent<Animator>();
+
+        anim = GetComponentInChildren<Animator>();
     }
 
     private void OnTriggerEnter(Collider other) {
 
-        anim.SetBool("isOpening", true);
-        anim.SetBool("isClosing", false);
+        //anim.SetBool("isOpening", true);
+        //anim.SetBool("isClosing", false);
 
         //put door open sfx
     }
 
     private void OnTriggerExit(Collider other) {
+
         anim.SetBool("isClosing", true);
         anim.SetBool("isOpening", false);
 

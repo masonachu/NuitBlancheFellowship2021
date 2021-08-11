@@ -624,11 +624,13 @@ MonoBehaviour:
   isInteracted: 0
   phoneReceiver: {fileID: 8778924361894140113}
   portalActivator: {fileID: 0}
+  TimelineManager: {fileID: 0}
   phonePickup: event:/sfx/sfx_PhonePickup
   phonePutdown: event:/sfx/sfx_PhonePutdown
   poem: event:/Poem/Poem_I 1
   music: {fileID: 0}
   phoneRing: {fileID: 87756699607502974}
+  timelineEvent: {fileID: 11400000, guid: 0044a09b003c969488061477054484a3, type: 2}
 --- !u!1 &8778924361894140113
 GameObject:
   m_ObjectHideFlags: 0
