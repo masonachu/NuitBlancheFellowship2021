@@ -44,8 +44,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.3110001, y: 1.3632531, z: 1}
+  m_Center: {x: -0.07156453, y: 0.18162644, z: 0}
 --- !u!1 &7770277649609021520
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,6 +110,8 @@ MonoBehaviour:
   canvasActive: 0
   inTrigger: 0
   isInteracted: 0
+  TimelineManager: {fileID: 0}
+  timelineEvent: {fileID: 0}
   sfx: event:/sfx/sfx_Noise
 --- !u!1 &7770277650312853773
 GameObject:

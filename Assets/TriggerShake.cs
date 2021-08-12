@@ -5,15 +5,21 @@ using FMODUnity;
 
 public class TriggerShake : MonoBehaviour {
 
+    [SerializeField]
     private CameraShaker cameraShaker;
+
+    [SerializeField]
     private StudioEventEmitter emit;
 
     private void OnTriggerEnter(Collider other) {
 
-        cameraShaker = GameObject.FindGameObjectWithTag("Player").GetComponent<CameraShaker>();
-        emit = GameObject.FindGameObjectWithTag("UnderwaterArea").GetComponent<StudioEventEmitter>();
+        if (other.CompareTag("Player")) {
 
-        cameraShaker.EndShaking();
-        emit.SetParameter("Volume", 0f);
+            cameraShaker = GameObject.FindGameObjectWithTag("Player").GetComponent<CameraShaker>();
+            emit = GameObject.FindGameObjectWithTag("UnderwaterArea").GetComponent<StudioEventEmitter>();
+
+            cameraShaker.EndShaking();
+            emit.SetParameter("Volume", 0f);
+        }
     }
 }

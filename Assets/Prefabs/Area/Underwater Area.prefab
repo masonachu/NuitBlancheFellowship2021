@@ -1881,7 +1881,7 @@ GameObject:
   - component: {fileID: 2969686029018450895}
   m_Layer: 0
   m_Name: Underwater Area
-  m_TagString: Untagged
+  m_TagString: UnderwaterArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
