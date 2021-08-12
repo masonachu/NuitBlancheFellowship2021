@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Electrocute
   m_EditorClassIdentifier: 
   shakeType: 1
-  strength: 0.05
+  strength: 0.02
   roughness: 20
   fadeIn: 0
-  fadeOut: 0
+  fadeOut: 10
   positionInfluence: {x: 0, y: 0, z: 0}
   rotationInfluence: {x: 0, y: 40, z: 40}

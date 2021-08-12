@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using FMODUnity;
 
 public class CampfireInteractable : InteractiveController {
 
+    public TimelineManager TimelineManager;
+    public PlayableAsset EndingTransition;
 
     private StudioEventEmitter emit;
     public GameObject flame;
@@ -24,12 +27,19 @@ public class CampfireInteractable : InteractiveController {
 
     public override void InteractWithObject() {
 
-        StartCoroutine(BeginCall());
+        TimelineManager = GameObject.FindWithTag("Timeline").GetComponent<TimelineManager>();
+        TriggerTimelineEvent();
     }
 
     public override void Update() {
         base.Update();
         flame.transform.LookAt(Camera.main.transform.position, Vector3.up);
+    }
+
+    public void TriggerTimelineEvent() {
+
+        TimelineManager.ChangePlayable(EndingTransition);
+        TimelineManager.PlayTimeline();
     }
 
     IEnumerator BeginCall() {
