@@ -34,7 +34,7 @@ public class Boid : MonoBehaviour {
         cachedTransform = transform;
         
         // Destroy this prefab to lessen load after 500 seconds. Need an alternative here
-        Destroy(gameObject, 120);
+        //Destroy(gameObject, 120);
     }
 
     public void Initialize (BoidSettings settings, Transform target) {

@@ -39,7 +39,12 @@ public class MenuController : MonoBehaviour {
         if (FMODUnity.RuntimeManager.HasBankLoaded("Master")) {
 
             scenesToLoad.Add(SceneManager.LoadSceneAsync("Main"));
-            scenesToLoad.Add(SceneManager.LoadSceneAsync("MainScene_01", LoadSceneMode.Additive));
+            //scenesToLoad.Add(SceneManager.LoadSceneAsync("MainScene_01", LoadSceneMode.Additive));
         }
+    }
+
+    public void QuitGame() {
+
+            Application.Quit();
     }
 }

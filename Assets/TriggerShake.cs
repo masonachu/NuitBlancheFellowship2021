@@ -16,7 +16,7 @@ public class TriggerShake : MonoBehaviour {
         if (other.CompareTag("Player")) {
 
             cameraShaker = GameObject.FindGameObjectWithTag("Player").GetComponent<CameraShaker>();
-            emit = GameObject.FindGameObjectWithTag("UnderwaterArea").GetComponent<StudioEventEmitter>();
+            emit = GameObject.FindGameObjectWithTag("Music").GetComponent<StudioEventEmitter>();
 
             cameraShaker.EndShaking();
             emit.SetParameter("Volume", 0f);

@@ -223,6 +223,10 @@ PrefabInstance:
       value: 2.4583332538604736
       objectReference: {fileID: 0}
     - target: {fileID: 1657799328145573549, guid: f1138bdbd8644c74abfc0fa865fdcadc, type: 3}
+      propertyPath: asyncLoad
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657799328145573549, guid: f1138bdbd8644c74abfc0fa865fdcadc, type: 3}
       propertyPath: startTime
       value: 0.0416666679084301
       objectReference: {fileID: 0}

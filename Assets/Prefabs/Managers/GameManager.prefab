@@ -1127,7 +1127,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1998242899}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 2d40475efa1277143be2eab219b50368, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: ae6ef57e6c59d6e4db995d2b60972919, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -1721,7 +1721,7 @@ MonoBehaviour:
   PlayerPrefab: {fileID: 3093838695613766007, guid: 0e8c6bdc0afa17b4983de3545af8e470, type: 3}
   GameCanvas: {fileID: 500177270}
   TimelineManager: {fileID: 1111748827}
-  DebugMode: 1
+  DebugMode: 0
   introTimeline: {fileID: 11400000, guid: 5bfc30611b64f5c4db2d91f2b451b45e, type: 2}
   StartLocation: {fileID: 1732344687541942760}
   WaterLocation: {fileID: 950849009}
