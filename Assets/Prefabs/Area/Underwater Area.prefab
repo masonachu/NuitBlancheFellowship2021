@@ -13847,6 +13847,30 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: dcb6bb4374f10c048b1c7d9cbd6fdd4d, type: 2}
+    - target: {fileID: -918110182067199493, guid: eed9d063c8bc58742b17a18de67aaa6e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -312.4578
+      objectReference: {fileID: 0}
+    - target: {fileID: -918110182067199493, guid: eed9d063c8bc58742b17a18de67aaa6e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: -299.0266
+      objectReference: {fileID: 0}
+    - target: {fileID: -918110182067199493, guid: eed9d063c8bc58742b17a18de67aaa6e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: -327.90747
+      objectReference: {fileID: 0}
+    - target: {fileID: -918110182067199493, guid: eed9d063c8bc58742b17a18de67aaa6e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 20.12
+      objectReference: {fileID: 0}
+    - target: {fileID: -918110182067199493, guid: eed9d063c8bc58742b17a18de67aaa6e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.32
+      objectReference: {fileID: 0}
+    - target: {fileID: -918110182067199493, guid: eed9d063c8bc58742b17a18de67aaa6e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -20.1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: eed9d063c8bc58742b17a18de67aaa6e, type: 3}
       propertyPath: m_Name
       value: 2021-08-08_Reef
@@ -13937,6 +13961,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7770277649609021521, guid: 27f486b1a0da93048a224f6a4939cff2, type: 3}
+      propertyPath: timelineEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 81fb29a41dcfd6c43a2d74ca76af7fad, type: 2}
     - target: {fileID: 7770277649609021525, guid: 27f486b1a0da93048a224f6a4939cff2, type: 3}
       propertyPath: m_RootOrder
       value: 14

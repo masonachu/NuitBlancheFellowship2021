@@ -28,6 +28,7 @@ public class CampfireInteractable : InteractiveController {
     public override void InteractWithObject() {
 
         TimelineManager = GameObject.FindWithTag("Timeline").GetComponent<TimelineManager>();
+        //emit.Play();
         TriggerTimelineEvent();
     }
 

@@ -9,6 +9,7 @@ TagManager:
   - Music
   - Boid
   - Game Manager
+  - UnderwaterArea
   layers:
   - Default
   - TransparentFX

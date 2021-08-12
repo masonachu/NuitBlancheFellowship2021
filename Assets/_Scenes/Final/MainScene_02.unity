@@ -271,18 +271,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Underwater Area
       objectReference: {fileID: 0}
-    - target: {fileID: 2969686029018450894, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
-      propertyPath: PlayEvent
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2969686029018450894, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
-      propertyPath: Params.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2969686029018450894, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
-      propertyPath: Params.Array.data[0].Name
-      value: Piano Distance
-      objectReference: {fileID: 0}
     - target: {fileID: 4068562070693494254, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -295,10 +283,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 4819946641930918283, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
-      propertyPath: timelineEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: 81fb29a41dcfd6c43a2d74ca76af7fad, type: 2}
     - target: {fileID: 5770388529568588579, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -310,30 +294,6 @@ PrefabInstance:
     - target: {fileID: 6164610137980186030, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6232966320069446879, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: -312.4578
-      objectReference: {fileID: 0}
-    - target: {fileID: 6232966320069446879, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: -299.0266
-      objectReference: {fileID: 0}
-    - target: {fileID: 6232966320069446879, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
-      propertyPath: m_LocalScale.z
-      value: -327.90747
-      objectReference: {fileID: 0}
-    - target: {fileID: 6232966320069446879, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 20.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 6232966320069446879, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 8.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 6232966320069446879, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -20.1
       objectReference: {fileID: 0}
     - target: {fileID: 7058807509262243963, guid: d3364dc3239d55f4fbf45450681da04e, type: 3}
       propertyPath: m_Mesh

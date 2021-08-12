@@ -290,8 +290,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3068978334306336046}
   - {fileID: 4090023875922140919}
+  - {fileID: 3068978334306336046}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -180.00002, z: 0}
@@ -502,16 +502,19 @@ MonoBehaviour:
     m_Signals:
     - {fileID: 11400000, guid: 86a3aa65716474649804a016137fbd42, type: 2}
     - {fileID: 11400000, guid: 50fdcfc4402f9724196c22fcfffa10f6, type: 2}
+    - {fileID: 11400000, guid: 517b950a9371d2f40a0079700128b3a6, type: 2}
+    - {fileID: 11400000, guid: d5117126fc55f814ba26e8d3a0eb2571, type: 2}
+    - {fileID: 11400000, guid: d13127fae7813ac488a82610ef65de20, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1322940491}
           m_TargetAssemblyTypeName: CameraShaker, Assembly-CSharp
           m_MethodName: BeginShaking
-          m_Mode: 1
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 11400000, guid: d370f110be4f2c0459246da0ea38a762, type: 2}
+            m_ObjectArgumentAssemblyTypeName: MilkShake.ShakePreset, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -526,6 +529,48 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3133527932582032817}
+          m_TargetAssemblyTypeName: FirstPersonAIO, Assembly-CSharp
+          m_MethodName: DisableCameraMovement
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3133527932582032817}
+          m_TargetAssemblyTypeName: FirstPersonAIO, Assembly-CSharp
+          m_MethodName: EnableCameraMovement
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1322940491}
+          m_TargetAssemblyTypeName: CameraShaker, Assembly-CSharp
+          m_MethodName: BeginShaking
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 4681852fa25049f429edac80ac05d903, type: 2}
+            m_ObjectArgumentAssemblyTypeName: MilkShake.ShakePreset, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -578,7 +623,7 @@ RectTransform:
   m_Children:
   - {fileID: 695102007899818108}
   m_Father: {fileID: 3091292928734462045}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -676,7 +721,7 @@ Transform:
   m_Children:
   - {fileID: 3091518830944287651}
   m_Father: {fileID: 3091292928734462045}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6548595555856996672
 MonoBehaviour:

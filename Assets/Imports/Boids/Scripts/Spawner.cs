@@ -13,6 +13,7 @@ public class Spawner : MonoBehaviour {
     public GizmoType showSpawnRegion;
 
     public bool spawnedBoids;
+    public float time = 10;
 
     public virtual void Awake () {
 
