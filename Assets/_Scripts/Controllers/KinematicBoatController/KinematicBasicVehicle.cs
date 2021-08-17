@@ -154,6 +154,8 @@ namespace KinematicVehicleSystem
                     UpdatePlayerInput();
                     break;
             }
+
+            Debug.Log(Motor);
         }
 
         private void UpdateAiInput()
@@ -168,8 +170,9 @@ namespace KinematicVehicleSystem
 
         private void UpdatePlayerInput()
         {
-            if (!inputActive && Motor > 0f) {
-                Motor = Mathf.Lerp(Motor, Vaxis, MotorDeceleration * Time.deltaTime);
+            if (!inputActive && Motor != 0f) {
+
+                Motor = Mathf.Lerp(Vaxis, Haxis, MotorDeceleration * Time.deltaTime);
             }
 
             if (inputActive) {

@@ -7,6 +7,7 @@ using KinematicVehicleSystem;
 public class BoatInteractable : InteractiveController {
 
     private bool isActive;
+    private int lastPressed;
     private bool boatActive;
 
     [Header("References")]
@@ -28,99 +29,70 @@ public class BoatInteractable : InteractiveController {
     }
 
     public override void Update() {
-        
-        if (inTrigger && canvasActive)
-        {
-            canvas.transform.LookAt(Camera.main.transform.position, Vector3.up);
-            CheckInteractable();
-        }
 
-        if (isActive) {
+        if (inTrigger || isActive) {
 
-            image.gameObject.SetActive(false);
-            ExitBoat();
-        }
-        else {
-            
             image.gameObject.SetActive(true);
+            CheckInteractable();
         }
     }
 
     public override void InteractWithObject() {
 
+        //Find references
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = player.GetComponent<FirstPersonAIO>();
         playerCamera = player.GetComponentInChildren<Camera>();
 
+        //If player isn't already in the boat
         if (!isActive && !isInteracted) {
 
-            //Set bools to true
-            isInteracted = true;
-            isActive = true;
+            //Sets this GO as parent of player GO and teleport the GO to middle of boat
+            //player.transform.SetParent(this.gameObject.transform);
+            player.transform.SetPositionAndRotation(activeLocation.transform.position, activeLocation.transform.rotation);
 
             //Disable player prefab and turn on BoatPlayer prefab
             boatPlayer.SetActive(true);
-            playerController.enableCameraMovement = false;
-            playerController.controllerPauseState = true;
-
             vechicleSystem.inputActive = true;
 
-            //Complete single interaction loop
-            isInteracted = false;
+            playerCamera.gameObject.SetActive(false);
+            playerController.enableCameraMovement = false;
+            playerController.playerCanMove = false;
+         
+            //Set bools to true
+            isInteracted = true;
+            isActive = true;
         }
-
-        //else if (isActive && !isInteracted) {
-
-        //    //Set bools to false
-        //    isInteracted = false;
-        //    isActive = false;
-
-        //    //Take player prefab out of parent 
-        //    //player.transform.SetParent(null);
-
-        //    //Revert back to player prefab controls and disable boatPlayer prefab
-        //    playerCamera.gameObject.SetActive(true);
-        //    playerController.enableCameraMovement = true;
-        //    playerController.controllerPauseState = false;
-        //    player.transform.SetPositionAndRotation
-        //        (activeLocation.transform.position, 
-        //         activeLocation.transform.rotation);
-        //    vechicleSystem.inputActive = false;
-        //    boatPlayer.SetActive(false);
-        //}
     }
 
     public override void CheckInteractable() {
 
         //If the mouse click is pushed down and the object is currently not interacted with ...
-        if (Input.GetKeyDown(KeyCode.E) && !isInteracted)
-        {
+        if (Input.GetKeyDown(KeyCode.E) && !isInteracted) {                
+            
+            //Shoot a raycast from the mouse and get the name of the object being interacted with
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (!boatActive)
-            {
+            if (Physics.Raycast(ray, out hit)) {
 
-                //Shoot a raycast from the mouse and get the name of the object being interacted with
-                RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                //if the interactable object is the same as the one set in the script...
+                if (hit.transform.name == interactableObject.transform.name) {
 
-                if (Physics.Raycast(ray, out hit))
-                {
+                    //Set IsInteracted to true and run InteractWithObject function.
+                    //This only allows for ONE interaction usage, unless you use get set function on isInteracted in child scripts
 
-                    //if the interactable object is the same as the one set in the script...
-                    if (hit.transform.name == interactableObject.transform.name)
-                    {
-
-                        //Set IsInteracted to true and run InteractWithObject function.
-                        //This only allows for ONE interaction usage, unless you use get set function on isInteracted in child scripts
-
-                        InteractWithObject();
-                    }
+                    InteractWithObject();
                 }
             }
+        }
 
-            if(boatActive)
-            {
-                Debug.Log("CheckInteractable called");
+        if (Input.GetKeyDown(KeyCode.E) && isActive) {
+
+            lastPressed++;
+            if(lastPressed > 1) {
+
+                CheckForBoatExit();
             }
         }
     }
@@ -136,7 +108,6 @@ public class BoatInteractable : InteractiveController {
 
             //Sound effect here
             canvasActive = true;
-            Debug.Log("In Trigger");
         }
     }
 
@@ -149,34 +120,26 @@ public class BoatInteractable : InteractiveController {
 
             //Sound effect here
             canvasActive = false;
-            Debug.Log("Outside");
         }
     }
 
-    private void ExitBoat() {
+    public void CheckForBoatExit() {
 
-        if (Input.GetKeyDown(KeyCode.R)) {
+        //Take player prefab out of parent and teleport player to Activate zone 
+        //player.transform.SetParent(null);
+        player.transform.SetPositionAndRotation(activeLocation.transform.position, activeLocation.transform.rotation);
 
-            Debug.Log("Works");
+        //Revert back to player prefab controls and disable boatPlayer prefab
+        playerCamera.gameObject.SetActive(true);
+        playerController.enableCameraMovement = true;
+        playerController.playerCanMove = true;
 
-            //Take player prefab out of parent and teleport player to Activate zone 
-            player.transform.SetParent(null);
-            player.gameObject.transform.position = activeLocation.transform.position;
+        boatPlayer.SetActive(false);
+        vechicleSystem.inputActive = false;
 
-            //Revert back to player prefab controls and disable boatPlayer prefab
-            playerCamera.gameObject.SetActive(true);
-            playerController.enableCameraMovement = true;
-            playerController.controllerPauseState = false;
-
-            player.transform.SetPositionAndRotation(activeLocation.transform.position, activeLocation.transform.rotation);
-
-            vechicleSystem.inputActive = false;
-            boatPlayer.SetActive(false);
-
-            //Set bools to false
-            isInteracted = false;
-            isActive = false;
-            boatActive = false;
-        }
+        //Set all bools to false to complete loop
+        isInteracted = false;
+        isActive = false;
+        lastPressed = 0;
     }
 }

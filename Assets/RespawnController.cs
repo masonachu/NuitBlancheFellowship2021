@@ -6,19 +6,19 @@ public class RespawnController : MonoBehaviour
 {
     private GameManager gm;
     private TimelineManager tl;
-    private FirstPersonAIO playerCamera;
+    private FirstPersonAIO playerController;
 
     public Transform spawnArea;
     private void Awake() {
 
         tl = GetComponentInParent<TimelineManager>();
         gm = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
-        playerCamera = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonAIO>();
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonAIO>();
     }
 
     private void OnTriggerEnter(Collider other) {
-        
-        if (other.CompareTag("Player")) {
+
+        if (other.CompareTag("Player") && playerController.playerCanMove) {
 
             tl.PlayTimeline();
         }
@@ -31,10 +31,10 @@ public class RespawnController : MonoBehaviour
 
     public void ToggleCameraMovement() {
 
-        if (playerCamera.enableCameraMovement) {
+        if (playerController.enableCameraMovement) {
 
-            playerCamera.enableCameraMovement = false;
+            playerController.enableCameraMovement = false;
         }
-        else playerCamera.enableCameraMovement = true;
+        else playerController.enableCameraMovement = true;
     }
 }
