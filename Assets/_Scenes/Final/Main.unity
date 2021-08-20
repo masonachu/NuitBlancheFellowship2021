@@ -587,6 +587,10 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[82].value
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2585754869762776270, guid: e0cdc56d52f679b42acfdea41f00bae0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2816856880496986888, guid: e0cdc56d52f679b42acfdea41f00bae0, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -638,6 +642,10 @@ PrefabInstance:
     - target: {fileID: 2816856880496986891, guid: e0cdc56d52f679b42acfdea41f00bae0, type: 3}
       propertyPath: DebugMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747312441116787899, guid: e0cdc56d52f679b42acfdea41f00bae0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0cdc56d52f679b42acfdea41f00bae0, type: 3}

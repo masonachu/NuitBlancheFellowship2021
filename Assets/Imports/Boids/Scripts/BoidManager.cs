@@ -11,6 +11,7 @@ public class BoidManager : MonoBehaviour {
     Boid[] boids;
 
     void Start () {
+
         boids = FindObjectsOfType<Boid> ();
         foreach (Boid b in boids) {
             b.Initialize (settings, null);
@@ -19,6 +20,7 @@ public class BoidManager : MonoBehaviour {
     }
 
     void Update () {
+
         if (boids != null) {
 
             int numBoids = boids.Length;

@@ -32,9 +32,6 @@ public class Boid : MonoBehaviour {
     void Awake () {
         material = transform.GetComponentInChildren<MeshRenderer> ().material;
         cachedTransform = transform;
-        
-        // Destroy this prefab to lessen load after 500 seconds. Need an alternative here
-        //Destroy(gameObject, 120);
     }
 
     public void Initialize (BoidSettings settings, Transform target) {
@@ -82,16 +79,18 @@ public class Boid : MonoBehaviour {
             acceleration += collisionAvoidForce;
         }
 
-        velocity += acceleration * Time.deltaTime;
-        float speed = velocity.magnitude;
-        Vector3 dir = velocity / speed;
-        speed = Mathf.Clamp (speed, settings.minSpeed, settings.maxSpeed);
-        velocity = dir * speed;
+        if (cachedTransform != null) {
+            velocity += acceleration * Time.deltaTime;
+            float speed = velocity.magnitude;
+            Vector3 dir = velocity / speed;
+            speed = Mathf.Clamp(speed, settings.minSpeed, settings.maxSpeed);
+            velocity = dir * speed;
 
-        cachedTransform.position += velocity * Time.deltaTime;
-        cachedTransform.forward = dir;
-        position = cachedTransform.position;
-        forward = dir;
+            cachedTransform.position += velocity * Time.deltaTime;
+            cachedTransform.forward = dir;
+            position = cachedTransform.position;
+            forward = dir;
+        }
     }
 
     bool IsHeadingForCollision () {
@@ -106,10 +105,13 @@ public class Boid : MonoBehaviour {
         Vector3[] rayDirections = BoidHelper.directions;
 
         for (int i = 0; i < rayDirections.Length; i++) {
-            Vector3 dir = cachedTransform.TransformDirection (rayDirections[i]);
-            Ray ray = new Ray (position, dir);
-            if (!Physics.SphereCast (ray, settings.boundsRadius, settings.collisionAvoidDst, settings.obstacleMask)) {
-                return dir;
+
+            if(cachedTransform != null) {
+                Vector3 dir = cachedTransform.TransformDirection(rayDirections[i]);
+                Ray ray = new Ray(position, dir);
+                if (!Physics.SphereCast(ray, settings.boundsRadius, settings.collisionAvoidDst, settings.obstacleMask)) {
+                    return dir;
+                }
             }
         }
 

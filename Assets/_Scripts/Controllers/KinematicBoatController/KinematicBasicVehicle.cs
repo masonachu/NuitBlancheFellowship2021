@@ -155,7 +155,6 @@ namespace KinematicVehicleSystem
                     break;
             }
 
-            Debug.Log(Motor);
         }
 
         private void UpdateAiInput()
