@@ -16,7 +16,6 @@ public class BoidDespawner : MonoBehaviour
         }
     }
 
-
     void CheckForBoids() {
 
         GameObject[] boids = GameObject.FindGameObjectsWithTag("Boid");
